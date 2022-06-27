@@ -1,0 +1,379 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>data\icons\ms_dos_batch_file.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BatFiles\**" />
+    <Compile Remove="configs\**" />
+    <Compile Remove="icons\**" />
+    <EmbeddedResource Remove="BatFiles\**" />
+    <EmbeddedResource Remove="configs\**" />
+    <EmbeddedResource Remove="icons\**" />
+    <None Remove="BatFiles\**" />
+    <None Remove="configs\**" />
+    <None Remove="icons\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="data\BatFiles\app_config.bat" />
+    <None Remove="data\BatFiles\database\00_backup.bat" />
+    <None Remove="data\BatFiles\database\00_restore_db.bat" />
+    <None Remove="data\BatFiles\database\a_backup.bat" />
+    <None Remove="data\BatFiles\database\a_config.bat" />
+    <None Remove="data\BatFiles\database\a_configcf.bat" />
+    <None Remove="data\BatFiles\database\a_drop_database.bat" />
+    <None Remove="data\BatFiles\database\a_restore.bat" />
+    <None Remove="data\BatFiles\database\b_backup_cf.bat" />
+    <None Remove="data\BatFiles\database\b_drop_database_cf.bat" />
+    <None Remove="data\BatFiles\database\b_restore_cf.bat" />
+    <None Remove="data\BatFiles\database\config_server_cf.bat" />
+    <None Remove="data\BatFiles\database\config_server_main.bat" />
+    <None Remove="data\BatFiles\database\deploy_cf_db.bat" />
+    <None Remove="data\BatFiles\database\deploy_main_db.bat" />
+    <None Remove="data\BatFiles\database\migrate_cf_db.bat" />
+    <None Remove="data\BatFiles\database\migrate_main_db.bat" />
+    <None Remove="data\BatFiles\database\script_bakup.sql" />
+    <None Remove="data\BatFiles\database\script_bakup_cf.sql" />
+    <None Remove="data\BatFiles\database\script_drop.sql" />
+    <None Remove="data\BatFiles\database\script_restore.sql" />
+    <None Remove="data\BatFiles\database\script_restore_cf.sql" />
+    <None Remove="data\BatFiles\publish\000_publish_dev-full-Flow.bat" />
+    <None Remove="data\BatFiles\publish\00_publish_dev-full-MainFlow.bat" />
+    <None Remove="data\BatFiles\publish\01_publish_dev_small-MainFlow.bat" />
+    <None Remove="data\BatFiles\publish\02_publish_dev-DuplicateEngagementFeature.bat" />
+    <None Remove="data\BatFiles\publish\03_publish_dev-ArchiveFeature.bat" />
+    <None Remove="data\BatFiles\publish\04_publish_dev-CarryForwardFeature.bat" />
+    <None Remove="data\BatFiles\publish\public_AccountWorkingPaperService.bat" />
+    <None Remove="data\BatFiles\publish\publish_ArchivalWebjob.bat" />
+    <None Remove="data\BatFiles\publish\publish_CommonToolService.bat" />
+    <None Remove="data\BatFiles\publish\publish_ComponentCreationProcessor.bat" />
+    <None Remove="data\BatFiles\publish\publish_ContentProcessor.bat" />
+    <None Remove="data\BatFiles\publish\publish_core.bat" />
+    <None Remove="data\BatFiles\publish\publish_EngagementCreationProcessor.bat" />
+    <None Remove="data\BatFiles\publish\publish_FE.bat" />
+    <None Remove="data\BatFiles\publish\publish_fileinteritycheck.bat" />
+    <None Remove="data\BatFiles\publish\publish_FileServiecs.bat" />
+    <None Remove="data\BatFiles\publish\publish_nonAccountWp.bat" />
+    <None Remove="data\BatFiles\publish\publish_Planning.bat" />
+    <None Remove="data\BatFiles\publish\publish_SPO.bat" />
+    <None Remove="data\BatFiles\publish\publish_WpGenerationProcessor.bat" />
+    <None Remove="data\BatFiles\publish\publish__ArchiveAPI.bat" />
+    <None Remove="data\BatFiles\publish\publish__SPOAPI.bat" />
+    <None Remove="data\BatFiles\start\start_AccountWorkingPaperService.bat" />
+    <None Remove="data\BatFiles\start\start_ArchivalWebAPI.bat" />
+    <None Remove="data\BatFiles\start\start_ArchivalWebjob.bat" />
+    <None Remove="data\BatFiles\start\start_AuvenirDuplicateEngCommon.bat" />
+    <None Remove="data\BatFiles\start\start_AuvenirDuplicateEngProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_AuvenirDuplicateFileProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_CarryforwardContentProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_CarryforwardCopyEngProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_CarryforwardFileTransferProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_CarryforwardProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_CommonToolService.bat" />
+    <None Remove="data\BatFiles\start\start_ComponentCreationProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_ContentProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_Core.bat" />
+    <None Remove="data\BatFiles\start\start_EngagementCreationProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_FE.bat" />
+    <None Remove="data\BatFiles\start\start_FE_Src.bat" />
+    <None Remove="data\BatFiles\start\start_FileIntegrityCheckProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_FileServices.bat" />
+    <None Remove="data\BatFiles\start\start_HouseKeeper.bat" />
+    <None Remove="data\BatFiles\start\start_NonAccountWorkingPaperService.bat" />
+    <None Remove="data\BatFiles\start\start_Planning.bat" />
+    <None Remove="data\BatFiles\start\start_SPOAPI.bat" />
+    <None Remove="data\BatFiles\start\start_SPOSetupProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_WpGenerationProcessor.bat" />
+    <None Remove="data\BatFiles\_path.bat" />
+    <None Remove="data\configs\config.json" />
+    <None Remove="data\configs\configCFDatabase.json" />
+    <None Remove="data\configs\configMainDatabase.json" />
+    <None Remove="data\configs\dataDatabase.json" />
+    <None Remove="data\configs\dataPublish.json" />
+    <None Remove="data\configs\dataStart.json" />
+    <None Remove="data\icons\configuration.ico" />
+    <None Remove="data\icons\ms_dos_batch_file.ico" />
+    <None Remove="data\icons\search.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="data\BatFiles\app_config.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\00_backup.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\00_restore_db.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\a_backup.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\a_config.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\a_configcf.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\a_drop_database.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\a_restore.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\b_backup_cf.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\b_drop_database_cf.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\b_restore_cf.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\config_server_cf.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\config_server_main.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\deploy_cf_db.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\deploy_main_db.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\migrate_cf_db.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\migrate_main_db.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\script_bakup.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\script_bakup_cf.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\script_drop.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\script_restore.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\script_restore_cf.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\000_publish_dev-full-Flow.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\00_publish_dev-full-MainFlow.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\01_publish_dev_small-MainFlow.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\02_publish_dev-DuplicateEngagementFeature.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\03_publish_dev-ArchiveFeature.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\04_publish_dev-CarryForwardFeature.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\public_AccountWorkingPaperService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_ArchivalWebjob.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_CommonToolService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_ComponentCreationProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_ContentProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_core.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_EngagementCreationProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_FE.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_fileinteritycheck.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_FileServiecs.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_nonAccountWp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_Planning.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_SPO.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish_WpGenerationProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish__ArchiveAPI.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\publish\publish__SPOAPI.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_AccountWorkingPaperService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_ArchivalWebAPI.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_ArchivalWebjob.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_AuvenirDuplicateEngCommon.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_AuvenirDuplicateEngProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_AuvenirDuplicateFileProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_CarryforwardContentProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_CarryforwardCopyEngProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_CarryforwardFileTransferProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_CarryforwardProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_CommonToolService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_ComponentCreationProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_ContentProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_Core.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_EngagementCreationProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_FE.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_FE_Src.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_FileIntegrityCheckProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_FileServices.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_HouseKeeper.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_NonAccountWorkingPaperService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_Planning.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_SPOAPI.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_SPOSetupProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_WpGenerationProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\_path.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\configs\configCFDatabase.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\configs\configMainDatabase.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\configs\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\configs\dataDatabase.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\configs\dataPublish.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\configs\dataStart.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\icons\configuration.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\icons\ms_dos_batch_file.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\icons\search.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Management" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="app_config.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dataPublish.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dataStart.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

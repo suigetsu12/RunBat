@@ -1,0 +1,135 @@
+[
+  {
+    "name": "FrontEnd Src",
+    "file_name": "start_FE_Src.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF Core",
+    "file_name": "start_Core.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF Planning",
+    "file_name": "start_Planning.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF CommonToolService",
+    "file_name": "start_CommonToolService.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF NonAccountWorkingPaperService",
+    "file_name": "start_NonAccountWorkingPaperService.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF AccountWorkingPaperService",
+    "file_name": "start_AccountWorkingPaperService.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF SPOSetupProcessor",
+    "file_name": "start_SPOSetupProcessor.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF FileServices",
+    "file_name": "start_FileServices.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF ArchivalWebjob",
+    "file_name": "start_ArchivalWebjob.bat",
+    "ischecked": false,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF SPOAPI",
+    "file_name": "start_SPOAPI.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF FileIntegrityCheckProcessor",
+    "file_name": "start_FileIntegrityCheckProcessor.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF ContentProcessor",
+    "file_name": "start_ContentProcessor.bat",
+    "ischecked": true,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "CopyENG AuvenirDuplicateEngProcessor",
+    "file_name": "start_AuvenirDuplicateEngProcessor.bat",
+    "ischecked": false,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "CopyENG AuvenirDuplicateFileProcessor",
+    "file_name": "start_AuvenirDuplicateFileProcessor.bat",
+    "ischecked": false,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "CF CarryforwardContentProcessor",
+    "file_name": "start_CarryforwardContentProcessor.bat",
+    "ischecked": false,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "CF CarryforwardCopyEngProcessor",
+    "file_name": "start_CarryforwardCopyEngProcessor.bat",
+    "ischecked": false,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "CF CarryforwardFileTransferProcessor",
+    "file_name": "start_CarryforwardFileTransferProcessor.bat",
+    "ischecked": false,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "CF CarryforwardProcessor",
+    "file_name": "start_CarryforwardProcessor.bat",
+    "ischecked": false,
+    "message": "",
+    "processid": 0
+  },
+  {
+    "name": "MF ArchivalWebAPI",
+    "file_name": "start_ArchivalWebAPI.bat",
+    "ischecked": false,
+    "message": "",
+    "processid": 0
+  }
+]

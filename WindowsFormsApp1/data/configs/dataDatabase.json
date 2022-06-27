@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Deploy Main",
+    "file_name": "deploy_main_db.bat",
+    "handle_type": 0
+  },
+  {
+    "name": "Deploy CF",
+    "file_name": "deploy_cf_db.bat",
+    "handle_type": 0
+  },
+  {
+    "name": "Migrate Main",
+    "file_name": "migrate_main_db.bat",
+    "handle_type": 1
+  },
+  {
+    "name": "Migrate CF",
+    "file_name": "migrate_cf_db.bat",
+    "handle_type": 1
+  },
+  {
+    "name": "Backup All(Main + CF)",
+    "file_name": "00_backup.bat",
+    "handle_type": 3
+  },
+  {
+    "name": "Backup Main",
+    "file_name": "a_backup.bat",
+    "handle_type": 3
+  },
+  {
+    "name": "Backup CF",
+    "file_name": "b_backup_cf.bat",
+    "handle_type": 3
+  },
+  {
+    "name": "Restore All(Main + CF)",
+    "file_name": "00_restore_db.bat",
+    "handle_type": 4
+  },
+  {
+    "name": "Restore Main",
+    "file_name": "a_restore.bat",
+    "handle_type": 4
+  },
+  {
+    "name": "Restore CF",
+    "file_name": "b_restore_cf.bat",
+    "handle_type": 4
+  },
+  {
+    "name": "Drop Main",
+    "file_name": "a_restore.bat",
+    "handle_type": 2
+  },
+  {
+    "name": "Drop CF",
+    "file_name": "b_restore_cf.bat",
+    "handle_type": 2
+  }
+]

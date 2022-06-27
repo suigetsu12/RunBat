@@ -1,0 +1,8 @@
+{
+  "path": "C:\\Projects\\Commercial\\6.0",
+  "publish_folder": "publish",
+  "backup_data_folder": "data",
+  "app_config": "app_config.bat",
+  "project_folder": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.Application\\",
+  "VsDevCmd_path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
+}

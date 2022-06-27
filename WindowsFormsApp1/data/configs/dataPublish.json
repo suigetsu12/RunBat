@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Full Flow",
+    "file_name": "000_publish_dev-full-Flow.bat",
+    "publish_type": 0
+  },
+  {
+    "name": "Full Main Flow",
+    "file_name": "00_publish_dev-full-MainFlow.bat",
+    "publish_type": 0
+  },
+  {
+    "name": "Small Main Flow",
+    "file_name": "01_publish_dev_small-MainFlow.bat",
+    "publish_type": 0
+  },
+  {
+    "name": "Duplicate Engagement Feature",
+    "file_name": "02_publish_dev-DuplicateEngagementFeature.bat",
+    "publish_type": 0
+  },
+  {
+    "name": "Archive Feature",
+    "file_name": "03_publish_dev-ArchiveFeature.bat",
+    "publish_type": 0
+  },
+  {
+    "name": "Carry Forward Feature",
+    "file_name": "04_publish_dev-CarryForwardFeature.bat",
+    "publish_type": 0
+  },
+  {
+    "name": "Account Working Paper Service",
+    "file_name": "public_AccountWorkingPaperService.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Archive API",
+    "file_name": "publish__ArchiveAPI.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "SPO API",
+    "file_name": "publish__SPOAPI.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Archival Webjob",
+    "file_name": "publish_ArchivalWebjob.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Common Tool Service",
+    "file_name": "publish_CommonToolService.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Component Creation Processor",
+    "file_name": "publish_ComponentCreationProcessor.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Content Processor",
+    "file_name": "publish_ContentProcessor.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Core",
+    "file_name": "publish_core.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Engagement Creation Processor",
+    "file_name": "publish_EngagementCreationProcessor.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "FE",
+    "file_name": "publish_FE.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "File Interity Check",
+    "file_name": "publish_fileinteritycheck.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "File Services",
+    "file_name": "publish_FileServiecs.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "NonAccount Working Paper",
+    "file_name": "publish_nonAccountWp.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Planning",
+    "file_name": "publish_Planning.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "SPO",
+    "file_name": "publish_SPO.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Wp Generation Processor",
+    "file_name": "publish_WpGenerationProcessor.bat",
+    "publish_type": 1
+  }
+]

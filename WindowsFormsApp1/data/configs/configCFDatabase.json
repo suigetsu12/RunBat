@@ -1,0 +1,9 @@
+{
+  "sqlcmd": "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\SQLCMD.EXE",
+  "path": "C:\\Projects\\Commercial\\6.0\\database",
+  "server": "ADMIN-07SPBGMBT\\MSSQLSERVER02",
+  "db": "master",
+  "login": "sa",
+  "password": "xx!",
+  "port": "1434"
+}
