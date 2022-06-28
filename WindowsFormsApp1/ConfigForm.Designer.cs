@@ -58,20 +58,20 @@
             // 
             // txtFolder
             // 
-            this.txtFolder.Location = new System.Drawing.Point(150, 12);
+            this.txtFolder.Location = new System.Drawing.Point(176, 12);
             this.txtFolder.Name = "txtFolder";
             this.txtFolder.ReadOnly = true;
-            this.txtFolder.Size = new System.Drawing.Size(367, 27);
+            this.txtFolder.Size = new System.Drawing.Size(341, 27);
             this.txtFolder.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 15);
+            this.label1.Location = new System.Drawing.Point(126, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(42, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Folder";
+            this.label1.Text = "Main";
             // 
             // btnBrowser
             // 
@@ -86,35 +86,35 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 49);
+            this.label2.Location = new System.Drawing.Point(119, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 20);
+            this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Public Folder";
+            this.label2.Text = "Public";
             // 
             // txtPublicFolder
             // 
-            this.txtPublicFolder.Location = new System.Drawing.Point(150, 45);
+            this.txtPublicFolder.Location = new System.Drawing.Point(176, 45);
             this.txtPublicFolder.Name = "txtPublicFolder";
             this.txtPublicFolder.ReadOnly = true;
-            this.txtPublicFolder.Size = new System.Drawing.Size(367, 27);
+            this.txtPublicFolder.Size = new System.Drawing.Size(341, 27);
             this.txtPublicFolder.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 81);
+            this.label3.Location = new System.Drawing.Point(82, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 20);
+            this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Data Bakup Folder";
+            this.label3.Text = "Data Bakup";
             // 
             // txtDataBackupFolder
             // 
-            this.txtDataBackupFolder.Location = new System.Drawing.Point(150, 78);
+            this.txtDataBackupFolder.Location = new System.Drawing.Point(176, 78);
             this.txtDataBackupFolder.Name = "txtDataBackupFolder";
             this.txtDataBackupFolder.ReadOnly = true;
-            this.txtDataBackupFolder.Size = new System.Drawing.Size(367, 27);
+            this.txtDataBackupFolder.Size = new System.Drawing.Size(341, 27);
             this.txtDataBackupFolder.TabIndex = 5;
             // 
             // btnSaveConfig
@@ -152,18 +152,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 115);
+            this.label4.Location = new System.Drawing.Point(32, 118);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 20);
+            this.label4.Size = new System.Drawing.Size(136, 20);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Project Folder";
+            this.label4.Text = "Project Application";
             // 
             // txtProjectFolder
             // 
-            this.txtProjectFolder.Location = new System.Drawing.Point(150, 111);
+            this.txtProjectFolder.Location = new System.Drawing.Point(176, 111);
             this.txtProjectFolder.Name = "txtProjectFolder";
             this.txtProjectFolder.ReadOnly = true;
-            this.txtProjectFolder.Size = new System.Drawing.Size(367, 27);
+            this.txtProjectFolder.Size = new System.Drawing.Size(341, 27);
             this.txtProjectFolder.TabIndex = 10;
             // 
             // btnProjectBrowser
@@ -189,7 +189,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(-1, 147);
+            this.label5.Location = new System.Drawing.Point(23, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 20);
             this.label5.TabIndex = 14;
@@ -197,10 +197,10 @@
             // 
             // txtVSDevCmdPath
             // 
-            this.txtVSDevCmdPath.Location = new System.Drawing.Point(150, 144);
+            this.txtVSDevCmdPath.Location = new System.Drawing.Point(176, 144);
             this.txtVSDevCmdPath.Name = "txtVSDevCmdPath";
             this.txtVSDevCmdPath.ReadOnly = true;
-            this.txtVSDevCmdPath.Size = new System.Drawing.Size(367, 27);
+            this.txtVSDevCmdPath.Size = new System.Drawing.Size(341, 27);
             this.txtVSDevCmdPath.TabIndex = 13;
             // 
             // openVSDevCmdFileDialog

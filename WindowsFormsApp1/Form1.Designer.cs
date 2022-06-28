@@ -52,6 +52,7 @@ namespace RunBatForm
             this.btnConfig = new System.Windows.Forms.Button();
             this.btnFindBat = new System.Windows.Forms.Button();
             this.btnResetProcess = new System.Windows.Forms.Button();
+            this.btnServerConfig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgData)).BeginInit();
             this.Publish.SuspendLayout();
             this.SuspendLayout();
@@ -309,11 +310,23 @@ namespace RunBatForm
             this.btnResetProcess.UseVisualStyleBackColor = true;
             this.btnResetProcess.Click += new System.EventHandler(this.btnResetProcess_Click);
             // 
+            // btnServerConfig
+            // 
+            this.btnServerConfig.Location = new System.Drawing.Point(516, 95);
+            this.btnServerConfig.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnServerConfig.Name = "btnServerConfig";
+            this.btnServerConfig.Size = new System.Drawing.Size(119, 31);
+            this.btnServerConfig.TabIndex = 18;
+            this.btnServerConfig.Text = "Server Config";
+            this.btnServerConfig.UseVisualStyleBackColor = true;
+            this.btnServerConfig.Click += new System.EventHandler(this.btnServerConfig_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 709);
+            this.Controls.Add(this.btnServerConfig);
             this.Controls.Add(this.btnResetProcess);
             this.Controls.Add(this.btnFindBat);
             this.Controls.Add(this.btnConfig);
@@ -364,6 +377,7 @@ namespace RunBatForm
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button btnFindBat;
         private System.Windows.Forms.Button btnResetProcess;
+        private System.Windows.Forms.Button btnServerConfig;
     }
 }
 

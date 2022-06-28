@@ -7,6 +7,8 @@
         public const string DataStartPath = RootConfig + "\\dataStart.json";
         public const string DataPublishPath = RootConfig + "\\dataPublish.json";
         public const string DataDatabasePath = RootConfig + "\\dataDatabase.json";
+        public const string ConfigCFPath = RootConfig + "\\configCFDatabase.json";
+        public const string ConfigMainPath = RootConfig + "\\configMainDatabase.json";
     }
 
     public class BatPath

@@ -431,5 +431,11 @@ namespace RunBatForm
             frmDatabaseForm frm = new frmDatabaseForm();
             frm.ShowDialog();
         }
+
+        private void btnServerConfig_Click(object sender, EventArgs e)
+        {
+            frmServerConfig frm = new frmServerConfig();
+            frm.ShowDialog();
+        }
     }
 }

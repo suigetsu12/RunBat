@@ -14,5 +14,6 @@ namespace RunBatForm.Constans
         public const string ItemAlreadyExist = "Item already exist.";
         public const string PleaseInputNameAndFileName = "Please input name and file name.";
         public const string NoDataSelected = "No data selected.";
+        public const string TheFieldEmpty = "The {0} is empty.";
     }
 }
