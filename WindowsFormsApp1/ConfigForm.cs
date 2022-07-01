@@ -1,4 +1,5 @@
 ﻿using RunBatForm.Constans;
+using RunBatForm.Extensions;
 using RunBatForm.Helpers;
 using RunBatForm.Models;
 using System;
@@ -125,7 +126,7 @@ namespace RunBatForm
                 {
                     newString = $"\"{newString}\"";
                 }
-                if (string.IsNullOrEmpty(newVsDevCmdPath))
+                if (newVsDevCmdPath.NotNullOrEmpty())
                     newVsDevCmdPath = newString;
                 else
                     newVsDevCmdPath = newVsDevCmdPath + "\\" + newString;

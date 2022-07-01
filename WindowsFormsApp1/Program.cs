@@ -1,4 +1,5 @@
 using RunBatForm.Constans;
+using RunBatForm.Extensions;
 using RunBatForm.Helpers;
 using RunBatForm.Models;
 using System;
@@ -42,7 +43,7 @@ namespace RunBatForm
             string path = Global.RootAppFolderPath;
             string _configurationPath = Path.Combine(path, FilePath.Configuration);
             string jsonString = FileHelper.ReadFile(_configurationPath);
-            if(!string.IsNullOrEmpty(jsonString))
+            if(jsonString.NotNullOrEmpty())
             {
                 Global.Configuration = JsonHelper.Deserialize<ConfigModel>(jsonString);
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RunBatForm.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -11,7 +12,7 @@ namespace RunBatForm.Helpers
         {
             try
             {
-                if (string.IsNullOrEmpty(path) || string.IsNullOrEmpty(jsonString))
+                if (!path.NotNullOrEmpty() || !jsonString.NotNullOrEmpty())
                 {
                     return false;
                 }
@@ -32,7 +33,7 @@ namespace RunBatForm.Helpers
         public static string ReadFile(string path)
         {
             string jsonString = string.Empty;
-            if (string.IsNullOrEmpty(path))
+            if (!path.NotNullOrEmpty())
             {
                 return jsonString;
             }
@@ -44,6 +45,28 @@ namespace RunBatForm.Helpers
                 r.Close();
             }
             return jsonString;
+        }
+
+        public static bool WriteNewFile(string path, string jsonString)
+        {
+            try
+            {
+                if (!path.NotNullOrEmpty() || !jsonString.NotNullOrEmpty())
+                {
+                    return false;
+                }
+
+                if (!File.Exists(path))
+                {
+                    using (FileStream fs = File.Create(path)) ;
+                    File.WriteAllText(path, jsonString);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

@@ -37,8 +37,8 @@
     <None Remove="data\BatFiles\database\deploy_main_db.bat" />
     <None Remove="data\BatFiles\database\migrate_cf_db.bat" />
     <None Remove="data\BatFiles\database\migrate_main_db.bat" />
-    <None Remove="data\BatFiles\database\script_bakup.sql" />
-    <None Remove="data\BatFiles\database\script_bakup_cf.sql" />
+    <None Remove="data\BatFiles\database\script_backup.sql" />
+    <None Remove="data\BatFiles\database\script_backup_cf.sql" />
     <None Remove="data\BatFiles\database\script_drop.sql" />
     <None Remove="data\BatFiles\database\script_restore.sql" />
     <None Remove="data\BatFiles\database\script_restore_cf.sql" />
@@ -153,10 +153,10 @@
     <Content Include="data\BatFiles\database\migrate_main_db.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="data\BatFiles\database\script_bakup.sql">
+    <Content Include="data\BatFiles\database\script_backup.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="data\BatFiles\database\script_bakup_cf.sql">
+    <Content Include="data\BatFiles\database\script_backup_cf.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\BatFiles\database\script_drop.sql">

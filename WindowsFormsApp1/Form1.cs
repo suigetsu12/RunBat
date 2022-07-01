@@ -16,6 +16,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RunBatForm.Constans;
 using RunBatForm.Helpers;
+using RunBatForm.Extensions;
+using System.Reflection;
 
 namespace RunBatForm
 {
@@ -36,7 +38,7 @@ namespace RunBatForm
             try
             {
                 var jsonData = FileHelper.ReadFile(path);
-                if (!string.IsNullOrEmpty(jsonData))
+                if (jsonData.NotNullOrEmpty())
                 {
                     Global.StartItem = JsonHelper.Deserialize<List<ItemModel>>(jsonData);
                 }
@@ -86,7 +88,7 @@ namespace RunBatForm
                 }
 
                 var jsonData = JsonHelper.Serializer(Global.StartItem);
-                if (!string.IsNullOrEmpty(jsonData))
+                if (jsonData.NotNullOrEmpty())
                 {
                     var result = FileHelper.WriteFile(path, jsonData);
                     RenderData();
@@ -382,7 +384,7 @@ namespace RunBatForm
             foreach (DataGridViewRow row in dtgData.Rows)
             {
                 var value = row.Cells["clMessage"].Value?.ToString();
-                if (!string.IsNullOrEmpty(value))
+                if (value.NotNullOrEmpty())
                 {
                     if (value == MessageConstans.Running)
                         row.Cells["clMessage"].Style.ForeColor = Color.Blue;
@@ -436,6 +438,11 @@ namespace RunBatForm
         {
             frmServerConfig frm = new frmServerConfig();
             frm.ShowDialog();
+        }
+
+        private void btnCreateBaseData_Click(object sender, EventArgs e)
+        {
+            BaseWorking.GetEnumerableOfType
         }
     }
 }

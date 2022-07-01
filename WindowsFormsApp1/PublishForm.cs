@@ -10,6 +10,7 @@ using RunBatForm.Models;
 using RunBatForm.Constans;
 using RunBatForm.Helpers;
 using System.Drawing;
+using RunBatForm.Extensions;
 
 namespace RunBatForm
 {
@@ -30,7 +31,7 @@ namespace RunBatForm
         private void LoadData()
         {
             var jsonData = FileHelper.ReadFile(pathData);
-            if (!string.IsNullOrEmpty(jsonData))
+            if (jsonData.NotNullOrEmpty())
             {
                 items = JsonHelper.Deserialize<List<PublishItemModel>>(jsonData);
             }
@@ -38,7 +39,7 @@ namespace RunBatForm
 
         private void btnPublish_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(selectedItem) && !string.IsNullOrEmpty(publishPath))
+            if (selectedItem.NotNullOrEmpty() && publishPath.NotNullOrEmpty())
             {
                 try
                 {

@@ -1,5 +1,5 @@
 Title Publish Main Database from DACPAC
-
+call config_server_cf.bat
 @ECHO OFF
 
 REM *** Prepare parameters for executing ***

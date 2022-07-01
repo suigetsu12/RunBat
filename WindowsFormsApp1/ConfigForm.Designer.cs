@@ -206,6 +206,7 @@
             // openVSDevCmdFileDialog
             // 
             this.openVSDevCmdFileDialog.FileName = "openVSDevCmdFileDialog";
+            this.openVSDevCmdFileDialog.Filter = "\"bat files (*.bat)|*.bat\"";
             // 
             // ConfigForm
             // 

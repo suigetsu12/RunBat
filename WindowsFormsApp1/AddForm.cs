@@ -1,4 +1,5 @@
 ﻿using RunBatForm.Constans;
+using RunBatForm.Extensions;
 using RunBatForm.Helpers;
 using RunBatForm.Models;
 using System;
@@ -25,7 +26,7 @@ namespace RunBatForm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtFileName.Text) || string.IsNullOrEmpty(txtName.Text))
+            if (!txtFileName.Text.NotNullOrEmpty() || !txtName.Text.NotNullOrEmpty())
             {
                 MessageBox.Show(MessageConstans.PleaseInputNameAndFileName);
                 return;
@@ -54,7 +55,7 @@ namespace RunBatForm
 
         private void btnAddContinue_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtFileName.Text) || string.IsNullOrEmpty(txtName.Text))
+            if (!txtFileName.Text.NotNullOrEmpty() || !txtName.Text.NotNullOrEmpty())
             {
                 MessageBox.Show(MessageConstans.PleaseInputNameAndFileName);
                 return;
@@ -89,7 +90,7 @@ namespace RunBatForm
             var cloneList = new List<ItemModel>(Global.StartItem);
             cloneList.Add(item);
             var jsonData = JsonHelper.Serializer(cloneList);
-            if (!string.IsNullOrEmpty(jsonData))
+            if (jsonData.NotNullOrEmpty())
             {
                 var result = FileHelper.WriteFile(pathData, jsonData);
                 if (result)
@@ -124,7 +125,7 @@ namespace RunBatForm
                 }
             }
             var jsonData = JsonHelper.Serializer(cloneList);
-            if (!string.IsNullOrEmpty(jsonData))
+            if (jsonData.NotNullOrEmpty())
             {
                 var result = FileHelper.WriteFile(pathData, jsonData);
                 if (result)

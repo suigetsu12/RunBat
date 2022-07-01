@@ -1,4 +1,4 @@
-call _start_app_config.bat
+call app_config.bat
 
 CD %feSourceUrl%
 set ASPNETCORE_ENVIRONMENT=Local

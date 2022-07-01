@@ -1,5 +1,6 @@
 ﻿using RunBatForm.Constans;
 using RunBatForm.Enums;
+using RunBatForm.Extensions;
 using RunBatForm.Helpers;
 using RunBatForm.Models;
 using System;
@@ -30,7 +31,7 @@ namespace RunBatForm
         private void LoadData()
         {
             var jsonData = FileHelper.ReadFile(pathData);
-            if (!string.IsNullOrEmpty(jsonData))
+            if (jsonData.NotNullOrEmpty())
             {
                 items = JsonHelper.Deserialize<List<DatabaseItemModel>>(jsonData);
             }
@@ -104,7 +105,7 @@ namespace RunBatForm
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(selectedItem) && !string.IsNullOrEmpty(databasePath))
+            if (selectedItem.NotNullOrEmpty() && databasePath.NotNullOrEmpty())
             {
                 try
                 {

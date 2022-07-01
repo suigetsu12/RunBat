@@ -1,4 +1,5 @@
 ﻿using RunBatForm.Constans;
+using RunBatForm.Extensions;
 using RunBatForm.Helpers;
 using RunBatForm.Models;
 using System;
@@ -57,7 +58,7 @@ namespace RunBatForm
             if (Global.StartItem.Count < cloneList.Count)
             {
                 var jsonData = JsonHelper.Serializer(cloneList);
-                if (!string.IsNullOrEmpty(jsonData))
+                if (jsonData.NotNullOrEmpty())
                 {
                     var result = FileHelper.WriteFile(pathData, jsonData);
                     if (result)
