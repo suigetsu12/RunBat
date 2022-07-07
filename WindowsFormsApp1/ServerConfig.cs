@@ -75,10 +75,6 @@ namespace RunBatForm
                 txtSQLCMDPath.Text = _data?.SQLCMD;
                 txtExportTo.Text = _data?.Path;
                 ttSQLCMD.SetToolTip(txtSQLCMDPath, _data?.SQLCMD);
-                txtSQLServerSolutionPath.Text = _data?.SQLServerSolution;
-                txtCatalogDACPACPath.Text = _data?.CatalogDACPAC;
-                txtCoreDACPACPath.Text = _data?.CoreDACPAC;
-                txtWorkingPaperDACPACPath.Text = _data?.WorkingPaperDACPAC;
                 txtSQLPackagePath.Text = _data?.SQLPackage;
             }
         }
@@ -148,14 +144,6 @@ namespace RunBatForm
             #region [General]
             if (!txtSQLCMDPath.Text.NotNullOrEmpty())
                 return string.Format(MessageConstans.TheFieldEmpty, "SQLCMD path");
-            if (!txtSQLServerSolutionPath.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "SQL server solution path");
-            if (!txtCatalogDACPACPath.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "catalog dacpac path");
-            if (!txtCoreDACPACPath.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "core dacpac path");
-            if (!txtWorkingPaperDACPACPath.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "workingpaper dacpac path");
             if (!txtSQLPackagePath.Text.NotNullOrEmpty())
                 return string.Format(MessageConstans.TheFieldEmpty, "SQL package path");
             #endregion
@@ -191,10 +179,6 @@ namespace RunBatForm
             Main.ContainerPassword = txtContainerPasswordMain.Text.Trim();
             Main.ContainerCode = txtContainerCodeMain.Text.Trim();
             Main.DeployEnv = txtDeployEnvMain.Text.Trim();
-            Main.SQLServerSolution = txtSQLServerSolutionPath.Text.Trim();
-            Main.CatalogDACPAC = txtCatalogDACPACPath.Text.Trim();
-            Main.CoreDACPAC = txtCoreDACPACPath.Text.Trim();
-            Main.WorkingPaperDACPAC = txtWorkingPaperDACPACPath.Text.Trim();
             Main.SQLPackage = txtSQLPackagePath.Text.Trim();
 
             var jsonMainData = JsonHelper.Serializer(Main);
@@ -213,10 +197,6 @@ namespace RunBatForm
             CF.ContainerPassword = txtContainerPasswordCF.Text.Trim();
             CF.ContainerCode = txtContainerCodeCF.Text.Trim();
             CF.DeployEnv = txtDeployEnvCF.Text.Trim();
-            CF.SQLServerSolution = txtSQLServerSolutionPath.Text.Trim();
-            CF.CatalogDACPAC = txtCatalogDACPACPath.Text.Trim();
-            CF.CoreDACPAC = txtCoreDACPACPath.Text.Trim();
-            CF.WorkingPaperDACPAC = txtWorkingPaperDACPACPath.Text.Trim();
             CF.SQLPackage = txtSQLPackagePath.Text.Trim();
 
             var jsonCFData = JsonHelper.Serializer(CF);
@@ -252,62 +232,6 @@ namespace RunBatForm
                 string cfConfigShortPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerShortCF);
                 FileHelper.WriteFile(mainConfigShortPath, mainConfigShortData);
                 FileHelper.WriteFile(cfConfigShortPath, cfConfigShortData);
-            }
-        }
-
-        private void btnBrowserSQLServerSolution_Click(object sender, EventArgs e)
-        {
-            ChooseSQLServerSolutionFile();
-        }
-
-        private void ChooseSQLServerSolutionFile()
-        {
-            if (openFileSQLServerSolutionDialog.ShowDialog() == DialogResult.OK)
-            {
-                string newPath = openFileSQLServerSolutionDialog.FileName;
-                txtSQLServerSolutionPath.Text = newPath;
-            }
-        }
-
-        private void btnBrowserCatalogDACPAC_Click(object sender, EventArgs e)
-        {
-            ChooseCatalogDACPACFile();
-        }
-
-        private void ChooseCatalogDACPACFile()
-        {
-            if (openFileCatalogDACPACDialog.ShowDialog() == DialogResult.OK)
-            {
-                string newPath = openFileCatalogDACPACDialog.FileName;
-                txtCatalogDACPACPath.Text = newPath;
-            }
-        }
-
-        private void btnBrowserCoreDACPAC_Click(object sender, EventArgs e)
-        {
-            ChooseCoreDACPACFile();
-        }
-
-        private void ChooseCoreDACPACFile()
-        {
-            if (openFileCoreDACPACDialog.ShowDialog() == DialogResult.OK)
-            {
-                string newPath = openFileCoreDACPACDialog.FileName;
-                txtCoreDACPACPath.Text = newPath;
-            }
-        }
-
-        private void btnBrowserWorkingPaperDACPAC_Click(object sender, EventArgs e)
-        {
-            ChooseWorkingPaperDACPACFile();
-        }
-
-        private void ChooseWorkingPaperDACPACFile()
-        {
-            if (openFileWorkingPaperDACPACDialog.ShowDialog() == DialogResult.OK)
-            {
-                string newPath = openFileWorkingPaperDACPACDialog.FileName;
-                txtWorkingPaperDACPACPath.Text = newPath;
             }
         }
 

@@ -442,7 +442,6 @@ namespace RunBatForm
 
         private void btnCreateBaseData_Click(object sender, EventArgs e)
         {
-            BaseWorking.GetEnumerableOfType
         }
     }
 }

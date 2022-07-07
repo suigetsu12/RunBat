@@ -54,6 +54,11 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDatabaseProjectBrowser = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDatabaseProjectFolder = new System.Windows.Forms.TextBox();
+            this.databaseProjectFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.toolTip6 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // txtFolder
@@ -88,9 +93,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(119, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 20);
+            this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Public";
+            this.label2.Text = "Publish";
             // 
             // txtPublicFolder
             // 
@@ -178,7 +183,7 @@
             // 
             // btnDevCmdPathBrowser
             // 
-            this.btnDevCmdPathBrowser.Location = new System.Drawing.Point(523, 144);
+            this.btnDevCmdPathBrowser.Location = new System.Drawing.Point(523, 177);
             this.btnDevCmdPathBrowser.Name = "btnDevCmdPathBrowser";
             this.btnDevCmdPathBrowser.Size = new System.Drawing.Size(34, 29);
             this.btnDevCmdPathBrowser.TabIndex = 15;
@@ -189,7 +194,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 147);
+            this.label5.Location = new System.Drawing.Point(23, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 20);
             this.label5.TabIndex = 14;
@@ -197,7 +202,7 @@
             // 
             // txtVSDevCmdPath
             // 
-            this.txtVSDevCmdPath.Location = new System.Drawing.Point(176, 144);
+            this.txtVSDevCmdPath.Location = new System.Drawing.Point(176, 177);
             this.txtVSDevCmdPath.Name = "txtVSDevCmdPath";
             this.txtVSDevCmdPath.ReadOnly = true;
             this.txtVSDevCmdPath.Size = new System.Drawing.Size(341, 27);
@@ -208,11 +213,41 @@
             this.openVSDevCmdFileDialog.FileName = "openVSDevCmdFileDialog";
             this.openVSDevCmdFileDialog.Filter = "\"bat files (*.bat)|*.bat\"";
             // 
+            // btnDatabaseProjectBrowser
+            // 
+            this.btnDatabaseProjectBrowser.Location = new System.Drawing.Point(523, 144);
+            this.btnDatabaseProjectBrowser.Name = "btnDatabaseProjectBrowser";
+            this.btnDatabaseProjectBrowser.Size = new System.Drawing.Size(34, 29);
+            this.btnDatabaseProjectBrowser.TabIndex = 18;
+            this.btnDatabaseProjectBrowser.Text = "...";
+            this.btnDatabaseProjectBrowser.UseVisualStyleBackColor = true;
+            this.btnDatabaseProjectBrowser.Click += new System.EventHandler(this.btnDatabaseProjectBrowser_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(46, 148);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 20);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Project Database";
+            // 
+            // txtDatabaseProjectFolder
+            // 
+            this.txtDatabaseProjectFolder.Location = new System.Drawing.Point(176, 144);
+            this.txtDatabaseProjectFolder.Name = "txtDatabaseProjectFolder";
+            this.txtDatabaseProjectFolder.ReadOnly = true;
+            this.txtDatabaseProjectFolder.Size = new System.Drawing.Size(341, 27);
+            this.txtDatabaseProjectFolder.TabIndex = 16;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 450);
+            this.Controls.Add(this.btnDatabaseProjectBrowser);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtDatabaseProjectFolder);
             this.Controls.Add(this.btnDevCmdPathBrowser);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtVSDevCmdPath);
@@ -266,5 +301,10 @@
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip4;
         private System.Windows.Forms.ToolTip toolTip5;
+        private System.Windows.Forms.Button btnDatabaseProjectBrowser;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDatabaseProjectFolder;
+        private System.Windows.Forms.FolderBrowserDialog databaseProjectFolderBrowserDialog;
+        private System.Windows.Forms.ToolTip toolTip6;
     }
 }

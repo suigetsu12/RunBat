@@ -1,6 +1,6 @@
 SET SQLCMD="C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\SQLCMD.EXE"
 
-SET PATH=D:\test 1\
+SET PATH=C:\Projects\Commercial\6.0\data
 
 SET SERVER="localhost"
 

@@ -1,4 +1,5 @@
 ﻿using RunBatForm.Constans;
+using RunBatForm.Converts;
 using RunBatForm.Extensions;
 using RunBatForm.Helpers;
 using RunBatForm.Models;
@@ -11,11 +12,28 @@ namespace RunBatForm
 {
     public partial class ConfigForm : Form
     {
+        private string cfConfigPath;
+        private string mainConfigPath;
+        private ServerConfigurationModel CF;
+        private ServerConfigurationModel Main;
         public ConfigForm()
         {
             InitializeComponent();
             SetToolTip();
             RenderData();
+            cfConfigPath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigCFPath);
+            mainConfigPath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigMainPath);
+            var mainJsonData = FileHelper.ReadFile(mainConfigPath);
+            var cfJsonData = FileHelper.ReadFile(cfConfigPath);
+            if (mainJsonData.NotNullOrEmpty())
+            {
+                Main = JsonHelper.Deserialize<ServerConfigurationModel>(mainJsonData);
+            }
+
+            if (cfJsonData.NotNullOrEmpty())
+            {
+                CF = JsonHelper.Deserialize<ServerConfigurationModel>(cfJsonData);
+            }
         }
 
         private void SetToolTip()
@@ -25,6 +43,7 @@ namespace RunBatForm
             toolTip3.SetToolTip(label3, "Path of the backup data folder related to the main folder");
             toolTip4.SetToolTip(label4, "Path of the project folder");
             toolTip5.SetToolTip(label5, "Path of the .bat file Visual Studio Dev Command-Line");
+            toolTip6.SetToolTip(label6, "Path of the database project folder");
         }
 
         private void RenderData()
@@ -34,6 +53,7 @@ namespace RunBatForm
             txtPublicFolder.Text = Path.Combine(path, Global.Configuration.PublishFolder);
             txtDataBackupFolder.Text = Path.Combine(path, Global.Configuration.BackupDataFolder);
             txtProjectFolder.Text = Global.Configuration.ProjectFolder;
+            txtDatabaseProjectFolder.Text = Global.Configuration.DatabaseProjectFolder;
             txtVSDevCmdPath.Text = Global.Configuration.VsDevCmdPath;
         }
 
@@ -56,8 +76,10 @@ namespace RunBatForm
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
+            //TODO validation
             Global.Configuration.Path = txtFolder.Text;
             Global.Configuration.ProjectFolder = txtProjectFolder.Text;
+            Global.Configuration.DatabaseProjectFolder = txtDatabaseProjectFolder.Text;
             Global.Configuration.VsDevCmdPath = txtVSDevCmdPath.Text;
             var resultSavePathBat = SavePathBat();
             var jsonData = JsonHelper.Serializer(Global.Configuration);
@@ -66,6 +88,35 @@ namespace RunBatForm
             {
                 btnRevert.Visible = false;
                 lbError.Visible = false;
+
+                string path = Path.Combine(Global.Configuration.Path, Global.Configuration.BackupDataFolder);
+                Main.Path = txtDataBackupFolder.Text;
+                Main.SQLServerSolution = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.Solution);
+                Main.CatalogDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CatalogDACPAC);
+                Main.CoreDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CoreDACPAC);
+                Main.WorkingPaperDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.WorkingPaperDACPAC);
+                CF.Path = txtDataBackupFolder.Text;
+                CF.SQLServerSolution = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.Solution);
+                CF.CatalogDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CatalogDACPAC);
+                CF.CoreDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CoreDACPAC);
+                CF.WorkingPaperDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.WorkingPaperDACPAC);
+                string mainConfigShortData = ConvertModelToBatContentString.ConfigShortServer(Main, path);
+                string cfConfigShortData = ConvertModelToBatContentString.ConfigShortServer(CF, path);
+                if (mainConfigShortData.NotNullOrEmpty() && cfConfigShortData.NotNullOrEmpty())
+                {
+                    string mainConfigShortPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerShortMain);
+                    string cfConfigShortPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerShortCF);
+                    FileHelper.WriteFile(mainConfigShortPath, mainConfigShortData);
+                    FileHelper.WriteFile(cfConfigShortPath, cfConfigShortData);
+                }
+                var jsonMainData = JsonHelper.Serializer(Main);
+                var jsonCFData = JsonHelper.Serializer(CF);
+                if (jsonMainData.NotNullOrEmpty() && jsonCFData.NotNullOrEmpty())
+                {
+                    FileHelper.WriteFile(mainConfigPath, jsonMainData);
+                    FileHelper.WriteFile(cfConfigPath, jsonCFData);
+                }
+                MessageBox.Show(MessageConstans.Success);
             }
             else
             {
@@ -131,12 +182,27 @@ namespace RunBatForm
                 else
                     newVsDevCmdPath = newVsDevCmdPath + "\\" + newString;
             }
-            strList.Add($"set rootPathProject={Global.Configuration.ProjectFolder}");
+            strList.Add($"set rootPathProject={Global.Configuration.ProjectFolder}\\");
             strList.Add($"set msbuildPath={newVsDevCmdPath}");
-            strList.Add($"set rootPathStart={Path.Combine(Global.Configuration.Path, Global.Configuration.PublishFolder)}");
+            strList.Add($"set rootPathStart={Path.Combine(Global.Configuration.Path, Global.Configuration.PublishFolder)}\\");
             string stringData = string.Join('\n', strList.ToArray());
             string strPath = Path.Combine(Global.RootAppFolderPath, BatPath.PathBat);
             return FileHelper.WriteFile(strPath, stringData);
+        }
+
+        private void btnDatabaseProjectBrowser_Click(object sender, EventArgs e)
+        {
+            ChooseDatabaseProjectFolder();
+        }
+
+        private void ChooseDatabaseProjectFolder()
+        {
+            if (databaseProjectFolderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string newPath = databaseProjectFolderBrowserDialog.SelectedPath;
+                txtDatabaseProjectFolder.Text = newPath;
+                btnRevert.Visible = true;
+            }
         }
     }
 }

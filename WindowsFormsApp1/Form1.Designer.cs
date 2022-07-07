@@ -360,7 +360,7 @@ namespace RunBatForm
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Run Batch Form";
+            this.Text = "Mini tool";
             ((System.ComponentModel.ISupportInitialize)(this.dtgData)).EndInit();
             this.Publish.ResumeLayout(false);
             this.ResumeLayout(false);

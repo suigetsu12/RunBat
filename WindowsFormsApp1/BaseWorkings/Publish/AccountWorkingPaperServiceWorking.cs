@@ -14,7 +14,7 @@ namespace RunBatForm.BaseWorkings.Publish
         {
             string str = string.Empty;
             str += "title publish_AccountWorkingPaperService";
-            str += "CD ..";
+            str += "\nCD ..";
             str += "\ncall app_config.bat";
             str += "\n@echo Publishing AccountWorkingPaperService ...";
             str += "\nCD %wpSourceUrl%";

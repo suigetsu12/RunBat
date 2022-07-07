@@ -4,5 +4,6 @@
   "backup_data_folder": "data",
   "app_config": "app_config.bat",
   "project_folder": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.Application\\",
+  "database_project_folder": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\",
   "VsDevCmd_path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
 }

@@ -78,26 +78,10 @@
             this.btnBrowserSQLCMD = new System.Windows.Forms.Button();
             this.ttSQLCMD = new System.Windows.Forms.ToolTip(this.components);
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txtSQLServerSolutionPath = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtCatalogDACPACPath = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txtCoreDACPACPath = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtWorkingPaperDACPACPath = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.txtSQLPackagePath = new System.Windows.Forms.TextBox();
-            this.btnBrowserSQLServerSolution = new System.Windows.Forms.Button();
-            this.btnBrowserCatalogDACPAC = new System.Windows.Forms.Button();
-            this.btnBrowserCoreDACPAC = new System.Windows.Forms.Button();
-            this.btnBrowserWorkingPaperDACPAC = new System.Windows.Forms.Button();
             this.btnBrowserSQLPackage = new System.Windows.Forms.Button();
             this.openFileSQLCMDDialog = new System.Windows.Forms.OpenFileDialog();
-            this.openFileSQLServerSolutionDialog = new System.Windows.Forms.OpenFileDialog();
-            this.openFileCatalogDACPACDialog = new System.Windows.Forms.OpenFileDialog();
-            this.openFileCoreDACPACDialog = new System.Windows.Forms.OpenFileDialog();
-            this.openFileWorkingPaperDACPACDialog = new System.Windows.Forms.OpenFileDialog();
             this.openFileSQLPackageDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -536,78 +520,10 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(35, 443);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(139, 20);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "SQL Server Solution";
-            // 
-            // txtSQLServerSolutionPath
-            // 
-            this.txtSQLServerSolutionPath.Enabled = false;
-            this.txtSQLServerSolutionPath.Location = new System.Drawing.Point(180, 438);
-            this.txtSQLServerSolutionPath.Name = "txtSQLServerSolutionPath";
-            this.txtSQLServerSolutionPath.Size = new System.Drawing.Size(577, 27);
-            this.txtSQLServerSolutionPath.TabIndex = 15;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(51, 477);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(121, 20);
-            this.label24.TabIndex = 18;
-            this.label24.Text = "Catalog DACPAC";
-            // 
-            // txtCatalogDACPACPath
-            // 
-            this.txtCatalogDACPACPath.Enabled = false;
-            this.txtCatalogDACPACPath.Location = new System.Drawing.Point(180, 471);
-            this.txtCatalogDACPACPath.Name = "txtCatalogDACPACPath";
-            this.txtCatalogDACPACPath.Size = new System.Drawing.Size(577, 27);
-            this.txtCatalogDACPACPath.TabIndex = 17;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(72, 511);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(100, 20);
-            this.label25.TabIndex = 20;
-            this.label25.Text = "Core DACPAC";
-            // 
-            // txtCoreDACPACPath
-            // 
-            this.txtCoreDACPACPath.Enabled = false;
-            this.txtCoreDACPACPath.Location = new System.Drawing.Point(180, 504);
-            this.txtCoreDACPACPath.Name = "txtCoreDACPACPath";
-            this.txtCoreDACPACPath.Size = new System.Drawing.Size(577, 27);
-            this.txtCoreDACPACPath.TabIndex = 19;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(11, 544);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(161, 20);
-            this.label26.TabIndex = 22;
-            this.label26.Text = "WorkingPaper DACPAC";
-            // 
-            // txtWorkingPaperDACPACPath
-            // 
-            this.txtWorkingPaperDACPACPath.Enabled = false;
-            this.txtWorkingPaperDACPACPath.Location = new System.Drawing.Point(180, 537);
-            this.txtWorkingPaperDACPACPath.Name = "txtWorkingPaperDACPACPath";
-            this.txtWorkingPaperDACPACPath.Size = new System.Drawing.Size(577, 27);
-            this.txtWorkingPaperDACPACPath.TabIndex = 21;
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(79, 573);
+            this.label27.Location = new System.Drawing.Point(79, 441);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(93, 20);
             this.label27.TabIndex = 24;
@@ -616,54 +532,14 @@
             // txtSQLPackagePath
             // 
             this.txtSQLPackagePath.Enabled = false;
-            this.txtSQLPackagePath.Location = new System.Drawing.Point(180, 570);
+            this.txtSQLPackagePath.Location = new System.Drawing.Point(180, 438);
             this.txtSQLPackagePath.Name = "txtSQLPackagePath";
             this.txtSQLPackagePath.Size = new System.Drawing.Size(577, 27);
             this.txtSQLPackagePath.TabIndex = 23;
             // 
-            // btnBrowserSQLServerSolution
-            // 
-            this.btnBrowserSQLServerSolution.Location = new System.Drawing.Point(764, 437);
-            this.btnBrowserSQLServerSolution.Name = "btnBrowserSQLServerSolution";
-            this.btnBrowserSQLServerSolution.Size = new System.Drawing.Size(32, 28);
-            this.btnBrowserSQLServerSolution.TabIndex = 25;
-            this.btnBrowserSQLServerSolution.Text = "...";
-            this.btnBrowserSQLServerSolution.UseVisualStyleBackColor = true;
-            this.btnBrowserSQLServerSolution.Click += new System.EventHandler(this.btnBrowserSQLServerSolution_Click);
-            // 
-            // btnBrowserCatalogDACPAC
-            // 
-            this.btnBrowserCatalogDACPAC.Location = new System.Drawing.Point(764, 471);
-            this.btnBrowserCatalogDACPAC.Name = "btnBrowserCatalogDACPAC";
-            this.btnBrowserCatalogDACPAC.Size = new System.Drawing.Size(32, 28);
-            this.btnBrowserCatalogDACPAC.TabIndex = 26;
-            this.btnBrowserCatalogDACPAC.Text = "...";
-            this.btnBrowserCatalogDACPAC.UseVisualStyleBackColor = true;
-            this.btnBrowserCatalogDACPAC.Click += new System.EventHandler(this.btnBrowserCatalogDACPAC_Click);
-            // 
-            // btnBrowserCoreDACPAC
-            // 
-            this.btnBrowserCoreDACPAC.Location = new System.Drawing.Point(763, 503);
-            this.btnBrowserCoreDACPAC.Name = "btnBrowserCoreDACPAC";
-            this.btnBrowserCoreDACPAC.Size = new System.Drawing.Size(32, 28);
-            this.btnBrowserCoreDACPAC.TabIndex = 27;
-            this.btnBrowserCoreDACPAC.Text = "...";
-            this.btnBrowserCoreDACPAC.UseVisualStyleBackColor = true;
-            this.btnBrowserCoreDACPAC.Click += new System.EventHandler(this.btnBrowserCoreDACPAC_Click);
-            // 
-            // btnBrowserWorkingPaperDACPAC
-            // 
-            this.btnBrowserWorkingPaperDACPAC.Location = new System.Drawing.Point(763, 536);
-            this.btnBrowserWorkingPaperDACPAC.Name = "btnBrowserWorkingPaperDACPAC";
-            this.btnBrowserWorkingPaperDACPAC.Size = new System.Drawing.Size(32, 28);
-            this.btnBrowserWorkingPaperDACPAC.TabIndex = 28;
-            this.btnBrowserWorkingPaperDACPAC.Text = "...";
-            this.btnBrowserWorkingPaperDACPAC.UseVisualStyleBackColor = true;
-            this.btnBrowserWorkingPaperDACPAC.Click += new System.EventHandler(this.btnBrowserWorkingPaperDACPAC_Click);
-            // 
             // btnBrowserSQLPackage
             // 
-            this.btnBrowserSQLPackage.Location = new System.Drawing.Point(764, 569);
+            this.btnBrowserSQLPackage.Location = new System.Drawing.Point(764, 437);
             this.btnBrowserSQLPackage.Name = "btnBrowserSQLPackage";
             this.btnBrowserSQLPackage.Size = new System.Drawing.Size(32, 28);
             this.btnBrowserSQLPackage.TabIndex = 29;
@@ -676,26 +552,6 @@
             this.openFileSQLCMDDialog.FileName = "openFileDialog1";
             this.openFileSQLCMDDialog.Filter = "\"exe files (*.exe)|*.exe\"";
             // 
-            // openFileSQLServerSolutionDialog
-            // 
-            this.openFileSQLServerSolutionDialog.FileName = "openFileDialog1";
-            this.openFileSQLServerSolutionDialog.Filter = "\"sln files (*.sln)|*.sln\"";
-            // 
-            // openFileCatalogDACPACDialog
-            // 
-            this.openFileCatalogDACPACDialog.FileName = "openFileDialog1";
-            this.openFileCatalogDACPACDialog.Filter = "\"dacpac files (*.dacpac)|*.dacpac\"";
-            // 
-            // openFileCoreDACPACDialog
-            // 
-            this.openFileCoreDACPACDialog.FileName = "openFileDialog1";
-            this.openFileCoreDACPACDialog.Filter = "\"dacpac files (*.dacpac)|*.dacpac\"";
-            // 
-            // openFileWorkingPaperDACPACDialog
-            // 
-            this.openFileWorkingPaperDACPACDialog.FileName = "openFileDialog1";
-            this.openFileWorkingPaperDACPACDialog.Filter = "\"dacpac files (*.dacpac)|*.dacpac\"";
-            // 
             // openFileSQLPackageDialog
             // 
             this.openFileSQLPackageDialog.FileName = "openFileDialog1";
@@ -707,20 +563,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 668);
             this.Controls.Add(this.btnBrowserSQLPackage);
-            this.Controls.Add(this.btnBrowserWorkingPaperDACPAC);
-            this.Controls.Add(this.btnBrowserCoreDACPAC);
-            this.Controls.Add(this.btnBrowserCatalogDACPAC);
-            this.Controls.Add(this.btnBrowserSQLServerSolution);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.txtSQLPackagePath);
-            this.Controls.Add(this.label26);
-            this.Controls.Add(this.txtWorkingPaperDACPACPath);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.txtCoreDACPACPath);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.txtCatalogDACPACPath);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.txtSQLServerSolutionPath);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnBrowserSQLCMD);
             this.Controls.Add(this.label10);
@@ -795,26 +639,10 @@
         private System.Windows.Forms.TextBox txtGeoCF;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox txtSQLServerSolutionPath;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txtCatalogDACPACPath;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txtCoreDACPACPath;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txtWorkingPaperDACPACPath;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtSQLPackagePath;
-        private System.Windows.Forms.Button btnBrowserSQLServerSolution;
-        private System.Windows.Forms.Button btnBrowserCatalogDACPAC;
-        private System.Windows.Forms.Button btnBrowserCoreDACPAC;
-        private System.Windows.Forms.Button btnBrowserWorkingPaperDACPAC;
         private System.Windows.Forms.Button btnBrowserSQLPackage;
         private System.Windows.Forms.OpenFileDialog openFileSQLCMDDialog;
-        private System.Windows.Forms.OpenFileDialog openFileSQLServerSolutionDialog;
-        private System.Windows.Forms.OpenFileDialog openFileCatalogDACPACDialog;
-        private System.Windows.Forms.OpenFileDialog openFileCoreDACPACDialog;
-        private System.Windows.Forms.OpenFileDialog openFileWorkingPaperDACPACDialog;
         private System.Windows.Forms.OpenFileDialog openFileSQLPackageDialog;
     }
 }

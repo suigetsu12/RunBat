@@ -51,12 +51,12 @@
   },
   {
     "name": "Drop Main",
-    "file_name": "a_restore.bat",
+    "file_name": "a_drop_database.bat",
     "handle_type": 2
   },
   {
     "name": "Drop CF",
-    "file_name": "b_restore_cf.bat",
+    "file_name": "b_drop_database_cf.bat",
     "handle_type": 2
   }
 ]

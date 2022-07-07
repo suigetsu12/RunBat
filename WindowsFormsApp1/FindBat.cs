@@ -104,7 +104,7 @@ namespace RunBatForm
 
         private void dtgBatFile_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == 0)
             {
                 var name = dtgBatFile.Rows[e.RowIndex].Cells["clName"].Value;
                 var ischecked = Convert.ToBoolean(dtgBatFile.Rows[e.RowIndex].Cells["clSelected"].Value);

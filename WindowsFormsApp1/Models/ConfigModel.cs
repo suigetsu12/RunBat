@@ -22,6 +22,9 @@ namespace RunBatForm.Models
         [JsonPropertyName("project_folder")]
         public string ProjectFolder { get; set; }
 
+        [JsonPropertyName("database_project_folder")]
+        public string DatabaseProjectFolder { get; set; }
+
         [JsonPropertyName("VsDevCmd_path")]
         public string VsDevCmdPath { get; set; }
     }

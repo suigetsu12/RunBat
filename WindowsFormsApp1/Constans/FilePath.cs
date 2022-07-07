@@ -11,6 +11,15 @@
         public const string ConfigMainPath = RootConfig + "\\configMainDatabase.json";
     }
 
+    public class DatabaseSolution
+    {
+        public const string Root = "DatabaseDeployment";
+        public const string Solution = Root + "\\DatabaseDeployment.sln";
+        public const string CatalogDACPAC = Root + "\\Catalog\\bin\\Local\\Catalog.dacpac";
+        public const string CoreDACPAC = Root + "\\Core\\bin\\Local\\Core.dacpac";
+        public const string WorkingPaperDACPAC = Root + "\\WorkingPaper\\bin\\Local\\WorkingPaper.dacpac";
+    }
+
     public class BatPath
     {
         public const string RootFolder = "data\\BatFiles";
