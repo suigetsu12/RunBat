@@ -154,7 +154,10 @@ namespace RunBatForm
         {
             var message = ValidationControl();
             if (message.NotNullOrEmpty())
+            {
                 MessageBox.Show(message);
+                return;
+            }
             var result = Update();
             if (result)
             {

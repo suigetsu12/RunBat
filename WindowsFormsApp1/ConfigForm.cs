@@ -74,9 +74,32 @@ namespace RunBatForm
             }
         }
 
+        private string Validation()
+        {
+            if (!txtFolder.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "main folder path");
+            if (!txtPublicFolder.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "publish folder path");
+            if (!txtDataBackupFolder.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "database folder path");
+            if (!txtProjectFolder.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "project application folder path");
+            if (!txtDatabaseProjectFolder.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "project database folder path");
+            if (!txtVSDevCmdPath.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "VSDev Cmd path");
+            return string.Empty;
+        }
+
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
-            //TODO validation
+            var message = Validation();
+            if (message.NotNullOrEmpty())
+            {
+                MessageBox.Show(message);
+                return;
+            }
+
             Global.Configuration.Path = txtFolder.Text;
             Global.Configuration.ProjectFolder = txtProjectFolder.Text;
             Global.Configuration.DatabaseProjectFolder = txtDatabaseProjectFolder.Text;
@@ -84,7 +107,7 @@ namespace RunBatForm
             var resultSavePathBat = SavePathBat();
             var jsonData = JsonHelper.Serializer(Global.Configuration);
             var result = FileHelper.WriteFile(Path.Combine(Global.RootAppFolderPath, FilePath.Configuration), jsonData);
-            if(resultSavePathBat && result)
+            if (resultSavePathBat && result)
             {
                 btnRevert.Visible = false;
                 lbError.Visible = false;
@@ -100,6 +123,7 @@ namespace RunBatForm
                 CF.CatalogDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CatalogDACPAC);
                 CF.CoreDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CoreDACPAC);
                 CF.WorkingPaperDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.WorkingPaperDACPAC);
+
                 string mainConfigShortData = ConvertModelToBatContentString.ConfigShortServer(Main, path);
                 string cfConfigShortData = ConvertModelToBatContentString.ConfigShortServer(CF, path);
                 if (mainConfigShortData.NotNullOrEmpty() && cfConfigShortData.NotNullOrEmpty())
@@ -109,6 +133,17 @@ namespace RunBatForm
                     FileHelper.WriteFile(mainConfigShortPath, mainConfigShortData);
                     FileHelper.WriteFile(cfConfigShortPath, cfConfigShortData);
                 }
+
+                string mainConfigData = ConvertModelToBatContentString.ConfigServer(Main);
+                string cfConfigData = ConvertModelToBatContentString.ConfigServer(CF);
+                if (mainConfigData.NotNullOrEmpty() && cfConfigData.NotNullOrEmpty())
+                {
+                    string mainConfigPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerMain);
+                    string cfConfigPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerCF);
+                    FileHelper.WriteFile(mainConfigPath, mainConfigData);
+                    FileHelper.WriteFile(cfConfigPath, cfConfigData);
+                }
+
                 var jsonMainData = JsonHelper.Serializer(Main);
                 var jsonCFData = JsonHelper.Serializer(CF);
                 if (jsonMainData.NotNullOrEmpty() && jsonCFData.NotNullOrEmpty())
@@ -120,12 +155,12 @@ namespace RunBatForm
             }
             else
             {
-                if(!resultSavePathBat)
+                if (!resultSavePathBat)
                     lbError.Text = "Cannot save bat data!";
                 else
                     lbError.Text = "Cannot save config data!";
                 lbError.Visible = true;
-            }    
+            }
         }
 
         private void btnRevert_Click(object sender, EventArgs e)
@@ -170,7 +205,7 @@ namespace RunBatForm
             strList.Add($"@echo off ");
             var splitVsDevCmdPathStr = Global.Configuration.VsDevCmdPath.Split('\\');
             string newVsDevCmdPath = string.Empty;
-            foreach(var _string in splitVsDevCmdPathStr)
+            foreach (var _string in splitVsDevCmdPathStr)
             {
                 string newString = _string;
                 if (newString.Contains(" "))
