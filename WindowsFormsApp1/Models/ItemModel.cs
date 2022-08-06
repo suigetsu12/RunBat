@@ -6,10 +6,10 @@ namespace RunBatForm.Models
     {
         public bool ischecked { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public string message { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public int processid { get; set; }
     }
 }

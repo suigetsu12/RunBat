@@ -39,6 +39,7 @@ namespace RunBatForm
             this.lblMessage = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblHideName = new System.Windows.Forms.Label();
+            this.lbHideId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblName
@@ -131,12 +132,23 @@ namespace RunBatForm
             this.lblHideName.Text = "label1";
             this.lblHideName.Visible = false;
             // 
+            // lbHideId
+            // 
+            this.lbHideId.AutoSize = true;
+            this.lbHideId.Location = new System.Drawing.Point(15, 85);
+            this.lbHideId.Name = "lbHideId";
+            this.lbHideId.Size = new System.Drawing.Size(50, 20);
+            this.lbHideId.TabIndex = 7;
+            this.lbHideId.Text = "label1";
+            this.lbHideId.Visible = false;
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 152);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.lbHideId);
             this.Controls.Add(this.lblHideName);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.btnAddContinue);
@@ -169,5 +181,6 @@ namespace RunBatForm
         private System.Windows.Forms.Label lblMessage;
         public System.Windows.Forms.Button btnUpdate;
         public System.Windows.Forms.Label lblHideName;
+        public System.Windows.Forms.Label lbHideId;
     }
 }

@@ -51,7 +51,7 @@ namespace RunBatForm
 
         private void RenderData()
         {
-            if (Global.StartItem != null && Global.StartItem.Count > 0)
+            if (Global.StartItem.NotNullOrEmpty())
             {
                 BindData();
             }
@@ -82,7 +82,7 @@ namespace RunBatForm
         {
             try
             {
-                if (Global.StartItem == null || Global.StartItem.Count == 0)
+                if (!Global.StartItem.NotNullOrEmpty())
                 {
                     return false;
                 }
@@ -105,7 +105,7 @@ namespace RunBatForm
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-            if (Global.StartItem == null || Global.StartItem.Count == 0)
+            if (!Global.StartItem.NotNullOrEmpty())
             {
                 MessageBox.Show(MessageConstans.TheDataIsEmpty);
                 return;
@@ -138,8 +138,20 @@ namespace RunBatForm
                     }
                 }
             }
+
             if (hasProcess)
+            {
                 btnStopAll.Enabled = true;
+                btnStop.Enabled = true;
+                btnAdd.Enabled = false;
+                btnEdit.Enabled = false;
+                btnDelete.Enabled = false;
+                btnConfig.Enabled = false;
+                btnServerConfig.Enabled = false;
+                btnResetProcess.Enabled = false;
+                btnFindBat.Enabled = false;
+                btnReload.Enabled = false;
+            }
 
             RenderData();
             Thread trd = new Thread(new ThreadStart(this.CheckProcess));
@@ -154,7 +166,7 @@ namespace RunBatForm
                 i.ischecked = true;
             }
             btnRun.Enabled = true;
-            dtgData_Refresh();
+            Controls_Refresh();
         }
 
         private void btnUnCheckedAll_Click(object sender, EventArgs e)
@@ -164,7 +176,7 @@ namespace RunBatForm
                 i.ischecked = false;
             }
             btnRun.Enabled = false;
-            dtgData_Refresh();
+            Controls_Refresh();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
@@ -181,6 +193,8 @@ namespace RunBatForm
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddForm addFr = new AddForm();
+            addFr.lbHideId.Text = string.Empty;
+            addFr.lblHideName.Text = string.Empty;
             addFr.btnAdd.Visible = true;
             addFr.btnAddContinue.Visible = true;
             addFr.btnUpdate.Visible = false;
@@ -205,6 +219,10 @@ namespace RunBatForm
                     if (i.name == name.ToString())
                         i.ischecked = !ischecked;
                 }
+                if (Global.StartItem.FirstOrDefault(x => x.ischecked).NotNullOrEmpty())
+                    btnRun.Enabled = true;
+                else
+                    btnRun.Enabled = false;
             }
             if (processes.Count > 0)
                 btnStop.Enabled = true;
@@ -237,9 +255,11 @@ namespace RunBatForm
                 AddForm addFrm = new AddForm();
                 var name = selectedRow.Cells["clName"].Value;
                 var fname = selectedRow.Cells["clFileName"].Value;
+                var id = selectedRow.Cells["clId"].Value;
                 addFrm.txtName.Text = name.ToString();
                 addFrm.txtFileName.Text = fname.ToString();
                 addFrm.lblHideName.Text = name.ToString();
+                addFrm.lbHideId.Text = id.ToString();
                 addFrm.btnAdd.Visible = false;
                 addFrm.btnAddContinue.Visible = false;
                 addFrm.btnUpdate.Visible = true;
@@ -255,7 +275,7 @@ namespace RunBatForm
             {
                 var val = selectedRow.Cells["clName"].Value;
                 var exist = Global.StartItem.FirstOrDefault(i => i.name == val.ToString());
-                if (exist != null)
+                if (exist.NotNullOrEmpty())
                     Global.StartItem.Remove(exist);
 
                 SaveFile();
@@ -265,7 +285,7 @@ namespace RunBatForm
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if (processes.Count > 0)
+            if (processes.NotNullOrEmpty())
             {
                 var selectedRow = dtgData.SelectedRows[0];
                 if (selectedRow != null)
@@ -285,7 +305,7 @@ namespace RunBatForm
                             item.processid = 0;
                             item.message = "";
                         }
-                        dtgData_Refresh();
+                        Controls_Refresh();
                     }
                 }
             }
@@ -318,7 +338,7 @@ namespace RunBatForm
 
         private void btnStopAll_Click(object sender, EventArgs e)
         {
-            if (processes.Count > 0)
+            if (processes.NotNullOrEmpty())
             {
                 foreach (var proc in processes)
                 {
@@ -331,8 +351,12 @@ namespace RunBatForm
                     }
                     Thread.Sleep(100);
                 }
-                dtgData_Refresh();
+                Controls_Refresh();
                 processes = new List<Process>();
+                btnStopAll.Enabled = false;
+                btnAdd.Enabled = true;
+                btnEdit.Enabled = true;
+                btnDelete.Enabled = true;
             }
         }
 
@@ -364,14 +388,90 @@ namespace RunBatForm
                 }
 
                 if (hasChange)
-                    dtgData_Refresh();
+                {
+                    Controls_Refresh();
+                }
                 Thread.Sleep(1000);
             }
         }
 
-        private void dtgData_Refresh()
+        private void Controls_Refresh()
         {
             dtgData.Invoke(new MethodInvoker(() => dtgData.Refresh()));
+            btnDelete.Invoke(new MethodInvoker(() =>
+            {
+                if (Global.StartItem.Any(x => x.processid != 0))
+                    btnDelete.Enabled = false;
+                else
+                    btnDelete.Enabled = true;
+            }));
+            btnAdd.Invoke(new MethodInvoker(() =>
+            {
+                if (Global.StartItem.Any(x => x.processid != 0))
+                    btnAdd.Enabled = false;
+                else
+                    btnAdd.Enabled = true;
+            }));
+            btnEdit.Invoke(new MethodInvoker(() =>
+            {
+                if (Global.StartItem.Any(x => x.processid != 0))
+                    btnEdit.Enabled = false;
+                else
+                    btnEdit.Enabled = true;
+            }));
+            btnConfig.Invoke(new MethodInvoker(() =>
+            {
+                if (Global.StartItem.Any(x => x.processid != 0))
+                    btnConfig.Enabled = false;
+                else
+                    btnConfig.Enabled = true;
+            }));
+            btnServerConfig.Invoke(new MethodInvoker(() =>
+            {
+                if (Global.StartItem.Any(x => x.processid != 0))
+                    btnServerConfig.Enabled = false;
+                else
+                    btnServerConfig.Enabled = true;
+            }));
+            btnReload.Invoke(new MethodInvoker(() =>
+            {
+                if (Global.StartItem.Any(x => x.processid != 0))
+                    btnReload.Enabled = false;
+                else
+                    btnReload.Enabled = true;
+            }));
+            btnResetProcess.Invoke(new MethodInvoker(() =>
+            {
+                if (Global.StartItem.Any(x => x.processid != 0))
+                    btnResetProcess.Enabled = false;
+                else
+                    btnResetProcess.Enabled = true;
+            }));
+            btnFindBat.Invoke(new MethodInvoker(() =>
+            {
+                if (Global.StartItem.Any(x => x.processid != 0))
+                    btnFindBat.Enabled = false;
+                else
+                    btnFindBat.Enabled = true;
+            }));
+            btnStop.Invoke(new MethodInvoker(() => EnableStopHandle(btnStop)));
+            btnStopAll.Invoke(new MethodInvoker(() => EnableStopHandle(btnStopAll)));
+        }
+
+        private void EnableStopHandle(Button control)
+        {
+            if (Global.StartItem.Any(x => x.processid != 0))
+                control.Enabled = true;
+            else
+                control.Enabled = false;
+        }
+
+        private void EnableButtonHandle(Button control)
+        {
+            if (Global.StartItem.Any(x => x.processid != 0))
+                control.Enabled = false;
+            else
+                control.Enabled = true;
         }
 
         private void dtgData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

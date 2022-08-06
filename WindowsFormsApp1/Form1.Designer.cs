@@ -38,6 +38,7 @@ namespace RunBatForm
             this.btnAdd = new System.Windows.Forms.Button();
             this.dtgData = new System.Windows.Forms.DataGridView();
             this.clRun = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clProcessId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,6 +134,7 @@ namespace RunBatForm
             this.dtgData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clRun,
+            this.clId,
             this.clName,
             this.clFileName,
             this.clProcessId,
@@ -152,14 +154,27 @@ namespace RunBatForm
             // clRun
             // 
             this.clRun.DataPropertyName = "ischecked";
+            this.clRun.Frozen = true;
             this.clRun.HeaderText = "Run";
             this.clRun.MinimumWidth = 6;
             this.clRun.Name = "clRun";
             this.clRun.Width = 125;
             // 
+            // clId
+            // 
+            this.clId.DataPropertyName = "id";
+            this.clId.Frozen = true;
+            this.clId.HeaderText = "Id";
+            this.clId.MinimumWidth = 6;
+            this.clId.Name = "clId";
+            this.clId.ReadOnly = true;
+            this.clId.Visible = false;
+            this.clId.Width = 125;
+            // 
             // clName
             // 
             this.clName.DataPropertyName = "name";
+            this.clName.Frozen = true;
             this.clName.HeaderText = "Name";
             this.clName.MinimumWidth = 6;
             this.clName.Name = "clName";
@@ -169,6 +184,7 @@ namespace RunBatForm
             // clFileName
             // 
             this.clFileName.DataPropertyName = "file_name";
+            this.clFileName.Frozen = true;
             this.clFileName.HeaderText = "File Name";
             this.clFileName.MinimumWidth = 6;
             this.clFileName.Name = "clFileName";
@@ -218,6 +234,7 @@ namespace RunBatForm
             // 
             // btnStop
             // 
+            this.btnStop.Enabled = false;
             this.btnStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnStop.Location = new System.Drawing.Point(397, 95);
             this.btnStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -230,6 +247,7 @@ namespace RunBatForm
             // 
             // btnStopAll
             // 
+            this.btnStopAll.Enabled = false;
             this.btnStopAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnStopAll.Location = new System.Drawing.Point(397, 63);
             this.btnStopAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -331,6 +349,7 @@ namespace RunBatForm
             this.btnCreateBaseData.TabIndex = 19;
             this.btnCreateBaseData.Text = "Base Data";
             this.btnCreateBaseData.UseVisualStyleBackColor = true;
+            this.btnCreateBaseData.Visible = false;
             this.btnCreateBaseData.Click += new System.EventHandler(this.btnCreateBaseData_Click);
             // 
             // Form1
@@ -379,11 +398,6 @@ namespace RunBatForm
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStopAll;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn clRun;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clFileName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clProcessId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clMessage;
         private System.Windows.Forms.GroupBox Publish;
         private System.Windows.Forms.Button btnDatabase;
         private System.Windows.Forms.Button btnPublish;
@@ -392,6 +406,12 @@ namespace RunBatForm
         private System.Windows.Forms.Button btnResetProcess;
         private System.Windows.Forms.Button btnServerConfig;
         private System.Windows.Forms.Button btnCreateBaseData;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clRun;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clFileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clProcessId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clMessage;
     }
 }
 

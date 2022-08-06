@@ -16,7 +16,6 @@ namespace RunBatForm
 {
     public partial class AddForm : Form
     {
-        DataModel data;
         private string pathData;
         public AddForm()
         {
@@ -33,7 +32,7 @@ namespace RunBatForm
             }
 
             Form1 frm = new Form1();
-            var item = new ItemModel { file_name = txtFileName.Text, name = txtName.Text, ischecked = false };
+            var item = new ItemModel { id = Guid.NewGuid(), file_name = txtFileName.Text, name = txtName.Text, ischecked = false };
             if (CheckExistItem(item))
             {
                 MessageBox.Show(MessageConstans.ItemAlreadyExist);
@@ -47,8 +46,8 @@ namespace RunBatForm
 
         private bool CheckExistItem(ItemModel item)
         {
-            var exist = Global.StartItem.FirstOrDefault(i => (i.file_name == item.file_name || i.name == item.name));
-            if (exist != null)
+            var exist = Global.StartItem.FirstOrDefault(i => (i.file_name == item.file_name && i.id != item.id));
+            if (exist.NotNullOrEmpty())
                 return true;
             return false;
         }
@@ -61,7 +60,7 @@ namespace RunBatForm
                 return;
             }
 
-            var item = new ItemModel { file_name = txtFileName.Text, name = txtName.Text, ischecked = false };
+            var item = new ItemModel { id = Guid.NewGuid(), file_name = txtFileName.Text, name = txtName.Text, ischecked = false };
             if (CheckExistItem(item))
             {
                 MessageBox.Show(MessageConstans.ItemAlreadyExist);
@@ -108,7 +107,7 @@ namespace RunBatForm
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var item = new ItemModel { file_name = txtFileName.Text, name = txtName.Text };
+            var item = new ItemModel {id = Guid.Parse(lbHideId.Text), file_name = txtFileName.Text, name = txtName.Text };
             if (CheckExistItem(item))
             {
                 MessageBox.Show(MessageConstans.ItemAlreadyExist);
@@ -117,7 +116,8 @@ namespace RunBatForm
             var cloneList = new List<ItemModel>(Global.StartItem);
             foreach (var i in cloneList)
             {
-                if (i.name == lblHideName.Text)
+
+                if (i.id.ToString() == lbHideId.Text)
                 {
                     i.name = item.name;
                     i.file_name = item.file_name;
