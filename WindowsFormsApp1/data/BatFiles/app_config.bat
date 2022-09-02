@@ -39,12 +39,6 @@ set carryforwardFileTransferProcessorSourceUrl=%rootPathProject%Carryforward\Auv
 
 set houseKeeperProcessorSourceUrl=%rootPathProject%HouseKeeperProcessor
 
-set ComponentCreationProcessorSourceUrl=%rootPathProject%ComponentCreationProcessor\Auvenir.ComponentCreationProcessor
-
-set EngagementCreationProcessorUrl=%rootPathProject%EngagementCreationProcessor\Auvenir.EngagementCreationProcessor
-
-set WpGenerationProcessorUrl=%rootPathProject%WpGenerationProcessorService\Auvenir.WpGenerationProcessor
-
 set AuvenirDuplicateEngCommonUrl=%rootPathProject%DuplicateEngagement\Auvenir.DuplicateEng.Common
 
 set AuvenirDuplicateEngProcessorUrl=%rootPathProject%DuplicateEngagement\Auvenir.DuplicateEngProcessor
@@ -53,11 +47,11 @@ set AuvenirDuplicateFileProcessorUrl=%rootPathProject%DuplicateEngagement\Auveni
 
 :: --------------------------- The PATH you want to build to   ----------------------------------------
 
-set coreOutputUrl=%rootPathStart%core
+set coreOutputUrl=%rootPathStart%CoreService
 
 set fsOutputUrl=%rootPathStart%FileServices
 
-set pm_psOutputUrl=%rootPathStart%planning
+set pm_psOutputUrl=%rootPathStart%PlanningStepService
 
 set pm_snOutputUrl=%rootPathStart%CommonToolService
 
@@ -65,13 +59,13 @@ set pm_vsaOutputUrl=%rootPathStart%NonAccountWorkingPaperService
 
 set wpOutputUrl=%rootPathStart%AccountWorkingPaperService
 
-set feOutputUrl=%rootPathStart%Frontend
+set feOutputUrl=%rootPathStart%FrontEnd
 
 set spoApiOutputUrl=%rootPathStart%SPOApi
 
 set spo_SPOSetupProcessorOutputUrl=%rootPathStart%SPOSetupProcessor
 
-set fileIntegrityCheckProcessorOutputUrl=%rootPathStart%fileIntegrityCheckProcessor
+set fileIntegrityCheckProcessorOutputUrl=%rootPathStart%FileIntegrityCheckProcessor
 
 set fileServicesOutputUrl=%rootPathStart%FileServices
 
@@ -91,14 +85,8 @@ set carryforwardFileTransferProcessorOutputUrl=%rootPathStart%CarryforwardFileTr
 
 set houseKeeperProcessorOutputUrl=%rootPathStart%HouseKeeperProcessor
 
-set ComponentCreationProcessorOutputUrl=%rootPathStart%ComponentCreationProcessor
+set AuvenirDuplicateEngCommonOutputUrl=%rootPathStart%DuplicateEngCommon
 
-set EngagementCreationProcessorOutputUrl=%rootPathStart%EngagementCreationProcessor
+set AuvenirDuplicateEngProcessorOutputUrl=%rootPathStart%DuplicateEngProcessor
 
-set WpGenerationProcessorOutputUrl=%rootPathStart%WpGenerationProcessor
-
-set AuvenirDuplicateEngCommonOutputUrl=%rootPathStart%Auvenir.DuplicateEng.Common
-
-set AuvenirDuplicateEngProcessorOutputUrl=%rootPathStart%Auvenir.DuplicateEngProcessor
-
-set AuvenirDuplicateFileProcessorOutputUrl=%rootPathStart%Auvenir.DuplicateFileProcessor
+set AuvenirDuplicateFileProcessorOutputUrl=%rootPathStart%DuplicateFileProcessor
