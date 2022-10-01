@@ -59,6 +59,11 @@
             this.txtDatabaseProjectFolder = new System.Windows.Forms.TextBox();
             this.databaseProjectFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip6 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnMSBuildPathBrowser = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMSBuildPath = new System.Windows.Forms.TextBox();
+            this.openMSBuildFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip7 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // txtFolder
@@ -240,11 +245,45 @@
             this.txtDatabaseProjectFolder.Size = new System.Drawing.Size(341, 27);
             this.txtDatabaseProjectFolder.TabIndex = 16;
             // 
+            // btnMSBuildPathBrowser
+            // 
+            this.btnMSBuildPathBrowser.Location = new System.Drawing.Point(524, 211);
+            this.btnMSBuildPathBrowser.Name = "btnMSBuildPathBrowser";
+            this.btnMSBuildPathBrowser.Size = new System.Drawing.Size(34, 29);
+            this.btnMSBuildPathBrowser.TabIndex = 21;
+            this.btnMSBuildPathBrowser.Text = "...";
+            this.btnMSBuildPathBrowser.UseVisualStyleBackColor = true;
+            this.btnMSBuildPathBrowser.Click += new System.EventHandler(this.btnMSBuildPathBrowser_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(72, 214);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "MSBuild Path";
+            // 
+            // txtMSBuildPath
+            // 
+            this.txtMSBuildPath.Location = new System.Drawing.Point(177, 211);
+            this.txtMSBuildPath.Name = "txtMSBuildPath";
+            this.txtMSBuildPath.ReadOnly = true;
+            this.txtMSBuildPath.Size = new System.Drawing.Size(341, 27);
+            this.txtMSBuildPath.TabIndex = 19;
+            // 
+            // openMSBuildFileDialog
+            // 
+            this.openMSBuildFileDialog.FileName = "openMSBuildFileDialog";
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 450);
+            this.Controls.Add(this.btnMSBuildPathBrowser);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtMSBuildPath);
             this.Controls.Add(this.btnDatabaseProjectBrowser);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDatabaseProjectFolder);
@@ -306,5 +345,10 @@
         private System.Windows.Forms.TextBox txtDatabaseProjectFolder;
         private System.Windows.Forms.FolderBrowserDialog databaseProjectFolderBrowserDialog;
         private System.Windows.Forms.ToolTip toolTip6;
+        private System.Windows.Forms.Button btnMSBuildPathBrowser;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMSBuildPath;
+        private System.Windows.Forms.OpenFileDialog openMSBuildFileDialog;
+        private System.Windows.Forms.ToolTip toolTip7;
     }
 }

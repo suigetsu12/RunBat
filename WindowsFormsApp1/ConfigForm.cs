@@ -44,6 +44,7 @@ namespace RunBatForm
             toolTip4.SetToolTip(label4, "Path of the project folder");
             toolTip5.SetToolTip(label5, "Path of the .bat file Visual Studio Dev Command-Line");
             toolTip6.SetToolTip(label6, "Path of the database project folder");
+            toolTip7.SetToolTip(label7, "Path of the .exe file MSBuild");
         }
 
         private void RenderData()
@@ -55,6 +56,7 @@ namespace RunBatForm
             txtProjectFolder.Text = Global.Configuration.ProjectFolder;
             txtDatabaseProjectFolder.Text = Global.Configuration.DatabaseProjectFolder;
             txtVSDevCmdPath.Text = Global.Configuration.VsDevCmdPath;
+            txtMSBuildPath.Text = Global.Configuration.MSBuildPath;
         }
 
         private void btnBrowser_Click(object sender, EventArgs e)
@@ -88,6 +90,8 @@ namespace RunBatForm
                 return String.Format(MessageConstans.TheFieldEmpty, "project database folder path");
             if (!txtVSDevCmdPath.Text.NotNullOrEmpty())
                 return String.Format(MessageConstans.TheFieldEmpty, "VSDev Cmd path");
+            if (!txtMSBuildPath.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "MSBuild path");
             return string.Empty;
         }
 
@@ -104,6 +108,7 @@ namespace RunBatForm
             Global.Configuration.ProjectFolder = txtProjectFolder.Text;
             Global.Configuration.DatabaseProjectFolder = txtDatabaseProjectFolder.Text;
             Global.Configuration.VsDevCmdPath = txtVSDevCmdPath.Text;
+            Global.Configuration.MSBuildPath = txtMSBuildPath.Text;
             var resultSavePathBat = SavePathBat();
             var jsonData = JsonHelper.Serializer(Global.Configuration);
             var result = FileHelper.WriteFile(Path.Combine(Global.RootAppFolderPath, FilePath.Configuration), jsonData);
@@ -118,11 +123,13 @@ namespace RunBatForm
                 Main.CatalogDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CatalogDACPAC);
                 Main.CoreDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CoreDACPAC);
                 Main.WorkingPaperDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.WorkingPaperDACPAC);
+                Main.MsBuild = Global.Configuration.MSBuildPath;
                 CF.Path = txtDataBackupFolder.Text;
                 CF.SQLServerSolution = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.Solution);
                 CF.CatalogDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CatalogDACPAC);
                 CF.CoreDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CoreDACPAC);
                 CF.WorkingPaperDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.WorkingPaperDACPAC);
+                CF.MsBuild = Global.Configuration.MSBuildPath;
 
                 string mainConfigShortData = ConvertModelToBatContentString.ConfigShortServer(Main, path);
                 string cfConfigShortData = ConvertModelToBatContentString.ConfigShortServer(CF, path);
@@ -236,6 +243,21 @@ namespace RunBatForm
             {
                 string newPath = databaseProjectFolderBrowserDialog.SelectedPath;
                 txtDatabaseProjectFolder.Text = newPath;
+                btnRevert.Visible = true;
+            }
+        }
+
+        private void btnMSBuildPathBrowser_Click(object sender, EventArgs e)
+        {
+            ChooseMSBuildFile();
+        }
+
+        private void ChooseMSBuildFile()
+        {
+            if (openMSBuildFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string newPath = openMSBuildFileDialog.FileName;
+                txtMSBuildPath.Text = newPath;
                 btnRevert.Visible = true;
             }
         }

@@ -27,5 +27,8 @@ namespace RunBatForm.Models
 
         [JsonPropertyName("VsDevCmd_path")]
         public string VsDevCmdPath { get; set; }
+
+        [JsonPropertyName("MsBuils_path")]
+        public string MSBuildPath { get; set; }
     }
 }
