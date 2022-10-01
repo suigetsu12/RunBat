@@ -30,5 +30,8 @@ namespace RunBatForm.Models
 
         [JsonPropertyName("MsBuils_path")]
         public string MSBuildPath { get; set; }
+
+        [JsonPropertyName("azureFuncTool_path")]
+        public string AzureFuncToolPath { get; set; }
     }
 }

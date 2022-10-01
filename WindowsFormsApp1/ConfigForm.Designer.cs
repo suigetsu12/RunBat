@@ -64,6 +64,11 @@
             this.txtMSBuildPath = new System.Windows.Forms.TextBox();
             this.openMSBuildFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.toolTip7 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAzureFuncToolPathBrowser = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtAzureFuncToolPath = new System.Windows.Forms.TextBox();
+            this.toolTip8 = new System.Windows.Forms.ToolTip(this.components);
+            this.openAzureFunctionToolFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // txtFolder
@@ -276,11 +281,45 @@
             // 
             this.openMSBuildFileDialog.FileName = "openMSBuildFileDialog";
             // 
+            // btnAzureFuncToolPathBrowser
+            // 
+            this.btnAzureFuncToolPathBrowser.Location = new System.Drawing.Point(524, 244);
+            this.btnAzureFuncToolPathBrowser.Name = "btnAzureFuncToolPathBrowser";
+            this.btnAzureFuncToolPathBrowser.Size = new System.Drawing.Size(34, 29);
+            this.btnAzureFuncToolPathBrowser.TabIndex = 24;
+            this.btnAzureFuncToolPathBrowser.Text = "...";
+            this.btnAzureFuncToolPathBrowser.UseVisualStyleBackColor = true;
+            this.btnAzureFuncToolPathBrowser.Click += new System.EventHandler(this.btnAzureFuncToolPathBrowser_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 247);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(146, 20);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Azure Func Tool Path";
+            // 
+            // txtAzureFuncToolPath
+            // 
+            this.txtAzureFuncToolPath.Location = new System.Drawing.Point(177, 244);
+            this.txtAzureFuncToolPath.Name = "txtAzureFuncToolPath";
+            this.txtAzureFuncToolPath.ReadOnly = true;
+            this.txtAzureFuncToolPath.Size = new System.Drawing.Size(341, 27);
+            this.txtAzureFuncToolPath.TabIndex = 22;
+            // 
+            // openAzureFunctionToolFileDialog
+            // 
+            this.openAzureFunctionToolFileDialog.FileName = "openAzureFunctionToolFileDialog";
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 450);
+            this.Controls.Add(this.btnAzureFuncToolPathBrowser);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtAzureFuncToolPath);
             this.Controls.Add(this.btnMSBuildPathBrowser);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtMSBuildPath);
@@ -350,5 +389,10 @@
         private System.Windows.Forms.TextBox txtMSBuildPath;
         private System.Windows.Forms.OpenFileDialog openMSBuildFileDialog;
         private System.Windows.Forms.ToolTip toolTip7;
+        private System.Windows.Forms.Button btnAzureFuncToolPathBrowser;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtAzureFuncToolPath;
+        private System.Windows.Forms.ToolTip toolTip8;
+        private System.Windows.Forms.OpenFileDialog openAzureFunctionToolFileDialog;
     }
 }

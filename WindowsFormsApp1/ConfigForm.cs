@@ -45,6 +45,7 @@ namespace RunBatForm
             toolTip5.SetToolTip(label5, "Path of the .bat file Visual Studio Dev Command-Line");
             toolTip6.SetToolTip(label6, "Path of the database project folder");
             toolTip7.SetToolTip(label7, "Path of the .exe file MSBuild");
+            toolTip8.SetToolTip(label8, "Path of the .exe file Azure Function tool");
         }
 
         private void RenderData()
@@ -57,6 +58,7 @@ namespace RunBatForm
             txtDatabaseProjectFolder.Text = Global.Configuration.DatabaseProjectFolder;
             txtVSDevCmdPath.Text = Global.Configuration.VsDevCmdPath;
             txtMSBuildPath.Text = Global.Configuration.MSBuildPath;
+            txtAzureFuncToolPath.Text = Global.Configuration.AzureFuncToolPath;
         }
 
         private void btnBrowser_Click(object sender, EventArgs e)
@@ -92,6 +94,8 @@ namespace RunBatForm
                 return String.Format(MessageConstans.TheFieldEmpty, "VSDev Cmd path");
             if (!txtMSBuildPath.Text.NotNullOrEmpty())
                 return String.Format(MessageConstans.TheFieldEmpty, "MSBuild path");
+            if (!txtAzureFuncToolPath.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "Azure Function tool path");
             return string.Empty;
         }
 
@@ -109,6 +113,7 @@ namespace RunBatForm
             Global.Configuration.DatabaseProjectFolder = txtDatabaseProjectFolder.Text;
             Global.Configuration.VsDevCmdPath = txtVSDevCmdPath.Text;
             Global.Configuration.MSBuildPath = txtMSBuildPath.Text;
+            Global.Configuration.AzureFuncToolPath = txtAzureFuncToolPath.Text;
             var resultSavePathBat = SavePathBat();
             var jsonData = JsonHelper.Serializer(Global.Configuration);
             var result = FileHelper.WriteFile(Path.Combine(Global.RootAppFolderPath, FilePath.Configuration), jsonData);
@@ -210,23 +215,14 @@ namespace RunBatForm
         {
             List<string> strList = new List<string>();
             strList.Add($"@echo off ");
-            var splitVsDevCmdPathStr = Global.Configuration.VsDevCmdPath.Split('\\');
-            string newVsDevCmdPath = string.Empty;
-            foreach (var _string in splitVsDevCmdPathStr)
-            {
-                string newString = _string;
-                if (newString.Contains(" "))
-                {
-                    newString = $"\"{newString}\"";
-                }
-                if (newVsDevCmdPath.NotNullOrEmpty())
-                    newVsDevCmdPath = newString;
-                else
-                    newVsDevCmdPath = newVsDevCmdPath + "\\" + newString;
-            }
+            strList.Add($":: --------------------------- The PATH of project  ----------------------------------------");
             strList.Add($"set rootPathProject={Global.Configuration.ProjectFolder}\\");
-            strList.Add($"set msbuildPath={newVsDevCmdPath}");
+            strList.Add($":: --------------------------- The PATH of Visual Studio  ----------------------------------------");
+            strList.Add($"set msbuildPath={StringHelper.RefactorPathContainSpace(Global.Configuration.VsDevCmdPath)}");
+            strList.Add($":: --------------------------- The PATH you want to build to   ----------------------------------------");
             strList.Add($"set rootPathStart={Path.Combine(Global.Configuration.Path, Global.Configuration.PublishFolder)}\\");
+            strList.Add($":: --------------------------- The PATH Azure function tool   ----------------------------------------");
+            strList.Add($"set azureFunctionToolPath={StringHelper.RefactorPathContainSpace(Global.Configuration.AzureFuncToolPath)}");
             string stringData = string.Join('\n', strList.ToArray());
             string strPath = Path.Combine(Global.RootAppFolderPath, BatPath.PathBat);
             return FileHelper.WriteFile(strPath, stringData);
@@ -258,6 +254,21 @@ namespace RunBatForm
             {
                 string newPath = openMSBuildFileDialog.FileName;
                 txtMSBuildPath.Text = newPath;
+                btnRevert.Visible = true;
+            }
+        }
+
+        private void btnAzureFuncToolPathBrowser_Click(object sender, EventArgs e)
+        {
+            ChooseAzureFuncToolFile();
+        }
+
+        private void ChooseAzureFuncToolFile()
+        {
+            if (openAzureFunctionToolFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string newPath = openAzureFunctionToolFileDialog.FileName;
+                txtAzureFuncToolPath.Text = newPath;
                 btnRevert.Visible = true;
             }
         }
