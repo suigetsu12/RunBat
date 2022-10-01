@@ -40,6 +40,7 @@
     <None Remove="data\BatFiles\database\script_backup.sql" />
     <None Remove="data\BatFiles\database\script_backup_cf.sql" />
     <None Remove="data\BatFiles\database\script_drop.sql" />
+    <None Remove="data\BatFiles\database\script_insert_entity.sql" />
     <None Remove="data\BatFiles\database\script_restore.sql" />
     <None Remove="data\BatFiles\database\script_restore_cf.sql" />
     <None Remove="data\BatFiles\publish\000_publish_dev-full-Flow.bat" />
@@ -157,6 +158,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\BatFiles\database\script_backup_cf.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\database\script_insert_entity.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\BatFiles\database\script_drop.sql">
@@ -362,6 +366,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="BaseWorkings\Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -370,6 +379,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="BaseWorkings\Properties\Resources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
