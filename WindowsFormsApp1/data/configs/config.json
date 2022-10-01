@@ -1,7 +1,7 @@
 {
   "path": "C:\\Projects\\Commercial\\6.0",
   "publish_folder": "publish",
-  "backup_data_folder": "data",
+  "backup_data_folder": "database",
   "app_config": "app_config.bat",
   "project_folder": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.Application\\",
   "database_project_folder": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\",

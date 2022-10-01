@@ -163,6 +163,7 @@ namespace RunBatForm
                     FileHelper.WriteFile(mainConfigPath, jsonMainData);
                     FileHelper.WriteFile(cfConfigPath, jsonCFData);
                 }
+                CreateFolder();
                 MessageBox.Show(MessageConstans.Success);
             }
             else
@@ -271,6 +272,12 @@ namespace RunBatForm
                 txtAzureFuncToolPath.Text = newPath;
                 btnRevert.Visible = true;
             }
+        }
+
+        private void CreateFolder()
+        {
+            FolderHelper.CreateFolder(Path.Combine(Global.Configuration.Path, Global.Configuration.PublishFolder));
+            FolderHelper.CreateFolder(Path.Combine(Global.Configuration.Path, Global.Configuration.BackupDataFolder));
         }
     }
 }
