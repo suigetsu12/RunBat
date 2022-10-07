@@ -35,6 +35,7 @@
             this.clFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clProcess = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgBatFile)).BeginInit();
@@ -50,7 +51,8 @@
             this.clName,
             this.clFileName,
             this.clMessage,
-            this.clProcess});
+            this.clProcess,
+            this.clId});
             this.dtgBatFile.Location = new System.Drawing.Point(12, 12);
             this.dtgBatFile.Name = "dtgBatFile";
             this.dtgBatFile.RowHeadersWidth = 51;
@@ -62,6 +64,7 @@
             // clSelected
             // 
             this.clSelected.DataPropertyName = "ischecked";
+            this.clSelected.Frozen = true;
             this.clSelected.HeaderText = "Select";
             this.clSelected.MinimumWidth = 6;
             this.clSelected.Name = "clSelected";
@@ -71,6 +74,7 @@
             // clName
             // 
             this.clName.DataPropertyName = "name";
+            this.clName.Frozen = true;
             this.clName.HeaderText = "Name";
             this.clName.MinimumWidth = 6;
             this.clName.Name = "clName";
@@ -79,6 +83,7 @@
             // clFileName
             // 
             this.clFileName.DataPropertyName = "file_name";
+            this.clFileName.Frozen = true;
             this.clFileName.HeaderText = "File Name";
             this.clFileName.MinimumWidth = 6;
             this.clFileName.Name = "clFileName";
@@ -88,6 +93,7 @@
             // clMessage
             // 
             this.clMessage.DataPropertyName = "message";
+            this.clMessage.Frozen = true;
             this.clMessage.HeaderText = "Message";
             this.clMessage.MinimumWidth = 6;
             this.clMessage.Name = "clMessage";
@@ -98,12 +104,24 @@
             // clProcess
             // 
             this.clProcess.DataPropertyName = "processid";
+            this.clProcess.Frozen = true;
             this.clProcess.HeaderText = "Procces";
             this.clProcess.MinimumWidth = 6;
             this.clProcess.Name = "clProcess";
             this.clProcess.ReadOnly = true;
             this.clProcess.Visible = false;
             this.clProcess.Width = 125;
+            // 
+            // clId
+            // 
+            this.clId.DataPropertyName = "id";
+            this.clId.Frozen = true;
+            this.clId.HeaderText = "Id";
+            this.clId.MinimumWidth = 6;
+            this.clId.Name = "clId";
+            this.clId.ReadOnly = true;
+            this.clId.Visible = false;
+            this.clId.Width = 125;
             // 
             // btnUpdate
             // 
@@ -139,6 +157,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFindBat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Find Bat";
             ((System.ComponentModel.ISupportInitialize)(this.dtgBatFile)).EndInit();
             this.ResumeLayout(false);
@@ -155,5 +174,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clFileName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clMessage;
         private System.Windows.Forms.DataGridViewTextBoxColumn clProcess;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clId;
     }
 }

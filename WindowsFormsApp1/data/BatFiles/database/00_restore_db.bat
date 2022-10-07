@@ -1,3 +1,5 @@
+Title Restore_DB
+
 call a_config.bat
 SET INPUT="script_drop.sql"
 ECHO 

@@ -59,6 +59,11 @@
             this.txtDatabaseProjectFolder = new System.Windows.Forms.TextBox();
             this.databaseProjectFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip6 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAzureFuncToolPathBrowser = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtAzureFuncToolPath = new System.Windows.Forms.TextBox();
+            this.openAzureFuncToolFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip7 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // txtFolder
@@ -211,7 +216,6 @@
             // openVSDevCmdFileDialog
             // 
             this.openVSDevCmdFileDialog.FileName = "openVSDevCmdFileDialog";
-            this.openVSDevCmdFileDialog.Filter = "\"bat files (*.bat)|*.bat\"";
             // 
             // btnDatabaseProjectBrowser
             // 
@@ -240,11 +244,45 @@
             this.txtDatabaseProjectFolder.Size = new System.Drawing.Size(341, 27);
             this.txtDatabaseProjectFolder.TabIndex = 16;
             // 
+            // btnAzureFuncToolPathBrowser
+            // 
+            this.btnAzureFuncToolPathBrowser.Location = new System.Drawing.Point(524, 211);
+            this.btnAzureFuncToolPathBrowser.Name = "btnAzureFuncToolPathBrowser";
+            this.btnAzureFuncToolPathBrowser.Size = new System.Drawing.Size(34, 29);
+            this.btnAzureFuncToolPathBrowser.TabIndex = 21;
+            this.btnAzureFuncToolPathBrowser.Text = "...";
+            this.btnAzureFuncToolPathBrowser.UseVisualStyleBackColor = true;
+            this.btnAzureFuncToolPathBrowser.Click += new System.EventHandler(this.btnAzureFuncToolPathBrowser_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 214);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(146, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Azure Func Tool Path";
+            // 
+            // txtAzureFuncToolPath
+            // 
+            this.txtAzureFuncToolPath.Location = new System.Drawing.Point(177, 211);
+            this.txtAzureFuncToolPath.Name = "txtAzureFuncToolPath";
+            this.txtAzureFuncToolPath.ReadOnly = true;
+            this.txtAzureFuncToolPath.Size = new System.Drawing.Size(341, 27);
+            this.txtAzureFuncToolPath.TabIndex = 19;
+            // 
+            // openAzureFuncToolFileDialog
+            // 
+            this.openAzureFuncToolFileDialog.RestoreDirectory = true;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 450);
+            this.Controls.Add(this.btnAzureFuncToolPathBrowser);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtAzureFuncToolPath);
             this.Controls.Add(this.btnDatabaseProjectBrowser);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDatabaseProjectFolder);
@@ -269,6 +307,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuration";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -306,5 +345,10 @@
         private System.Windows.Forms.TextBox txtDatabaseProjectFolder;
         private System.Windows.Forms.FolderBrowserDialog databaseProjectFolderBrowserDialog;
         private System.Windows.Forms.ToolTip toolTip6;
+        private System.Windows.Forms.Button btnAzureFuncToolPathBrowser;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtAzureFuncToolPath;
+        private System.Windows.Forms.OpenFileDialog openAzureFuncToolFileDialog;
+        private System.Windows.Forms.ToolTip toolTip7;
     }
 }

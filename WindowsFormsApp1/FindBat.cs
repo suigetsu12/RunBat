@@ -33,7 +33,7 @@ namespace RunBatForm
         private void FindData()
         {
             batList = ReadAllFileInFolder(startPath);
-            if (batList != null && batList.Count > 0)
+            if (!batList.IsNullOrEmpty())
             {
                 BindData(batList);
             }
@@ -51,6 +51,7 @@ namespace RunBatForm
             {
                 if (item.ischecked)
                 {
+                    item.id = Guid.NewGuid();
                     item.ischecked = false;
                     cloneList.Add(item);
                 }

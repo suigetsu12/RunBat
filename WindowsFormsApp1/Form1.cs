@@ -51,7 +51,7 @@ namespace RunBatForm
 
         private void RenderData()
         {
-            if (Global.StartItem.NotNullOrEmpty())
+            if (!Global.StartItem.IsNullOrEmpty())
             {
                 BindData();
             }
@@ -82,7 +82,7 @@ namespace RunBatForm
         {
             try
             {
-                if (!Global.StartItem.NotNullOrEmpty())
+                if (Global.StartItem.IsNullOrEmpty())
                 {
                     return false;
                 }
@@ -105,7 +105,7 @@ namespace RunBatForm
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-            if (!Global.StartItem.NotNullOrEmpty())
+            if (Global.StartItem.IsNullOrEmpty())
             {
                 MessageBox.Show(MessageConstans.TheDataIsEmpty);
                 return;
@@ -151,6 +151,8 @@ namespace RunBatForm
                 btnResetProcess.Enabled = false;
                 btnFindBat.Enabled = false;
                 btnReload.Enabled = false;
+                btnSaveChange.Enabled = false;
+                btnPublish.Enabled = false;
             }
 
             RenderData();
@@ -198,6 +200,7 @@ namespace RunBatForm
             addFr.btnAdd.Visible = true;
             addFr.btnAddContinue.Visible = true;
             addFr.btnUpdate.Visible = false;
+            addFr.Text = "Add";
             addFr.ShowDialog();
             this.Reload();
         }
@@ -250,7 +253,7 @@ namespace RunBatForm
         private void dtgData_Edit()
         {
             var selectedRow = dtgData.SelectedRows[0];
-            if (selectedRow != null)
+            if (selectedRow.NotNullOrEmpty())
             {
                 AddForm addFrm = new AddForm();
                 var name = selectedRow.Cells["clName"].Value;
@@ -263,6 +266,7 @@ namespace RunBatForm
                 addFrm.btnAdd.Visible = false;
                 addFrm.btnAddContinue.Visible = false;
                 addFrm.btnUpdate.Visible = true;
+                addFrm.Text = "Edit";
                 addFrm.ShowDialog();
                 this.Reload();
             }
@@ -271,7 +275,7 @@ namespace RunBatForm
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var selectedRow = dtgData.SelectedRows[0];
-            if (selectedRow != null)
+            if (selectedRow.NotNullOrEmpty())
             {
                 var val = selectedRow.Cells["clName"].Value;
                 var exist = Global.StartItem.FirstOrDefault(i => i.name == val.ToString());
@@ -285,10 +289,10 @@ namespace RunBatForm
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if (processes.NotNullOrEmpty())
+            if (!processes.IsNullOrEmpty())
             {
                 var selectedRow = dtgData.SelectedRows[0];
-                if (selectedRow != null)
+                if (selectedRow.NotNullOrEmpty())
                 {
                     var val = Convert.ToInt32(selectedRow.Cells["clProcessId"].Value);
                     if (val != 0)
@@ -338,13 +342,13 @@ namespace RunBatForm
 
         private void btnStopAll_Click(object sender, EventArgs e)
         {
-            if (processes.NotNullOrEmpty())
+            if (!processes.IsNullOrEmpty())
             {
                 foreach (var proc in processes)
                 {
                     KillProcessAndChildrens(proc.Id);
                     var item = Global.StartItem.FirstOrDefault(i => i.processid == proc.Id);
-                    if (item != null)
+                    if (item.NotNullOrEmpty())
                     {
                         item.processid = 0;
                         item.message = "";
@@ -398,80 +402,26 @@ namespace RunBatForm
         private void Controls_Refresh()
         {
             dtgData.Invoke(new MethodInvoker(() => dtgData.Refresh()));
-            btnDelete.Invoke(new MethodInvoker(() =>
-            {
-                if (Global.StartItem.Any(x => x.processid != 0))
-                    btnDelete.Enabled = false;
-                else
-                    btnDelete.Enabled = true;
-            }));
-            btnAdd.Invoke(new MethodInvoker(() =>
-            {
-                if (Global.StartItem.Any(x => x.processid != 0))
-                    btnAdd.Enabled = false;
-                else
-                    btnAdd.Enabled = true;
-            }));
-            btnEdit.Invoke(new MethodInvoker(() =>
-            {
-                if (Global.StartItem.Any(x => x.processid != 0))
-                    btnEdit.Enabled = false;
-                else
-                    btnEdit.Enabled = true;
-            }));
-            btnConfig.Invoke(new MethodInvoker(() =>
-            {
-                if (Global.StartItem.Any(x => x.processid != 0))
-                    btnConfig.Enabled = false;
-                else
-                    btnConfig.Enabled = true;
-            }));
-            btnServerConfig.Invoke(new MethodInvoker(() =>
-            {
-                if (Global.StartItem.Any(x => x.processid != 0))
-                    btnServerConfig.Enabled = false;
-                else
-                    btnServerConfig.Enabled = true;
-            }));
-            btnReload.Invoke(new MethodInvoker(() =>
-            {
-                if (Global.StartItem.Any(x => x.processid != 0))
-                    btnReload.Enabled = false;
-                else
-                    btnReload.Enabled = true;
-            }));
-            btnResetProcess.Invoke(new MethodInvoker(() =>
-            {
-                if (Global.StartItem.Any(x => x.processid != 0))
-                    btnResetProcess.Enabled = false;
-                else
-                    btnResetProcess.Enabled = true;
-            }));
-            btnFindBat.Invoke(new MethodInvoker(() =>
-            {
-                if (Global.StartItem.Any(x => x.processid != 0))
-                    btnFindBat.Enabled = false;
-                else
-                    btnFindBat.Enabled = true;
-            }));
-            btnStop.Invoke(new MethodInvoker(() => EnableStopHandle(btnStop)));
-            btnStopAll.Invoke(new MethodInvoker(() => EnableStopHandle(btnStopAll)));
+            btnPublish.Invoke(new MethodInvoker(() => EnableButtonHandle(btnPublish, false)));
+            btnSaveChange.Invoke(new MethodInvoker(() => EnableButtonHandle(btnSaveChange, false)));
+            btnDelete.Invoke(new MethodInvoker(() => EnableButtonHandle(btnDelete, false)));
+            btnAdd.Invoke(new MethodInvoker(() => EnableButtonHandle(btnAdd, false)));
+            btnEdit.Invoke(new MethodInvoker(() => EnableButtonHandle(btnEdit, false)));
+            btnConfig.Invoke(new MethodInvoker(() => EnableButtonHandle(btnConfig, false)));
+            btnServerConfig.Invoke(new MethodInvoker(() => EnableButtonHandle(btnServerConfig, false)));
+            btnReload.Invoke(new MethodInvoker(() => EnableButtonHandle(btnReload, false)));
+            btnResetProcess.Invoke(new MethodInvoker(() => EnableButtonHandle(btnResetProcess, false)));
+            btnFindBat.Invoke(new MethodInvoker(() => EnableButtonHandle(btnFindBat, false)));
+            btnStop.Invoke(new MethodInvoker(() => EnableButtonHandle(btnStop, true)));
+            btnStopAll.Invoke(new MethodInvoker(() => EnableButtonHandle(btnStopAll, true)));
         }
 
-        private void EnableStopHandle(Button control)
+        private void EnableButtonHandle(Button control, bool statusIfHasProcess)
         {
             if (Global.StartItem.Any(x => x.processid != 0))
-                control.Enabled = true;
+                control.Enabled = statusIfHasProcess;
             else
-                control.Enabled = false;
-        }
-
-        private void EnableButtonHandle(Button control)
-        {
-            if (Global.StartItem.Any(x => x.processid != 0))
-                control.Enabled = false;
-            else
-                control.Enabled = true;
+                control.Enabled = !statusIfHasProcess;
         }
 
         private void dtgData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -542,6 +492,19 @@ namespace RunBatForm
 
         private void btnCreateBaseData_Click(object sender, EventArgs e)
         {
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!processes.IsNullOrEmpty())
+            {
+                foreach (var proc in processes)
+                {
+                    KillProcessAndChildrens(proc.Id);
+                    var item = Global.StartItem.FirstOrDefault(i => i.processid == proc.Id);
+                    Thread.Sleep(100);
+                }
+            }
         }
     }
 }

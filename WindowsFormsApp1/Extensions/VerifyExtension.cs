@@ -17,9 +17,9 @@ namespace RunBatForm.Extensions
             return target != null;
         }
 
-        public static bool NotNullOrEmpty<T>(this IEnumerable<T> source)
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)
         {
-            return (source?.Any() ?? false) == true;
+            return (source?.Any() ?? false) == false;
         }
     }
 }

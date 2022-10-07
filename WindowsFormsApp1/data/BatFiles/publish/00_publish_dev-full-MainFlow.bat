@@ -123,4 +123,17 @@ dotnet publish -c Local -o %archiveApiOutputUrl%
 @echo Publish successfully
 @echo -----------------------------------------------
 
+@echo Publishing IntegrationHubService ...
+CD %IntegrationHubServiceUrl%
+dotnet restore
+dotnet publish -c Local -o %integrationHubOutputUrl%  
+@echo Publish successfully
+@echo -----------------------------------------------
+
+@echo Publishing AuvenirIntegrationHubProcessor ...
+CD %AuvenirIntegrationHubProcessorUrl%
+dotnet restore
+dotnet publish -c Local -o %AuvenirIntegrationHubProcessorOutputUrl%  
+@echo Publish successfully---------------------------------------
+
 pause

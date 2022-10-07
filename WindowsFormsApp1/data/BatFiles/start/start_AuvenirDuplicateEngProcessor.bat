@@ -7,5 +7,5 @@ set ASPNETCORE_ENVIRONMENT=Local
 set AzureWebJobsStorage=UseDevelopmentStorage=true
 set AzureWebJobsDashboard=UseDevelopmentStorage=true
 
-%azureFunctionToolNet6Path% host start --port 8086 -c Local
+%azureFunctionToolPath% host start --port 8086 -c Local
 pause 

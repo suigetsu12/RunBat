@@ -1,4 +1,4 @@
-Title Publish Main Database from DACPAC
+Title Migrate Main Database from DACPAC
 call config_server_main.bat
 @ECHO OFF
 

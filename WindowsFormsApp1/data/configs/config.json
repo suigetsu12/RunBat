@@ -1,9 +1,10 @@
 {
   "path": "C:\\Projects\\Commercial\\6.0",
   "publish_folder": "publish",
-  "backup_data_folder": "data",
+  "backup_data_folder": "database",
   "app_config": "app_config.bat",
   "project_folder": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.Application\\",
   "database_project_folder": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\",
-  "VsDevCmd_path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
+  "VsDevCmd_path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\Tools\\VsDevCmd.bat",
+  "azurefuncTool_path": "C:\\Users\\admin\\AppData\\Local\\AzureFunctionsTools\\Releases\\4.10.1\\cli_x64\\func.exe"
 }

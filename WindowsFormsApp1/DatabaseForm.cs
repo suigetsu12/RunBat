@@ -64,10 +64,10 @@ namespace RunBatForm
 
         private void BindData(HandleDatabaseType type)
         {
-            if(items != null && items.Count > 0)
+            if(!items.IsNullOrEmpty())
             {
                 var _data = items.FindAll(i => i.handle_type == type);
-                if (_data != null && _data.Count > 0)
+                if (!_data.IsNullOrEmpty())
                 {
                     pnItems.Controls.Clear();
                     int yPoint = 15;

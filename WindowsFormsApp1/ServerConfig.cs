@@ -36,7 +36,7 @@ namespace RunBatForm
             if (mainJsonData.NotNullOrEmpty())
             {
                 Main = JsonHelper.Deserialize<ServerConfigurationModel>(mainJsonData);
-                if (Main != null)
+                if (Main.NotNullOrEmpty())
                 {
                     txtPasswordMain.Text = Main.Password;
                     txtServerMain.Text = Main.Server;
@@ -54,7 +54,7 @@ namespace RunBatForm
             if (cfJsonData.NotNullOrEmpty())
             {
                 CF = JsonHelper.Deserialize<ServerConfigurationModel>(cfJsonData);
-                if (CF != null)
+                if (CF.NotNullOrEmpty())
                 {
                     txtPasswordCF.Text = CF.Password;
                     txtServerCF.Text = CF.Server;
@@ -70,7 +70,7 @@ namespace RunBatForm
             }
 
             var _data = CF ?? Main;
-            if (_data != null)
+            if (_data.NotNullOrEmpty())
             {
                 txtSQLCMDPath.Text = _data?.SQLCMD;
                 txtExportTo.Text = _data?.Path;

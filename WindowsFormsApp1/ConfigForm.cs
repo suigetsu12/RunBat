@@ -44,6 +44,7 @@ namespace RunBatForm
             toolTip4.SetToolTip(label4, "Path of the project folder");
             toolTip5.SetToolTip(label5, "Path of the .bat file Visual Studio Dev Command-Line");
             toolTip6.SetToolTip(label6, "Path of the database project folder");
+            toolTip7.SetToolTip(label7, "Path of the .exe file azure function tool");
         }
 
         private void RenderData()
@@ -55,6 +56,7 @@ namespace RunBatForm
             txtProjectFolder.Text = Global.Configuration.ProjectFolder;
             txtDatabaseProjectFolder.Text = Global.Configuration.DatabaseProjectFolder;
             txtVSDevCmdPath.Text = Global.Configuration.VsDevCmdPath;
+            txtAzureFuncToolPath.Text = Global.Configuration.AzureFuncToolPath;
         }
 
         private void btnBrowser_Click(object sender, EventArgs e)
@@ -64,6 +66,7 @@ namespace RunBatForm
 
         private void ChooseFolder()
         {
+            folderBrowserDialog.SelectedPath = txtFolder.Text ?? Global.Configuration.Path;
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string newPath = folderBrowserDialog.SelectedPath;
@@ -88,6 +91,8 @@ namespace RunBatForm
                 return String.Format(MessageConstans.TheFieldEmpty, "project database folder path");
             if (!txtVSDevCmdPath.Text.NotNullOrEmpty())
                 return String.Format(MessageConstans.TheFieldEmpty, "VSDev Cmd path");
+            if (!txtAzureFuncToolPath.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "Azure function tool path");
             return string.Empty;
         }
 
@@ -104,6 +109,7 @@ namespace RunBatForm
             Global.Configuration.ProjectFolder = txtProjectFolder.Text;
             Global.Configuration.DatabaseProjectFolder = txtDatabaseProjectFolder.Text;
             Global.Configuration.VsDevCmdPath = txtVSDevCmdPath.Text;
+            Global.Configuration.AzureFuncToolPath = txtAzureFuncToolPath.Text;
             var resultSavePathBat = SavePathBat();
             var jsonData = JsonHelper.Serializer(Global.Configuration);
             var result = FileHelper.WriteFile(Path.Combine(Global.RootAppFolderPath, FilePath.Configuration), jsonData);
@@ -151,6 +157,13 @@ namespace RunBatForm
                     FileHelper.WriteFile(mainConfigPath, jsonMainData);
                     FileHelper.WriteFile(cfConfigPath, jsonCFData);
                 }
+
+                var pathData = ConvertModelToBatContentString.PathFile(Global.Configuration);
+                if (pathData.NotNullOrEmpty())
+                {
+                    string pathPath = Path.Combine(Global.RootAppFolderPath, BatPath.PathBat);
+                    FileHelper.WriteFile(pathPath, pathData);
+                }
                 MessageBox.Show(MessageConstans.Success);
             }
             else
@@ -176,6 +189,7 @@ namespace RunBatForm
 
         private void ChooseProjectFolder()
         {
+            projectFolderBrowserDialog.SelectedPath = txtProjectFolder.Text ?? Global.Configuration.ProjectFolder;
             if (projectFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string newPath = projectFolderBrowserDialog.SelectedPath;
@@ -232,10 +246,26 @@ namespace RunBatForm
 
         private void ChooseDatabaseProjectFolder()
         {
+            databaseProjectFolderBrowserDialog.SelectedPath = txtDatabaseProjectFolder.Text ?? Global.Configuration.DatabaseProjectFolder;
             if (databaseProjectFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string newPath = databaseProjectFolderBrowserDialog.SelectedPath;
                 txtDatabaseProjectFolder.Text = newPath;
+                btnRevert.Visible = true;
+            }
+        }
+
+        private void btnAzureFuncToolPathBrowser_Click(object sender, EventArgs e)
+        {
+            ChooseAzureFuncToolFile();
+        }
+
+        private void ChooseAzureFuncToolFile()
+        {
+            if (openAzureFuncToolFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string newPath = openAzureFuncToolFileDialog.FileName;
+                txtAzureFuncToolPath.Text = newPath;
                 btnRevert.Visible = true;
             }
         }
