@@ -36,6 +36,15 @@ ECHO Begin publish to WorkingPaper DB
 
 ECHO End publish to WorkingPaper DB
 
+call a_config.bat
+
+SET INPUT="script_insert_entity.sql"
+
+ECHO Begin add default entity to Core DB
+
+%SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -i %INPUT%
+
+ECHO End add default entity to Core DB
 @pause
 
 exit
