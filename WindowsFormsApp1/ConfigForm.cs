@@ -68,6 +68,7 @@ namespace RunBatForm
 
         private void ChooseFolder()
         {
+            folderBrowserDialog.SelectedPath = txtFolder.Text ?? Global.Configuration.Path;
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string newPath = folderBrowserDialog.SelectedPath;
@@ -163,6 +164,13 @@ namespace RunBatForm
                     FileHelper.WriteFile(mainConfigPath, jsonMainData);
                     FileHelper.WriteFile(cfConfigPath, jsonCFData);
                 }
+
+                var pathData = ConvertModelToBatContentString.PathFile(Global.Configuration);
+                if (pathData.NotNullOrEmpty())
+                {
+                    string pathPath = Path.Combine(Global.RootAppFolderPath, BatPath.PathBat);
+                    FileHelper.WriteFile(pathPath, pathData);
+                }
                 CreateFolder();
                 MessageBox.Show(MessageConstans.Success);
             }
@@ -189,6 +197,7 @@ namespace RunBatForm
 
         private void ChooseProjectFolder()
         {
+            projectFolderBrowserDialog.SelectedPath = txtProjectFolder.Text ?? Global.Configuration.ProjectFolder;
             if (projectFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string newPath = projectFolderBrowserDialog.SelectedPath;
@@ -236,6 +245,7 @@ namespace RunBatForm
 
         private void ChooseDatabaseProjectFolder()
         {
+            databaseProjectFolderBrowserDialog.SelectedPath = txtDatabaseProjectFolder.Text ?? Global.Configuration.DatabaseProjectFolder;
             if (databaseProjectFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string newPath = databaseProjectFolderBrowserDialog.SelectedPath;

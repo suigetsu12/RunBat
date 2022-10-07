@@ -485,7 +485,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(107, 379);
+            this.label9.Location = new System.Drawing.Point(107, 375);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 20);
             this.label9.TabIndex = 11;
@@ -494,7 +494,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(104, 412);
+            this.label10.Location = new System.Drawing.Point(104, 408);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 20);
             this.label10.TabIndex = 12;
@@ -523,7 +523,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(79, 441);
+            this.label27.Location = new System.Drawing.Point(81, 441);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(93, 20);
             this.label27.TabIndex = 24;
@@ -550,12 +550,10 @@
             // openFileSQLCMDDialog
             // 
             this.openFileSQLCMDDialog.FileName = "openFileDialog1";
-            this.openFileSQLCMDDialog.Filter = "\"exe files (*.exe)|*.exe\"";
             // 
             // openFileSQLPackageDialog
             // 
             this.openFileSQLPackageDialog.FileName = "openFileDialog1";
-            this.openFileSQLPackageDialog.Filter = "\"exe files (*.exe)|*.exe\"";
             // 
             // frmServerConfig
             // 
@@ -578,6 +576,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmServerConfig";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Database Configuration";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

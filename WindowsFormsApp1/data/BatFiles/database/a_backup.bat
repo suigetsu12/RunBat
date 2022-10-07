@@ -1,3 +1,5 @@
+Title Backup_Main
+
 call a_config.bat
 SET INPUT="script_backup.sql"
 

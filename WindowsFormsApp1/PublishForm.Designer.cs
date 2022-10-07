@@ -104,6 +104,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPublishForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Publish";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

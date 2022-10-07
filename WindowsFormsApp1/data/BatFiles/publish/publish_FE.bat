@@ -7,3 +7,5 @@ cd %feSourceUrl%
 dotnet publish -c Local -o %feOutputUrl%
 @echo -----------------------------------------------
 @echo -----------------------------------------------
+
+pause

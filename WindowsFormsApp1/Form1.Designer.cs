@@ -74,7 +74,7 @@ namespace RunBatForm
             // 
             this.btnRun.BackColor = System.Drawing.SystemColors.Control;
             this.btnRun.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnRun.Location = new System.Drawing.Point(397, 127);
+            this.btnRun.Location = new System.Drawing.Point(269, 127);
             this.btnRun.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(114, 31);
@@ -107,7 +107,7 @@ namespace RunBatForm
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(269, 127);
+            this.btnReload.Location = new System.Drawing.Point(388, 95);
             this.btnReload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(122, 31);
@@ -158,7 +158,7 @@ namespace RunBatForm
             this.clRun.HeaderText = "Run";
             this.clRun.MinimumWidth = 6;
             this.clRun.Name = "clRun";
-            this.clRun.Width = 125;
+            this.clRun.Width = 60;
             // 
             // clId
             // 
@@ -179,7 +179,7 @@ namespace RunBatForm
             this.clName.MinimumWidth = 6;
             this.clName.Name = "clName";
             this.clName.ReadOnly = true;
-            this.clName.Width = 125;
+            this.clName.Width = 200;
             // 
             // clFileName
             // 
@@ -194,15 +194,17 @@ namespace RunBatForm
             // clProcessId
             // 
             this.clProcessId.DataPropertyName = "processid";
-            this.clProcessId.HeaderText = "Process Id";
+            this.clProcessId.Frozen = true;
+            this.clProcessId.HeaderText = "Process";
             this.clProcessId.MinimumWidth = 6;
             this.clProcessId.Name = "clProcessId";
             this.clProcessId.ReadOnly = true;
-            this.clProcessId.Width = 125;
+            this.clProcessId.Width = 80;
             // 
             // clMessage
             // 
             this.clMessage.DataPropertyName = "message";
+            this.clMessage.Frozen = true;
             this.clMessage.HeaderText = "Message";
             this.clMessage.MinimumWidth = 6;
             this.clMessage.Name = "clMessage";
@@ -236,7 +238,7 @@ namespace RunBatForm
             // 
             this.btnStop.Enabled = false;
             this.btnStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnStop.Location = new System.Drawing.Point(397, 95);
+            this.btnStop.Location = new System.Drawing.Point(269, 95);
             this.btnStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(114, 31);
@@ -249,7 +251,7 @@ namespace RunBatForm
             // 
             this.btnStopAll.Enabled = false;
             this.btnStopAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnStopAll.Location = new System.Drawing.Point(397, 63);
+            this.btnStopAll.Location = new System.Drawing.Point(269, 63);
             this.btnStopAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStopAll.Name = "btnStopAll";
             this.btnStopAll.Size = new System.Drawing.Size(114, 31);
@@ -291,7 +293,7 @@ namespace RunBatForm
             this.btnPublish.Name = "btnPublish";
             this.btnPublish.Size = new System.Drawing.Size(252, 31);
             this.btnPublish.TabIndex = 15;
-            this.btnPublish.Text = "Projects";
+            this.btnPublish.Text = "App";
             this.btnPublish.UseVisualStyleBackColor = false;
             this.btnPublish.Click += new System.EventHandler(this.btnPublish_Click);
             // 
@@ -308,7 +310,7 @@ namespace RunBatForm
             // 
             // btnFindBat
             // 
-            this.btnFindBat.Location = new System.Drawing.Point(269, 95);
+            this.btnFindBat.Location = new System.Drawing.Point(388, 63);
             this.btnFindBat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFindBat.Name = "btnFindBat";
             this.btnFindBat.Size = new System.Drawing.Size(122, 31);
@@ -320,13 +322,14 @@ namespace RunBatForm
             // btnResetProcess
             // 
             this.btnResetProcess.ForeColor = System.Drawing.Color.Red;
-            this.btnResetProcess.Location = new System.Drawing.Point(269, 63);
+            this.btnResetProcess.Location = new System.Drawing.Point(388, 127);
             this.btnResetProcess.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnResetProcess.Name = "btnResetProcess";
             this.btnResetProcess.Size = new System.Drawing.Size(122, 31);
             this.btnResetProcess.TabIndex = 17;
             this.btnResetProcess.Text = "Reset Process";
             this.btnResetProcess.UseVisualStyleBackColor = true;
+            this.btnResetProcess.Visible = false;
             this.btnResetProcess.Click += new System.EventHandler(this.btnResetProcess_Click);
             // 
             // btnServerConfig
@@ -379,7 +382,8 @@ namespace RunBatForm
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Mini tool";
+            this.Text = "Tool";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dtgData)).EndInit();
             this.Publish.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -7,5 +7,4 @@ cd %spoApiSourceUrl%
 dotnet restore
 dotnet publish -c Local -o %spoApiOutputUrl%   /property:langversion=latest
 pause
-@echo -----------------------------------------------
 

@@ -30,6 +30,11 @@
     "publish_type": 0
   },
   {
+    "name": "Integration Hub Feature",
+    "file_name": "05_publish_dev-IntegrationHub.bat",
+    "publish_type": 0
+  },
+  {
     "name": "Account Working Paper Service",
     "file_name": "public_AccountWorkingPaperService.bat",
     "publish_type": 1
@@ -107,6 +112,16 @@
   {
     "name": "Wp Generation Processor",
     "file_name": "publish_WpGenerationProcessor.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Integration Hub Processor",
+    "file_name": "publish_AuvenirIntegrationHubProcessor.bat",
+    "publish_type": 1
+  },
+  {
+    "name": "Integration Hub Service",
+    "file_name": "public_IntegrationHubService.bat",
     "publish_type": 1
   }
 ]

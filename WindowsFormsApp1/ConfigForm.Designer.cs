@@ -221,7 +221,6 @@
             // openVSDevCmdFileDialog
             // 
             this.openVSDevCmdFileDialog.FileName = "openVSDevCmdFileDialog";
-            this.openVSDevCmdFileDialog.Filter = "\"bat files (*.bat)|*.bat\"";
             // 
             // btnDatabaseProjectBrowser
             // 
@@ -347,6 +346,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuration";
             this.ResumeLayout(false);
             this.PerformLayout();

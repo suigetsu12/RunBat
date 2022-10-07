@@ -1,3 +1,5 @@
+title FE
+CD ..
 call app_config.bat
 
 CD %feSourceUrl%

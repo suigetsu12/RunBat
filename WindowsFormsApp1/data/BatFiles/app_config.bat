@@ -45,6 +45,10 @@ set AuvenirDuplicateEngProcessorUrl=%rootPathProject%DuplicateEngagement\Auvenir
 
 set AuvenirDuplicateFileProcessorUrl=%rootPathProject%DuplicateEngagement\Auvenir.DuplicateFileProcessor
 
+set IntegrationHubServiceUrl= %rootPathProject%IntegrationHubService\Auvenir.IntegrationHubService
+
+set AuvenirIntegrationHubProcessorUrl= %rootPathProject%IntegrationHubProcessor\Auvenir.IntegrationHubProcessor
+
 :: --------------------------- The PATH you want to build to   ----------------------------------------
 
 set coreOutputUrl=%rootPathStart%CoreService
@@ -90,3 +94,14 @@ set AuvenirDuplicateEngCommonOutputUrl=%rootPathStart%DuplicateEngCommon
 set AuvenirDuplicateEngProcessorOutputUrl=%rootPathStart%DuplicateEngProcessor
 
 set AuvenirDuplicateFileProcessorOutputUrl=%rootPathStart%DuplicateFileProcessor
+set WpGenerationProcessorOutputUrl=%rootPathStart%WpGenerationProcessor
+
+set AuvenirDuplicateEngCommonOutputUrl=%rootPathStart%Auvenir.DuplicateEng.Common
+
+set AuvenirDuplicateEngProcessorOutputUrl=%rootPathStart%Auvenir.DuplicateEngProcessor
+
+set AuvenirDuplicateFileProcessorOutputUrl=%rootPathStart%Auvenir.DuplicateFileProcessor
+
+set integrationHubOutputUrl=%rootPathStart%IntegrationHubService
+
+set AuvenirIntegrationHubProcessorOutputUrl=%rootPathStart%IntegrationHubProcessor

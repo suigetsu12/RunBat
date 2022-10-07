@@ -363,6 +363,21 @@
     <None Update="dataStart.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="data\BatFiles\publish\05_publish_dev-IntegrationHub.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="data\BatFiles\publish\public_IntegrationHubService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="data\BatFiles\publish\publish_AuvenirIntegrationHubProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="data\BatFiles\start\start_IntegrationHubProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="data\BatFiles\start\start_IntegrationHubService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
