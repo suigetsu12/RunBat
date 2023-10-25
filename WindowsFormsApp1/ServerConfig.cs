@@ -16,66 +16,47 @@ namespace RunBatForm
 {
     public partial class frmServerConfig : Form
     {
-        private string cfConfigPath;
-        private string mainConfigPath;
-        private ServerConfigurationModel CF;
-        private ServerConfigurationModel Main;
+        private string configDatabasePath;
+        private ServerConfigurationModel ConfigDatabase;
 
         public frmServerConfig()
         {
             InitializeComponent();
-            cfConfigPath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigCFPath);
-            mainConfigPath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigMainPath);
+            configDatabasePath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigDatabasePath);
             LoadData();
         }
 
         private void LoadData()
         {
-            var mainJsonData = FileHelper.ReadFile(mainConfigPath);
-            var cfJsonData = FileHelper.ReadFile(cfConfigPath);
-            if (mainJsonData.NotNullOrEmpty())
+            var configJsonData = FileHelper.ReadFile(configDatabasePath);
+            if (configJsonData.NotNullOrEmpty())
             {
-                Main = JsonHelper.Deserialize<ServerConfigurationModel>(mainJsonData);
-                if (Main.NotNullOrEmpty())
+                ConfigDatabase = JsonHelper.Deserialize<ServerConfigurationModel>(configJsonData);
+                if (ConfigDatabase.NotNullOrEmpty())
                 {
-                    txtPasswordMain.Text = Main.Password;
-                    txtServerMain.Text = Main.Server;
-                    txtUserMain.Text = Main.Login;
-                    txtPortMain.Text = Main.Port;
-                    txtGeoMain.Text = Main.GEO;
-                    txtGeoPasswordMain.Text = Main.GEOPassword;
-                    txtUserContainerCodeMain.Text = Main.UserContainerCode;
-                    txtContainerPasswordMain.Text = Main.ContainerPassword;
-                    txtContainerCodeMain.Text = Main.ContainerCode;
-                    txtDeployEnvMain.Text = Main.DeployEnv;
-                }
-            }
+                    txtEntityName.Text = ConfigDatabase.Entity.Name;
+                    txtSiteCollectionUrl.Text = ConfigDatabase.Entity.SiteCollectionUrl;
+                    txtGeo.Text = ConfigDatabase.GEO;
+                    txtGeoPassword.Text = ConfigDatabase.GEOPassword;
+                    txtUserContainerCode.Text = ConfigDatabase.UserContainerCode;
+                    txtContainerPassword.Text = ConfigDatabase.ContainerPassword;
+                    txtContainerCode.Text = ConfigDatabase.ContainerCode;
+                    txtDeployEnv.Text = ConfigDatabase.DeployEnv;
+                    txtSQLCMDPath.Text = ConfigDatabase.SQLCMD;
+                    txtExportTo.Text = ConfigDatabase.Path;
+                    ttSQLCMD.SetToolTip(txtSQLCMDPath, ConfigDatabase.SQLCMD);
+                    txtSQLPackagePath.Text = ConfigDatabase.SQLPackage;
 
-            if (cfJsonData.NotNullOrEmpty())
-            {
-                CF = JsonHelper.Deserialize<ServerConfigurationModel>(cfJsonData);
-                if (CF.NotNullOrEmpty())
-                {
-                    txtPasswordCF.Text = CF.Password;
-                    txtServerCF.Text = CF.Server;
-                    txtUserCF.Text = CF.Login;
-                    txtPortCF.Text = CF.Port;
-                    txtGeoCF.Text = CF.GEO;
-                    txtGeoPasswordCF.Text = CF.GEOPassword;
-                    txtUserContainerCodeCF.Text = CF.UserContainerCode;
-                    txtContainerPasswordCF.Text = CF.ContainerPassword;
-                    txtContainerCodeCF.Text = CF.ContainerCode;
-                    txtDeployEnvCF.Text = CF.DeployEnv;
-                }
-            }
+                    txtServerMain.Text = ConfigDatabase.Main.Server;
+                    txtUserMain.Text = ConfigDatabase.Main.Login;
+                    txtPasswordMain.Text = ConfigDatabase.Main.Password;
+                    txtPortMain.Text = ConfigDatabase.Main.Port;
 
-            var _data = CF ?? Main;
-            if (_data.NotNullOrEmpty())
-            {
-                txtSQLCMDPath.Text = _data?.SQLCMD;
-                txtExportTo.Text = _data?.Path;
-                ttSQLCMD.SetToolTip(txtSQLCMDPath, _data?.SQLCMD);
-                txtSQLPackagePath.Text = _data?.SQLPackage;
+                    txtServerCF.Text = ConfigDatabase.CF.Server;
+                    txtUserCF.Text = ConfigDatabase.CF.Login;
+                    txtPasswordCF.Text = ConfigDatabase.CF.Password;
+                    txtPortCF.Text = ConfigDatabase.CF.Port;
+                }
             }
         }
 
@@ -104,18 +85,6 @@ namespace RunBatForm
                 return string.Format(MessageConstans.TheFieldEmpty, "password main");
             if (!txtPortMain.Text.NotNullOrEmpty())
                 return string.Format(MessageConstans.TheFieldEmpty, "port main");
-            if (!txtGeoMain.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "geo main");
-            if (!txtGeoPasswordMain.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "geo password main");
-            if (!txtUserContainerCodeMain.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "user container code main");
-            if (!txtContainerPasswordMain.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "container password main");
-            if (!txtContainerCodeMain.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "container code main");
-            if (!txtDeployEnvMain.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "deploy env main");
             #endregion
 
             #region [CF]
@@ -127,21 +96,26 @@ namespace RunBatForm
                 return string.Format(MessageConstans.TheFieldEmpty, "password cf");
             if (!txtPortCF.Text.NotNullOrEmpty())
                 return string.Format(MessageConstans.TheFieldEmpty, "port cf");
-            if (!txtGeoCF.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "geo cf");
-            if (!txtGeoPasswordCF.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "geo password cf");
-            if (!txtUserContainerCodeCF.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "user container code cf");
-            if (!txtContainerPasswordCF.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "container password cf");
-            if (!txtContainerCodeCF.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "container code cf");
-            if (!txtDeployEnvCF.Text.NotNullOrEmpty())
-                return string.Format(MessageConstans.TheFieldEmpty, "deploy env cf");
             #endregion
 
             #region [General]
+            if (!txtEntityName.Text.NotNullOrEmpty())
+                return string.Format(MessageConstans.TheFieldEmpty, "entity name");
+            if (!txtSiteCollectionUrl.Text.NotNullOrEmpty())
+                return string.Format(MessageConstans.TheFieldEmpty, "site collection url");
+            if (!txtUserContainerCode.Text.NotNullOrEmpty())
+                if (!txtGeo.Text.NotNullOrEmpty())
+                return string.Format(MessageConstans.TheFieldEmpty, "geo");
+            if (!txtGeoPassword.Text.NotNullOrEmpty())
+                return string.Format(MessageConstans.TheFieldEmpty, "geo password");
+            if (!txtUserContainerCode.Text.NotNullOrEmpty())
+                return string.Format(MessageConstans.TheFieldEmpty, "user container code");
+            if (!txtContainerPassword.Text.NotNullOrEmpty())
+                return string.Format(MessageConstans.TheFieldEmpty, "container password");
+            if (!txtContainerCode.Text.NotNullOrEmpty())
+                return string.Format(MessageConstans.TheFieldEmpty, "container code");
+            if (!txtDeployEnv.Text.NotNullOrEmpty())
+                return string.Format(MessageConstans.TheFieldEmpty, "deploy env");
             if (!txtSQLCMDPath.Text.NotNullOrEmpty())
                 return string.Format(MessageConstans.TheFieldEmpty, "SQLCMD path");
             if (!txtSQLPackagePath.Text.NotNullOrEmpty())
@@ -160,82 +134,44 @@ namespace RunBatForm
             }
             var result = Update();
             if (result)
-            {
                 MessageBox.Show(MessageConstans.Success);
-                UpdateConfigBat();
-            }
             else
                 MessageBox.Show(MessageConstans.Failed);
         }
 
         private bool Update()
         {
-            #region [Main]
-            Main.Server = txtServerMain.Text.Trim();
-            Main.Login = txtUserMain.Text.Trim();
-            Main.Password = txtPasswordMain.Text.Trim();
-            Main.Port = txtPortMain.Text.Trim();
-            Main.SQLCMD = txtSQLCMDPath.Text.Trim();
-            Main.GEO = txtGeoMain.Text.Trim();
-            Main.GEOPassword = txtGeoPasswordMain.Text.Trim();
-            Main.UserContainerCode = txtUserContainerCodeMain.Text.Trim();
-            Main.ContainerPassword = txtContainerPasswordMain.Text.Trim();
-            Main.ContainerCode = txtContainerCodeMain.Text.Trim();
-            Main.DeployEnv = txtDeployEnvMain.Text.Trim();
-            Main.SQLPackage = txtSQLPackagePath.Text.Trim();
+            #region [General]
+            ConfigDatabase.Entity.Name = txtEntityName.Text.Trim();
+            ConfigDatabase.Entity.SiteCollectionUrl = txtSiteCollectionUrl.Text.Trim();
+            ConfigDatabase.SQLCMD = txtSQLCMDPath.Text.Trim();
+            ConfigDatabase.GEO = txtGeo.Text.Trim();
+            ConfigDatabase.GEOPassword = txtGeoPassword.Text.Trim();
+            ConfigDatabase.UserContainerCode = txtUserContainerCode.Text.Trim();
+            ConfigDatabase.ContainerPassword = txtContainerPassword.Text.Trim();
+            ConfigDatabase.ContainerCode = txtContainerCode.Text.Trim();
+            ConfigDatabase.DeployEnv = txtDeployEnv.Text.Trim();
+            ConfigDatabase.SQLPackage = txtSQLPackagePath.Text.Trim();
+            #endregion
 
-            var jsonMainData = JsonHelper.Serializer(Main);
+            #region [Main]
+            ConfigDatabase.Main.Server = txtServerMain.Text.Trim();
+            ConfigDatabase.Main.Login = txtUserMain.Text.Trim();
+            ConfigDatabase.Main.Password = txtPasswordMain.Text.Trim();
+            ConfigDatabase.Main.Port = txtPortMain.Text.Trim();
             #endregion
 
             #region [CF]
-            CF.Server = txtServerCF.Text.Trim();
-            CF.Login = txtUserCF.Text.Trim();
-            CF.Password = txtPasswordCF.Text.Trim();
-            CF.Port = txtPortCF.Text.Trim();
-            CF.SQLCMD = txtSQLCMDPath.Text.Trim();
-            CF.SQLCMD = txtSQLCMDPath.Text.Trim();
-            CF.GEO = txtGeoCF.Text.Trim();
-            CF.GEOPassword = txtGeoPasswordCF.Text.Trim();
-            CF.UserContainerCode = txtUserContainerCodeCF.Text.Trim();
-            CF.ContainerPassword = txtContainerPasswordCF.Text.Trim();
-            CF.ContainerCode = txtContainerCodeCF.Text.Trim();
-            CF.DeployEnv = txtDeployEnvCF.Text.Trim();
-            CF.SQLPackage = txtSQLPackagePath.Text.Trim();
-
-            var jsonCFData = JsonHelper.Serializer(CF);
+            ConfigDatabase.CF.Server = txtServerCF.Text.Trim();
+            ConfigDatabase.CF.Login = txtUserCF.Text.Trim();
+            ConfigDatabase.CF.Password = txtPasswordCF.Text.Trim();
+            ConfigDatabase.CF.Port = txtPortCF.Text.Trim();
             #endregion
 
-            if (jsonMainData.NotNullOrEmpty() && jsonCFData.NotNullOrEmpty())
-            {
-                var updateMainResult = FileHelper.WriteFile(mainConfigPath, jsonMainData);
-                var updateCFResult = FileHelper.WriteFile(cfConfigPath, jsonCFData);
-                return updateMainResult && updateCFResult;
-            }
+            var jsonData = JsonHelper.Serializer(ConfigDatabase);
+            if (ConfigDatabase.NotNullOrEmpty())
+                return FileHelper.WriteFile(configDatabasePath, jsonData);
             return false;
-        }
-
-        private void UpdateConfigBat()
-        {
-            string mainConfigData = ConvertModelToBatContentString.ConfigServer(Main);
-            string cfConfigData = ConvertModelToBatContentString.ConfigServer(CF);
-            if (mainConfigData.NotNullOrEmpty() && cfConfigData.NotNullOrEmpty())
-            {
-                string mainConfigPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerMain);
-                string cfConfigPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerCF);
-                FileHelper.WriteFile(mainConfigPath, mainConfigData);
-                FileHelper.WriteFile(cfConfigPath, cfConfigData);
-            }
-
-            string path = Path.Combine(Global.Configuration.Path, Global.Configuration.BackupDataFolder);
-            string mainConfigShortData = ConvertModelToBatContentString.ConfigShortServer(Main, path);
-            string cfConfigShortData = ConvertModelToBatContentString.ConfigShortServer(CF, path);
-            if (mainConfigShortData.NotNullOrEmpty() && cfConfigShortData.NotNullOrEmpty())
-            {
-                string mainConfigShortPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerShortMain);
-                string cfConfigShortPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerShortCF);
-                FileHelper.WriteFile(mainConfigShortPath, mainConfigShortData);
-                FileHelper.WriteFile(cfConfigShortPath, cfConfigShortData);
-            }
         }
 
         private void btnBrowserSQLPackage_Click(object sender, EventArgs e)

@@ -15,7 +15,7 @@ namespace RunBatForm.BaseWorkings
         {
             if (path.NotNullOrEmpty() && data.NotNullOrEmpty())
             {
-                FileHelper.WriteNewFile(path, data);
+                FileHelper.WriteFile(path, data);
             }
         }
     }

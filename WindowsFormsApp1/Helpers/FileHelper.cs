@@ -19,7 +19,7 @@ namespace RunBatForm.Helpers
 
                 if (!File.Exists(path))
                 {
-                    using (FileStream fs = File.Create(path)) ;
+                    using (FileStream fs = File.Create(path));
                 }
                 File.WriteAllText(path, jsonString);
                 return true;
@@ -47,26 +47,17 @@ namespace RunBatForm.Helpers
             return jsonString;
         }
 
-        public static bool WriteNewFile(string path, string jsonString)
+        public static bool DeleteFile(string path)
         {
-            try
-            {
-                if (!path.NotNullOrEmpty() || !jsonString.NotNullOrEmpty())
-                {
-                    return false;
-                }
-
-                if (!File.Exists(path))
-                {
-                    using (FileStream fs = File.Create(path)) ;
-                    File.WriteAllText(path, jsonString);
-                }
-                return true;
-            }
-            catch
+            if (!path.NotNullOrEmpty())
             {
                 return false;
             }
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            return true;
         }
     }
 }

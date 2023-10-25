@@ -93,6 +93,7 @@
     <None Remove="data\BatFiles\_path.bat" />
     <None Remove="data\configs\config.json" />
     <None Remove="data\configs\configCFDatabase.json" />
+    <None Remove="data\configs\configDatabase.json" />
     <None Remove="data\configs\configMainDatabase.json" />
     <None Remove="data\configs\dataDatabase.json" />
     <None Remove="data\configs\dataPublish.json" />
@@ -319,6 +320,9 @@
     <Content Include="data\configs\configCFDatabase.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="data\configs\configDatabase.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\configs\configMainDatabase.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -402,6 +406,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="data\BatFiles\temp\" />
   </ItemGroup>
 
 </Project>

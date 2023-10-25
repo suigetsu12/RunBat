@@ -37,15 +37,19 @@
             this.rdbMigrate = new System.Windows.Forms.RadioButton();
             this.rdbDeploy = new System.Windows.Forms.RadioButton();
             this.btnRun = new System.Windows.Forms.Button();
+            this.gbDatabaseGroup = new System.Windows.Forms.GroupBox();
+            this.cbCatalog = new System.Windows.Forms.CheckBox();
+            this.cbWorkingpaper = new System.Windows.Forms.CheckBox();
+            this.cbCore = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            this.gbDatabaseGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnItems
             // 
-            this.pnItems.AutoScroll = true;
-            this.pnItems.Location = new System.Drawing.Point(12, 78);
+            this.pnItems.Location = new System.Drawing.Point(120, 23);
             this.pnItems.Name = "pnItems";
-            this.pnItems.Size = new System.Drawing.Size(626, 365);
+            this.pnItems.Size = new System.Drawing.Size(286, 203);
             this.pnItems.TabIndex = 7;
             // 
             // groupBox1
@@ -55,16 +59,16 @@
             this.groupBox1.Controls.Add(this.rdbBackup);
             this.groupBox1.Controls.Add(this.rdbMigrate);
             this.groupBox1.Controls.Add(this.rdbDeploy);
-            this.groupBox1.Location = new System.Drawing.Point(12, 7);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(428, 65);
+            this.groupBox1.Size = new System.Drawing.Size(102, 214);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // rdbDrop
             // 
             this.rdbDrop.AutoSize = true;
-            this.rdbDrop.Location = new System.Drawing.Point(348, 26);
+            this.rdbDrop.Location = new System.Drawing.Point(6, 146);
             this.rdbDrop.Name = "rdbDrop";
             this.rdbDrop.Size = new System.Drawing.Size(64, 24);
             this.rdbDrop.TabIndex = 4;
@@ -76,7 +80,7 @@
             // rdbRestore
             // 
             this.rdbRestore.AutoSize = true;
-            this.rdbRestore.Location = new System.Drawing.Point(262, 26);
+            this.rdbRestore.Location = new System.Drawing.Point(6, 116);
             this.rdbRestore.Name = "rdbRestore";
             this.rdbRestore.Size = new System.Drawing.Size(80, 24);
             this.rdbRestore.TabIndex = 3;
@@ -88,7 +92,7 @@
             // rdbBackup
             // 
             this.rdbBackup.AutoSize = true;
-            this.rdbBackup.Location = new System.Drawing.Point(178, 26);
+            this.rdbBackup.Location = new System.Drawing.Point(6, 86);
             this.rdbBackup.Name = "rdbBackup";
             this.rdbBackup.Size = new System.Drawing.Size(78, 24);
             this.rdbBackup.TabIndex = 2;
@@ -100,7 +104,7 @@
             // rdbMigrate
             // 
             this.rdbMigrate.AutoSize = true;
-            this.rdbMigrate.Location = new System.Drawing.Point(90, 26);
+            this.rdbMigrate.Location = new System.Drawing.Point(6, 56);
             this.rdbMigrate.Name = "rdbMigrate";
             this.rdbMigrate.Size = new System.Drawing.Size(82, 24);
             this.rdbMigrate.TabIndex = 1;
@@ -124,8 +128,7 @@
             // btnRun
             // 
             this.btnRun.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnRun.Enabled = false;
-            this.btnRun.Location = new System.Drawing.Point(544, 18);
+            this.btnRun.Location = new System.Drawing.Point(470, 232);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(94, 55);
             this.btnRun.TabIndex = 5;
@@ -133,11 +136,58 @@
             this.btnRun.UseVisualStyleBackColor = false;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
+            // gbDatabaseGroup
+            // 
+            this.gbDatabaseGroup.Controls.Add(this.cbCatalog);
+            this.gbDatabaseGroup.Controls.Add(this.cbWorkingpaper);
+            this.gbDatabaseGroup.Controls.Add(this.cbCore);
+            this.gbDatabaseGroup.Location = new System.Drawing.Point(414, 23);
+            this.gbDatabaseGroup.Name = "gbDatabaseGroup";
+            this.gbDatabaseGroup.Size = new System.Drawing.Size(152, 203);
+            this.gbDatabaseGroup.TabIndex = 11;
+            this.gbDatabaseGroup.TabStop = false;
+            this.gbDatabaseGroup.Text = "Database";
+            this.gbDatabaseGroup.Visible = false;
+            // 
+            // cbCatalog
+            // 
+            this.cbCatalog.AutoSize = true;
+            this.cbCatalog.Location = new System.Drawing.Point(12, 87);
+            this.cbCatalog.Name = "cbCatalog";
+            this.cbCatalog.Size = new System.Drawing.Size(83, 24);
+            this.cbCatalog.TabIndex = 0;
+            this.cbCatalog.Text = "Catalog";
+            this.cbCatalog.UseVisualStyleBackColor = true;
+            this.cbCatalog.CheckedChanged += new System.EventHandler(this.DatabaseCheckedChangeItem);
+            // 
+            // cbWorkingpaper
+            // 
+            this.cbWorkingpaper.AutoSize = true;
+            this.cbWorkingpaper.Location = new System.Drawing.Point(12, 57);
+            this.cbWorkingpaper.Name = "cbWorkingpaper";
+            this.cbWorkingpaper.Size = new System.Drawing.Size(125, 24);
+            this.cbWorkingpaper.TabIndex = 0;
+            this.cbWorkingpaper.Text = "Workingpaper";
+            this.cbWorkingpaper.UseVisualStyleBackColor = true;
+            this.cbWorkingpaper.CheckedChanged += new System.EventHandler(this.DatabaseCheckedChangeItem);
+            // 
+            // cbCore
+            // 
+            this.cbCore.AutoSize = true;
+            this.cbCore.Location = new System.Drawing.Point(12, 27);
+            this.cbCore.Name = "cbCore";
+            this.cbCore.Size = new System.Drawing.Size(62, 24);
+            this.cbCore.TabIndex = 0;
+            this.cbCore.Text = "Core";
+            this.cbCore.UseVisualStyleBackColor = true;
+            this.cbCore.CheckedChanged += new System.EventHandler(this.DatabaseCheckedChangeItem);
+            // 
             // frmDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 450);
+            this.ClientSize = new System.Drawing.Size(578, 296);
+            this.Controls.Add(this.gbDatabaseGroup);
             this.Controls.Add(this.pnItems);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRun);
@@ -150,6 +200,8 @@
             this.Text = "Database";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbDatabaseGroup.ResumeLayout(false);
+            this.gbDatabaseGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -164,5 +216,9 @@
         private System.Windows.Forms.RadioButton rdbMigrate;
         private System.Windows.Forms.RadioButton rdbDeploy;
         private System.Windows.Forms.Button btnRun;
+        private System.Windows.Forms.GroupBox gbDatabaseGroup;
+        private System.Windows.Forms.CheckBox cbCatalog;
+        private System.Windows.Forms.CheckBox cbWorkingpaper;
+        private System.Windows.Forms.CheckBox cbCore;
     }
 }

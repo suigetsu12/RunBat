@@ -12,27 +12,18 @@ namespace RunBatForm
 {
     public partial class ConfigForm : Form
     {
-        private string cfConfigPath;
-        private string mainConfigPath;
-        private ServerConfigurationModel CF;
-        private ServerConfigurationModel Main;
+        private string configDatabasePath;
+        private ServerConfigurationModel ConfigDatabase;
         public ConfigForm()
         {
             InitializeComponent();
             SetToolTip();
             RenderData();
-            cfConfigPath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigCFPath);
-            mainConfigPath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigMainPath);
-            var mainJsonData = FileHelper.ReadFile(mainConfigPath);
-            var cfJsonData = FileHelper.ReadFile(cfConfigPath);
-            if (mainJsonData.NotNullOrEmpty())
+            configDatabasePath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigDatabasePath);
+            var jsonData = FileHelper.ReadFile(configDatabasePath);
+            if (jsonData.NotNullOrEmpty())
             {
-                Main = JsonHelper.Deserialize<ServerConfigurationModel>(mainJsonData);
-            }
-
-            if (cfJsonData.NotNullOrEmpty())
-            {
-                CF = JsonHelper.Deserialize<ServerConfigurationModel>(cfJsonData);
+                ConfigDatabase = JsonHelper.Deserialize<ServerConfigurationModel>(jsonData);
             }
         }
 
@@ -124,53 +115,17 @@ namespace RunBatForm
                 lbError.Visible = false;
 
                 string path = Path.Combine(Global.Configuration.Path, Global.Configuration.BackupDataFolder);
-                Main.Path = txtDataBackupFolder.Text;
-                Main.SQLServerSolution = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.Solution);
-                Main.CatalogDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CatalogDACPAC);
-                Main.CoreDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CoreDACPAC);
-                Main.WorkingPaperDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.WorkingPaperDACPAC);
-                Main.MsBuild = Global.Configuration.MSBuildPath;
-                CF.Path = txtDataBackupFolder.Text;
-                CF.SQLServerSolution = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.Solution);
-                CF.CatalogDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CatalogDACPAC);
-                CF.CoreDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CoreDACPAC);
-                CF.WorkingPaperDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.WorkingPaperDACPAC);
-                CF.MsBuild = Global.Configuration.MSBuildPath;
+                ConfigDatabase.Path = txtDataBackupFolder.Text;
+                ConfigDatabase.SQLServerSolution = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.Solution);
+                ConfigDatabase.CatalogDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CatalogDACPAC);
+                ConfigDatabase.CoreDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.CoreDACPAC);
+                ConfigDatabase.WorkingPaperDACPAC = Path.Combine(txtDatabaseProjectFolder.Text, DatabaseSolution.WorkingPaperDACPAC);
+                ConfigDatabase.MsBuild = Global.Configuration.MSBuildPath;
 
-                string mainConfigShortData = ConvertModelToBatContentString.ConfigShortServer(Main, path);
-                string cfConfigShortData = ConvertModelToBatContentString.ConfigShortServer(CF, path);
-                if (mainConfigShortData.NotNullOrEmpty() && cfConfigShortData.NotNullOrEmpty())
-                {
-                    string mainConfigShortPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerShortMain);
-                    string cfConfigShortPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerShortCF);
-                    FileHelper.WriteFile(mainConfigShortPath, mainConfigShortData);
-                    FileHelper.WriteFile(cfConfigShortPath, cfConfigShortData);
-                }
+                var jsonConfigDatabase = JsonHelper.Serializer(ConfigDatabase);
+                if (jsonConfigDatabase.NotNullOrEmpty())
+                    FileHelper.WriteFile(configDatabasePath, jsonConfigDatabase);
 
-                string mainConfigData = ConvertModelToBatContentString.ConfigServer(Main);
-                string cfConfigData = ConvertModelToBatContentString.ConfigServer(CF);
-                if (mainConfigData.NotNullOrEmpty() && cfConfigData.NotNullOrEmpty())
-                {
-                    string mainConfigPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerMain);
-                    string cfConfigPath = Path.Combine(Global.RootAppFolderPath, BatPath.Config.ConfigServerCF);
-                    FileHelper.WriteFile(mainConfigPath, mainConfigData);
-                    FileHelper.WriteFile(cfConfigPath, cfConfigData);
-                }
-
-                var jsonMainData = JsonHelper.Serializer(Main);
-                var jsonCFData = JsonHelper.Serializer(CF);
-                if (jsonMainData.NotNullOrEmpty() && jsonCFData.NotNullOrEmpty())
-                {
-                    FileHelper.WriteFile(mainConfigPath, jsonMainData);
-                    FileHelper.WriteFile(cfConfigPath, jsonCFData);
-                }
-
-                var pathData = ConvertModelToBatContentString.PathFile(Global.Configuration);
-                if (pathData.NotNullOrEmpty())
-                {
-                    string pathPath = Path.Combine(Global.RootAppFolderPath, BatPath.PathBat);
-                    FileHelper.WriteFile(pathPath, pathData);
-                }
                 CreateFolder();
                 MessageBox.Show(MessageConstans.Success);
             }

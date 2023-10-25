@@ -7,8 +7,7 @@
         public const string DataStartPath = RootConfig + "\\dataStart.json";
         public const string DataPublishPath = RootConfig + "\\dataPublish.json";
         public const string DataDatabasePath = RootConfig + "\\dataDatabase.json";
-        public const string ConfigCFPath = RootConfig + "\\configCFDatabase.json";
-        public const string ConfigMainPath = RootConfig + "\\configMainDatabase.json";
+        public const string ConfigDatabasePath = RootConfig + "\\configDatabase.json";
     }
 
     public class DatabaseSolution
@@ -27,6 +26,18 @@
         public const string StartFolderPath = RootFolder + "\\start";
         public const string PublishFolderPath = RootFolder + "\\publish";
         public const string DatabaseFolderPath = RootFolder + "\\database";
+
+        public class Temp
+        {
+
+            public const string TempFolder = DatabaseFolderPath + "\\temp";
+
+            public const string ScriptRun = TempFolder + "\\script_run.bat";
+
+            public const string ScriptEntity = TempFolder + "\\entity_script.sql";
+
+            public const string ScriptBackup = TempFolder + "\\backup_script.sql";
+        }
 
         public class Config
         {

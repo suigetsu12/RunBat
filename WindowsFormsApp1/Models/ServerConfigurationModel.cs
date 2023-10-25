@@ -10,21 +10,6 @@ namespace RunBatForm.Models
         [JsonPropertyName("sqlcmd")]
         public string SQLCMD { get; set; }
 
-        [JsonPropertyName("server")]
-        public string Server { get; set; }
-
-        [JsonPropertyName("db")]
-        public string DB { get; set; }
-
-        [JsonPropertyName("login")]
-        public string Login { get; set; }
-
-        [JsonPropertyName("password")]
-        public string Password { get; set; }
-
-        [JsonPropertyName("port")]
-        public string Port { get; set; }
-
         [JsonPropertyName("geo")]
         public string GEO { get; set; }
 
@@ -60,5 +45,41 @@ namespace RunBatForm.Models
 
         [JsonPropertyName("msbuild")]
         public string MsBuild { get; set; }
+
+        [JsonPropertyName("main")]
+        public ServerModel Main { get; set; }
+
+        [JsonPropertyName("cf")]
+        public ServerModel CF { get; set; }
+
+        [JsonPropertyName("entity")]
+        public EntityModel Entity { get; set; }
+    }
+
+    public class ServerModel
+    {
+        [JsonPropertyName("server")]
+        public string Server { get; set; }
+
+        [JsonPropertyName("db")]
+        public string DB { get; set; }
+
+        [JsonPropertyName("login")]
+        public string Login { get; set; }
+
+        [JsonPropertyName("password")]
+        public string Password { get; set; }
+
+        [JsonPropertyName("port")]
+        public string Port { get; set; }
+    }
+
+    public class EntityModel
+    {
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("siteCollectionUrl")]
+        public string SiteCollectionUrl { get; set; }
     }
 }
