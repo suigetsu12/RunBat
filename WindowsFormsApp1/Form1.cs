@@ -152,7 +152,7 @@ namespace RunBatForm
                 btnFindBat.Enabled = false;
                 btnReload.Enabled = false;
                 btnSaveChange.Enabled = false;
-                btnPublish.Enabled = false;
+                //btnPublish.Enabled = false;
             }
 
             RenderData();
@@ -402,7 +402,7 @@ namespace RunBatForm
         private void Controls_Refresh()
         {
             dtgData.Invoke(new MethodInvoker(() => dtgData.Refresh()));
-            btnPublish.Invoke(new MethodInvoker(() => EnableButtonHandle(btnPublish, false)));
+            //btnPublish.Invoke(new MethodInvoker(() => EnableButtonHandle(btnPublish, false)));
             btnSaveChange.Invoke(new MethodInvoker(() => EnableButtonHandle(btnSaveChange, false)));
             btnDelete.Invoke(new MethodInvoker(() => EnableButtonHandle(btnDelete, false)));
             btnAdd.Invoke(new MethodInvoker(() => EnableButtonHandle(btnAdd, false)));
