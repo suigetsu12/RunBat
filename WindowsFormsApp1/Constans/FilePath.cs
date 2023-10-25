@@ -37,6 +37,10 @@
             public const string ScriptEntity = TempFolder + "\\entity_script.sql";
 
             public const string ScriptBackup = TempFolder + "\\backup_script.sql";
+
+            public const string ScriptRestore = TempFolder + "\\restore_script.sql";
+
+            public const string ScriptDrop = TempFolder + "\\drop_script.sql";
         }
 
         public class Config

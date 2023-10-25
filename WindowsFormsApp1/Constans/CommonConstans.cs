@@ -8,5 +8,7 @@ namespace RunBatForm.Constans
     {
         public const string ScriptEntityFile = "entity_script.sql";
         public const string ScriptBackupFile = "backup_script.sql";
+        public const string ScriptRestoreFile = "restore_script.sql";
+        public const string ScriptDropFile = "drop_script.sql";
     }
 }

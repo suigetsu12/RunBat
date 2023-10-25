@@ -128,7 +128,7 @@ namespace RunBatForm.Helpers
             return str;
         }
 
-        public static string Backup(ServerConfigurationModel model, ScriptType type)
+        public static string BackupDatabase(ServerConfigurationModel model, ScriptType type)
         {
             string str = string.Empty;
             if (model != null)
@@ -148,6 +148,7 @@ namespace RunBatForm.Helpers
             string str = string.Empty;
             if (model != null)
             {
+                str += $"\nUSE [master] GO";
                 str += $"\nDECLARE @name VARCHAR(50) -- database name ";
                 str += $"\nDECLARE @path VARCHAR(256) -- path for backup files  ";
                 str += $"\nDECLARE @fileName VARCHAR(256) -- filename for backup  ";
@@ -167,6 +168,88 @@ namespace RunBatForm.Helpers
                 str += $"\nEND";
                 str += $"\nCLOSE db_cursor ";
                 str += $"\nDEALLOCATE db_cursor";
+            }
+            return str;
+        }
+
+        public static string RestoreDatabase(ServerConfigurationModel model, ScriptType type)
+        {
+            string str = string.Empty;
+            if (model != null)
+            {
+                str += $"\nTitle Restore_{(type == ScriptType.BACKUP_MAIN ? "Main" : "CF")}";
+                str += Config(model, (type == ScriptType.BACKUP_MAIN) ? ServerType.MAIN : ServerType.CF);
+                str += $"\nSET INPUT=\"{CommonConstans.ScriptRestoreFile}\"";
+                str += $"\nECHO %SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -v path =\"N'%PATH%\'\" -i %INPUT%";
+                str += $"\n@pause";
+                str += $"\nexit";
+            }
+            return str;
+        }
+
+        public static string ScriptRestore(ServerConfigurationModel model, ServerType serverType)
+        {
+            string str = string.Empty;
+            if (model != null)
+            {
+                string ctCode = model.ContainerCode;
+                string cf = (serverType == ServerType.CF ? "CF" : "");
+                str += $"\nUSE [master] GO";
+                str += $"\nDECLARE @path VARCHAR(256) -- path for backup files ";
+                str += $"\nDECLARE @fileNameCatalog VARCHAR(256) -- filename for backup  ";
+                str += $"\nDECLARE @fileName{ctCode}Core VARCHAR(256) -- filename for backup  ";
+                str += $"\nDECLARE @fileName{ctCode}WorkingPaper VARCHAR(256) -- filename for backup";
+                str += $"\nSET @path = $(path)";
+                str += $"\nSET @fileNameCatalog = @path + 'Catalog' + '{cf}.BAK'  ";
+                str += $"\nSET @fileName{ctCode}Core = @path + '{ctCode}Core' + '{cf}.BAK' ";
+                str += $"\nSET @fileName{ctCode}WorkingPaper = @path + '{ctCode}WorkingPaper' + '{cf}.BAK'  ";
+                if (serverType == ServerType.MAIN)
+                {
+                    str += $"\nRESTORE DATABASE [Catalog] FROM DISK = @fileNameCatalog  WITH REPLACE";
+                    str += $"\nRESTORE DATABASE {ctCode}Core FROM DISK = @fileName{ctCode}Core  WITH REPLACE";
+                    str += $"\nRESTORE DATABASE {ctCode}WorkingPaper FROM DISK = @fileName{ctCode}WorkingPaper WITH REPLACE";
+                } else
+                {
+                    str += $"\nRESTORE DATABASE [Catalog] FROM DISK = @fileNameCatalog  WITH  FILE = 1,  NOUNLOAD,  STATS = 5";
+                    str += $"\nRESTORE DATABASE {ctCode}Core FROM DISK = @fileName{ctCode}Core   WITH  FILE = 1,  NOUNLOAD,  STATS = 5";
+                    str += $"\nRESTORE DATABASE {ctCode}WorkingPaper FROM DISK = @fileName{ctCode}WorkingPaper  WITH  FILE = 1,  NOUNLOAD,  STATS = 5";
+                }
+            }
+            return str;
+        }
+
+
+        public static string DropDatabase(ServerConfigurationModel model, ScriptType type)
+        {
+            string str = string.Empty;
+            if (model != null)
+            {
+                str += $"\nTitle Drop_{(type == ScriptType.BACKUP_MAIN ? "Main" : "CF")}";
+                str += Config(model, (type == ScriptType.BACKUP_MAIN) ? ServerType.MAIN : ServerType.CF);
+                str += $"\nSET INPUT=\"{CommonConstans.ScriptDropFile}\"";
+                str += $"\nECHO %SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -i %INPUT%";
+                str += $"\n@pause";
+                str += $"\nexit";
+            }
+            return str;
+        }
+
+        public static string ScriptDrop(ServerConfigurationModel model, ServerType serverType)
+        {
+            string str = string.Empty;
+            if (model != null)
+            {
+                string ctCode = model.ContainerCode;
+                str += $"\nUSE [master] GO";
+                str += $"\nALTER DATABASE [Catalog] SET SINGLE_USER WITH ROLLBACK IMMEDIATE GO";
+                str += $"\nALTER DATABASE [{ctCode}Core] SET SINGLE_USER WITH ROLLBACK IMMEDIATE GO";
+                str += $"\nALTER DATABASE [{ctCode}WorkingPaper] SET SINGLE_USER WITH ROLLBACK IMMEDIATE GO";
+                str += $"\nUSE [master] GO";
+                str += $"\nDROP DATABASE [Catalog] GO";
+                str += $"\nUSE [master] GO";
+                str += $"\nDROP DATABASE [{ctCode}Core]";
+                str += $"\nUSE [master] GO";
+                str += $"\nDROP DATABASE [{ctCode}WorkingPaper] GO";
             }
             return str;
         }

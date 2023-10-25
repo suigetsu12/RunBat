@@ -175,8 +175,6 @@ namespace RunBatForm
         private string RenderScriptFile()
         {
             string content = string.Empty;
-            string entity_content = string.Empty;
-            string backup_content = string.Empty;
             string path = string.Empty;
             switch (selectedScriptType)
             {
@@ -186,7 +184,7 @@ namespace RunBatForm
                 case ScriptType.MIGRATE_CF:
                     if (cbCore.Checked && (selectedScriptType == ScriptType.DEPLOY_MAIN || selectedScriptType == ScriptType.DEPLOY_CF))
                     {
-                        entity_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
+                        var entity_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
                         if (entity_content.NotNullOrEmpty())
                         {
                             var entityPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptEntity);
@@ -195,12 +193,11 @@ namespace RunBatForm
                             FileHelper.WriteFile(entityPath, entity_content);
                         }
                     }
-
                     content = RenderScriptHelper.DeployOrMigrate(ConfigDatabase, selectedScriptType, cbCatalog.Checked, cbCore.Checked, cbWorkingpaper.Checked);
                     break;
                 case ScriptType.BACKUP_MAIN:
                 case ScriptType.BACKUP_CF:
-                    backup_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
+                    var backup_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
                     if (backup_content.NotNullOrEmpty())
                     {
                         var backupPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptBackup);
@@ -208,13 +205,31 @@ namespace RunBatForm
                         FolderHelper.CreateFolder(tempPath);
                         FileHelper.WriteFile(backupPath, backup_content);
                     }
-                    content = RenderScriptHelper.Backup(ConfigDatabase, selectedScriptType);
+                    content = RenderScriptHelper.BackupDatabase(ConfigDatabase, selectedScriptType);
                     break;
                 case ScriptType.RESTORE_MAIN:
                 case ScriptType.RESTORE_CF:
+                    var restore_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
+                    if (restore_content.NotNullOrEmpty())
+                    {
+                        var restorePath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptRestore);
+                        FileHelper.DeleteFile(restorePath);//delete old file
+                        FolderHelper.CreateFolder(tempPath);
+                        FileHelper.WriteFile(restorePath, restore_content);
+                    }
+                    content = RenderScriptHelper.RestoreDatabase(ConfigDatabase, selectedScriptType);
                     break;
                 case ScriptType.DROP_MAIN:
                 case ScriptType.DROP_CF:
+                    var drop_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
+                    if (drop_content.NotNullOrEmpty())
+                    {
+                        var dropPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptDrop);
+                        FileHelper.DeleteFile(dropPath);//delete old file
+                        FolderHelper.CreateFolder(tempPath);
+                        FileHelper.WriteFile(dropPath, drop_content);
+                    }
+                    content = RenderScriptHelper.DropDatabase(ConfigDatabase, selectedScriptType);
                     break;
             }
 
