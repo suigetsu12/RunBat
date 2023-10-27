@@ -74,7 +74,7 @@ namespace RunBatForm.Helpers
             {
                 var server = (type == ServerType.MAIN) ? model.Main : model.CF;
                 str += $"\nSET SQLCMD=\"{model.SQLCMD}\"";
-                str += $"\nSET PATH={model.Path}";
+                str += $"\nSET PATH={StringHelper.RefactorPathContainSpace(model.Path)}";
                 str += $"\nSET SERVER=\"{server.Server}\"";
                 str += $"\nSET DB=\"{server.DB}\"";
                 str += $"\nSET LOGIN=\"{server.Login}\"";
