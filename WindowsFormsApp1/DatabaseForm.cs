@@ -19,7 +19,7 @@ namespace RunBatForm
     {
         private string pathData;
         private string databasePath;
-        private string tempPath;
+        private string scriptDatabasePath;
         private List<DatabaseItemModel> items;
         private string selectedItem;
         private ScriptType selectedScriptType;
@@ -31,7 +31,7 @@ namespace RunBatForm
         {
             InitializeComponent();
             databasePath = Path.Combine(Global.RootAppFolderPath, BatPath.DatabaseFolderPath);
-            tempPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.TempFolder);
+            scriptDatabasePath = Path.Combine(Global.RootAppFolderPath, ScriptPath.ScriptDatabase);
             pathData = Path.Combine(Global.RootAppFolderPath, FilePath.DataDatabasePath);
             configDatabasePath = Path.Combine(Global.RootAppFolderPath, FilePath.ConfigDatabasePath);
             var jsonData = FileHelper.ReadFile(configDatabasePath);
@@ -158,7 +158,7 @@ namespace RunBatForm
                 {
                     string scriptPath = RenderScriptFile();
                     if (scriptPath.NotNullOrEmpty())
-                        CommandLineHelper.Run(tempPath, scriptPath);
+                        CommandLineHelper.Run(scriptDatabasePath, scriptPath);
                     else
                     {
                         MessageBox.Show(MessageConstans.FileDoesNotExist);
@@ -187,9 +187,9 @@ namespace RunBatForm
                         var entity_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
                         if (entity_content.NotNullOrEmpty())
                         {
-                            var entityPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptEntity);
+                            var entityPath = Path.Combine(Global.RootAppFolderPath, ScriptPath.Database.InsertEntity);
                             FileHelper.DeleteFile(entityPath);//delete old file
-                            FolderHelper.CreateFolder(tempPath);
+                            FolderHelper.CreateFolder(scriptDatabasePath);
                             FileHelper.WriteFile(entityPath, entity_content);
                         }
                     }
@@ -200,9 +200,9 @@ namespace RunBatForm
                     var backup_content = RenderScriptHelper.ScriptBackup(ConfigDatabase, (selectedScriptType == ScriptType.BACKUP_MAIN) ? ServerType.MAIN : ServerType.CF);
                     if (backup_content.NotNullOrEmpty())
                     {
-                        var backupPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptBackup);
+                        var backupPath = Path.Combine(Global.RootAppFolderPath, ScriptPath.Database.Backup);
                         FileHelper.DeleteFile(backupPath);//delete old file
-                        FolderHelper.CreateFolder(tempPath);
+                        FolderHelper.CreateFolder(scriptDatabasePath);
                         FileHelper.WriteFile(backupPath, backup_content);
                     }
                     content = RenderScriptHelper.BackupDatabase(ConfigDatabase, selectedScriptType);
@@ -212,9 +212,9 @@ namespace RunBatForm
                     var restore_content = RenderScriptHelper.ScriptRestore(ConfigDatabase, (selectedScriptType == ScriptType.RESTORE_MAIN) ? ServerType.MAIN : ServerType.CF);
                     if (restore_content.NotNullOrEmpty())
                     {
-                        var restorePath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptRestore);
+                        var restorePath = Path.Combine(Global.RootAppFolderPath, ScriptPath.Database.Restore);
                         FileHelper.DeleteFile(restorePath);//delete old file
-                        FolderHelper.CreateFolder(tempPath);
+                        FolderHelper.CreateFolder(scriptDatabasePath);
                         FileHelper.WriteFile(restorePath, restore_content);
                     }
                     content = RenderScriptHelper.RestoreDatabase(ConfigDatabase, selectedScriptType);
@@ -224,9 +224,9 @@ namespace RunBatForm
                     var drop_content = RenderScriptHelper.ScriptDrop(ConfigDatabase, (selectedScriptType == ScriptType.DROP_MAIN) ? ServerType.MAIN : ServerType.CF);
                     if (drop_content.NotNullOrEmpty())
                     {
-                        var dropPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptDrop);
+                        var dropPath = Path.Combine(Global.RootAppFolderPath, ScriptPath.Database.Drop);
                         FileHelper.DeleteFile(dropPath);//delete old file
-                        FolderHelper.CreateFolder(tempPath);
+                        FolderHelper.CreateFolder(scriptDatabasePath);
                         FileHelper.WriteFile(dropPath, drop_content);
                     }
                     content = RenderScriptHelper.DropDatabase(ConfigDatabase, selectedScriptType);
@@ -235,9 +235,9 @@ namespace RunBatForm
 
             if (content.NotNullOrEmpty())
             {
-                path = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptRun);
+                path = Path.Combine(Global.RootAppFolderPath, ScriptPath.Database.ScriptRun);
                 FileHelper.DeleteFile(path);//delete old file
-                FolderHelper.CreateFolder(tempPath);
+                FolderHelper.CreateFolder(scriptDatabasePath);
                 FileHelper.WriteFile(path, content);
             }
 

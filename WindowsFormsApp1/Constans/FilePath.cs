@@ -1,5 +1,34 @@
 ﻿namespace RunBatForm.Constans
 {
+    public class ScriptPath
+    {
+        public const string ScriptDatabase = "data\\scripts\\database";
+        public const string ScriptPublish = "data\\scripts\\publish";
+        public const string ScriptStart = "data\\scripts\\start";
+        public class Database
+        {
+            public const string ScriptRun = ScriptDatabase + "\\script_run.bat";
+
+            public const string InsertEntity = ScriptDatabase + "\\entity_script.sql";
+
+            public const string Backup = ScriptDatabase + "\\backup_script.sql";
+
+            public const string Restore = ScriptDatabase + "\\restore_script.sql";
+
+            public const string Drop = ScriptDatabase + "\\drop_script.sql";
+        }
+
+        public class Publish
+        {
+            public const string AppConfig = ScriptPublish + "\\app_config.bat";
+        }
+
+        public class Start
+        {
+            public const string AppConfig = ScriptStart + "\\app_config.bat";
+        }
+    }
+
     public class FilePath
     {
         public const string RootConfig = "data\\configs";
@@ -26,22 +55,6 @@
         public const string StartFolderPath = RootFolder + "\\start";
         public const string PublishFolderPath = RootFolder + "\\publish";
         public const string DatabaseFolderPath = RootFolder + "\\database";
-
-        public class Temp
-        {
-
-            public const string TempFolder = DatabaseFolderPath + "\\temp";
-
-            public const string ScriptRun = TempFolder + "\\script_run.bat";
-
-            public const string ScriptEntity = TempFolder + "\\entity_script.sql";
-
-            public const string ScriptBackup = TempFolder + "\\backup_script.sql";
-
-            public const string ScriptRestore = TempFolder + "\\restore_script.sql";
-
-            public const string ScriptDrop = TempFolder + "\\drop_script.sql";
-        }
 
         public class Config
         {

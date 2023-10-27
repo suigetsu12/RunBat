@@ -19,8 +19,6 @@ set spoApiSourceUrl=%rootPathProject%SPOApi
 
 set spo_SPOSetupProcessorSourceUrl=%rootPathProject%SPOSetupProcessor
 
-set fileServicesUrl=%rootPathProject%FileService\Auvenir.FileService.WebApi
-
 set fileIntegrityCheckProcessorUrl=%rootPathProject%FileIntegrityCheckProcessor\Auvenir.FileIntegrityCheckProcessor
 
 set archiveSourceUrl=%rootPathProject%ArchivingWebJob\Archiving.WebJob
@@ -72,8 +70,6 @@ set spoApiOutputUrl=%rootPathStart%SPOApi
 set spo_SPOSetupProcessorOutputUrl=%rootPathStart%SPOSetupProcessor
 
 set fileIntegrityCheckProcessorOutputUrl=%rootPathStart%FileIntegrityCheckProcessor
-
-set fileServicesOutputUrl=%rootPathStart%FileServices
 
 set archiveOutputUrl=%rootPathStart%ArchivingWebJob
 

@@ -10,12 +10,15 @@
   <ItemGroup>
     <Compile Remove="BatFiles\**" />
     <Compile Remove="configs\**" />
+    <Compile Remove="data\BatFiles\temp\**" />
     <Compile Remove="icons\**" />
     <EmbeddedResource Remove="BatFiles\**" />
     <EmbeddedResource Remove="configs\**" />
+    <EmbeddedResource Remove="data\BatFiles\temp\**" />
     <EmbeddedResource Remove="icons\**" />
     <None Remove="BatFiles\**" />
     <None Remove="configs\**" />
+    <None Remove="data\BatFiles\temp\**" />
     <None Remove="icons\**" />
   </ItemGroup>
 
@@ -94,10 +97,9 @@
     <None Remove="data\BatFiles\start\start_WpGenerationProcessor.bat" />
     <None Remove="data\BatFiles\_path.bat" />
     <None Remove="data\configs\config.json" />
-    <None Remove="data\configs\configCFDatabase.json" />
     <None Remove="data\configs\configDatabase.json" />
-    <None Remove="data\configs\configMainDatabase.json" />
     <None Remove="data\configs\dataDatabase.json" />
+    <None Remove="data\configs\dataPathApp.json" />
     <None Remove="data\configs\dataPublish.json" />
     <None Remove="data\configs\dataStart.json" />
     <None Remove="data\icons\configuration.ico" />
@@ -325,13 +327,7 @@
     <Content Include="data\BatFiles\_path.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="data\configs\configCFDatabase.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="data\configs\configDatabase.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="data\configs\configMainDatabase.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\configs\config.json">
@@ -341,6 +337,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\configs\dataPublish.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\configs\dataPathApp.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\configs\dataStart.json">
@@ -414,10 +413,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="data\BatFiles\temp\" />
   </ItemGroup>
 
 </Project>

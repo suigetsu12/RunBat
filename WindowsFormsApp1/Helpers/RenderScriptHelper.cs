@@ -9,6 +9,7 @@ namespace RunBatForm.Helpers
 {
     public static class RenderScriptHelper
     {
+        #region [Database]
         public static string DeployOrMigrate(ServerConfigurationModel model, ScriptType type, bool hasCatalog, bool hasCore, bool hasWorkingpaper)
         {
             string str = string.Empty;
@@ -269,5 +270,13 @@ namespace RunBatForm.Helpers
             }
             return str;
         }
+
+        #endregion
+
+        #region [Publish]
+        #endregion
+
+        #region [Start]
+        #endregion
     }
 }
