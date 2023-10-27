@@ -123,5 +123,10 @@
     "name": "Integration Hub Service",
     "file_name": "public_IntegrationHubService.bat",
     "publish_type": 1
+  },
+  {
+    "name": "Annual Snapshot Processor",
+    "file_name": "publish_AnnualSnapshotProcessor.bat",
+    "publish_type": 1
   }
 ]

@@ -60,8 +60,6 @@
         {
             public const string RootConfigFolder = Root + "\\configs";
             public const string Config = RootConfigFolder + "\\config.json";
-            public const string ConfigCFDatabase = RootConfigFolder + "\\configCFDatabase.json";
-            public const string ConfigMainDatabase = RootConfigFolder + "\\configMainDatabase.json";
             public const string DataDatabasePublish = RootConfigFolder + "\\dataDatabasePublish.json";
             public const string DataPublish = RootConfigFolder + "\\dataPublish.json";
             public const string DataStart = RootConfigFolder + "\\dataStart.json";

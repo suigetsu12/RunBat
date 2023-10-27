@@ -50,6 +50,7 @@
     <None Remove="data\BatFiles\publish\03_publish_dev-ArchiveFeature.bat" />
     <None Remove="data\BatFiles\publish\04_publish_dev-CarryForwardFeature.bat" />
     <None Remove="data\BatFiles\publish\public_AccountWorkingPaperService.bat" />
+    <None Remove="data\BatFiles\publish\publish_AnnualSnapshotProcessor.bat" />
     <None Remove="data\BatFiles\publish\publish_ArchivalWebjob.bat" />
     <None Remove="data\BatFiles\publish\publish_CommonToolService.bat" />
     <None Remove="data\BatFiles\publish\publish_ComponentCreationProcessor.bat" />
@@ -66,6 +67,7 @@
     <None Remove="data\BatFiles\publish\publish__ArchiveAPI.bat" />
     <None Remove="data\BatFiles\publish\publish__SPOAPI.bat" />
     <None Remove="data\BatFiles\start\start_AccountWorkingPaperService.bat" />
+    <None Remove="data\BatFiles\start\start_AnnualSnapshotProcessor.bat" />
     <None Remove="data\BatFiles\start\start_ArchivalWebAPI.bat" />
     <None Remove="data\BatFiles\start\start_ArchivalWebjob.bat" />
     <None Remove="data\BatFiles\start\start_AuvenirDuplicateEngCommon.bat" />
@@ -194,6 +196,9 @@
     <Content Include="data\BatFiles\publish\public_AccountWorkingPaperService.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="data\BatFiles\publish\publish_AnnualSnapshotProcessor.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\BatFiles\publish\publish_ArchivalWebjob.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -240,6 +245,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\BatFiles\start\start_AccountWorkingPaperService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_AnnualSnapshotProcessor.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\BatFiles\start\start_ArchivalWebAPI.bat">

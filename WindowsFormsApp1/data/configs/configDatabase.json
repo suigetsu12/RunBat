@@ -6,29 +6,29 @@
   "user_container_code": "ca",
   "container_password": "xx!",
   "container_code": "AAAAAA",
-  "sql_server_solution": "D:\\Projects\\SM\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\DatabaseDeployment.sln",
-  "catalog_dacpac": "D:\\Projects\\SM\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\Catalog\\bin\\Local\\Catalog.dacpac",
-  "core_dacpac": "D:\\Projects\\SM\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\Core\\bin\\Local\\Core.dacpac",
-  "workingpaper_dacpac": "D:\\Projects\\SM\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\WorkingPaper\\bin\\Local\\WorkingPaper.dacpac",
-  "sql_package": "C:\\Program Files\\Microsoft SQL Server\\150\\DAC\\bin\\SqlPackage.exe",
+  "sql_server_solution": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\DatabaseDeployment.sln",
+  "catalog_dacpac": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\Catalog\\bin\\Local\\Catalog.dacpac",
+  "core_dacpac": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\Core\\bin\\Local\\Core.dacpac",
+  "workingpaper_dacpac": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\WorkingPaper\\bin\\Local\\WorkingPaper.dacpac",
+  "sql_package": "C:\\Program Files\\Microsoft SQL Server\\160\\DAC\\bin\\SqlPackage.exe",
   "deployenv": "DEV",
   "msbuild": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe",
   "main": {
-    "server": "localhost",
+    "server": "HIEU-VAN-0273\\MAIN",
     "db": "master",
     "login": "sa",
     "password": "xx!",
     "port": "1433"
   },
   "cf": {
-    "server": "ADMIN-07SPBGMBT\\MSSQLSERVER02",
+    "server": "HIEU-VAN-0273\\CF",
     "db": "master",
     "login": "sa",
     "password": "xx!",
     "port": "1434"
   },
   "entity": {
-    "name": "E11",
-    "siteCollectionUrl": "https://hainguyenstepmedia.sharepoint.com/sites/6e5f19be-a6f8-4ad5-940b-23054fb2420e"
+    "name": "E12",
+    "siteCollectionUrl": "https://hainguyenstepmedia.sharepoint.com/sites/Local-AAAAAA-83b7fe22-65b9-4bd3-9b9c-0bccc8354dd2"
   }
 }

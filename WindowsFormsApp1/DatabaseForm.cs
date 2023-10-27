@@ -197,7 +197,7 @@ namespace RunBatForm
                     break;
                 case ScriptType.BACKUP_MAIN:
                 case ScriptType.BACKUP_CF:
-                    var backup_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
+                    var backup_content = RenderScriptHelper.ScriptBackup(ConfigDatabase, (selectedScriptType == ScriptType.BACKUP_MAIN) ? ServerType.MAIN : ServerType.CF);
                     if (backup_content.NotNullOrEmpty())
                     {
                         var backupPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptBackup);
@@ -209,7 +209,7 @@ namespace RunBatForm
                     break;
                 case ScriptType.RESTORE_MAIN:
                 case ScriptType.RESTORE_CF:
-                    var restore_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
+                    var restore_content = RenderScriptHelper.ScriptRestore(ConfigDatabase, (selectedScriptType == ScriptType.RESTORE_MAIN) ? ServerType.MAIN : ServerType.CF);
                     if (restore_content.NotNullOrEmpty())
                     {
                         var restorePath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptRestore);
@@ -221,7 +221,7 @@ namespace RunBatForm
                     break;
                 case ScriptType.DROP_MAIN:
                 case ScriptType.DROP_CF:
-                    var drop_content = RenderScriptHelper.ScriptInsertEntity(ConfigDatabase);
+                    var drop_content = RenderScriptHelper.ScriptDrop(ConfigDatabase, (selectedScriptType == ScriptType.DROP_MAIN) ? ServerType.MAIN : ServerType.CF);
                     if (drop_content.NotNullOrEmpty())
                     {
                         var dropPath = Path.Combine(Global.RootAppFolderPath, BatPath.Temp.ScriptDrop);

@@ -7,7 +7,7 @@ set fsSourceUrl=%rootPathProject%FileService\Auvenir.FileService.WebApi
 
 set pm_psSourceUrl=%rootPathProject%PlanningStepService\PlanningStep
 
-set pm_snSourceUrl=%rootPathProject%CommonToolService
+set pm_snSourceUrl=%rootPathProject%CommonToolService\CommonToolService
 
 set pm_vsaSourceUrl=%rootPathProject%NonAccountWorkingPaperService
 
@@ -48,6 +48,8 @@ set AuvenirDuplicateFileProcessorUrl=%rootPathProject%DuplicateEngagement\Auveni
 set IntegrationHubServiceUrl= %rootPathProject%IntegrationHubService\Auvenir.IntegrationHubService
 
 set AuvenirIntegrationHubProcessorUrl= %rootPathProject%IntegrationHubProcessor\Auvenir.IntegrationHubProcessor
+
+set AuvenirAnnualSnapshotProcessorUrl= %rootPathProject%AnnualSnapshotProcessor\Auvenir.AnnualSnapshotProcessor
 
 :: --------------------------- The PATH you want to build to   ----------------------------------------
 
@@ -94,6 +96,7 @@ set AuvenirDuplicateEngCommonOutputUrl=%rootPathStart%DuplicateEngCommon
 set AuvenirDuplicateEngProcessorOutputUrl=%rootPathStart%DuplicateEngProcessor
 
 set AuvenirDuplicateFileProcessorOutputUrl=%rootPathStart%DuplicateFileProcessor
+
 set WpGenerationProcessorOutputUrl=%rootPathStart%WpGenerationProcessor
 
 set AuvenirDuplicateEngCommonOutputUrl=%rootPathStart%Auvenir.DuplicateEng.Common
@@ -105,3 +108,5 @@ set AuvenirDuplicateFileProcessorOutputUrl=%rootPathStart%Auvenir.DuplicateFileP
 set integrationHubOutputUrl=%rootPathStart%IntegrationHubService
 
 set AuvenirIntegrationHubProcessorOutputUrl=%rootPathStart%IntegrationHubProcessor
+
+set AuvenirAnnualSnapshotProcessorOutputUrl=%rootPathStart%AnnualSnapshotProcessor

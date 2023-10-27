@@ -125,5 +125,11 @@
     "name": "[CF] Carryforward Processor",
     "file_name": "start_CarryforwardProcessor.bat",
     "ischecked": false
+  },
+  {
+    "ischecked": false,
+    "id": "dcdf6e21-45eb-458e-90c2-042c701ed699",
+    "name": "[Main] AnnualSnapshotProcessor",
+    "file_name": "start_AnnualSnapshotProcessor.bat"
   }
 ]

@@ -16,7 +16,7 @@ namespace RunBatForm.Helpers
             {
                 string mainOrCf = (type == ScriptType.DEPLOY_MAIN || type == ScriptType.MIGRATE_MAIN) ? "Main" : "CF";
                 string cleanData = (type == ScriptType.DEPLOY_MAIN || type == ScriptType.DEPLOY_CF) ? "True" : "False";
-                str += $"\nPublish {mainOrCf} Database from DACPAC";
+                str += $"Publish {mainOrCf} Database from DACPAC";
                 str += ConfigServer(model, ((type == ScriptType.DEPLOY_MAIN || type == ScriptType.MIGRATE_MAIN) ? ServerType.MAIN : ServerType.CF));
                 str += $"\n@ECHO OFF";
                 str += $"\nREM *** Prepare parameters for executing ***";
@@ -32,7 +32,7 @@ namespace RunBatForm.Helpers
                 if (hasCatalog)
                 {
                     str += $"\nECHO Begin publish to Catalog DB";
-                    str += $"\n%SqlPackage% /TargetDatabaseName:Catalog /TargetServerName:%SQLServerInstance% /TargetUser:%SQLServerUsername% /TargetPassword:%SQLServerPassword% /Action:Publish /Properties:CreateNewDatabase=%CreateNewDatabase% /SourceFile:%Catalog_DACPAC% /Variables:deployenv=%deployenv% /Variables:container=%UserContainerCode% /Variables:geo=%Geo% /Variables:WipeData=%WipeData%";
+                    str += $"\n%SqlPackage% /SourceTrustServerCertificate:True /SourceEncryptConnection:False /TargetTrustServerCertificate:True /TargetEncryptConnection:False /TargetDatabaseName:Catalog /TargetServerName:%SQLServerInstance% /TargetUser:%SQLServerUsername% /TargetPassword:%SQLServerPassword% /Action:Publish /Properties:CreateNewDatabase=%CreateNewDatabase% /SourceFile:%Catalog_DACPAC% /Variables:deployenv=%deployenv% /Variables:container=%UserContainerCode% /Variables:geo=%Geo% /Variables:WipeData=%WipeData%";
                     if (type == ScriptType.MIGRATE_MAIN || type == ScriptType.MIGRATE_CF)
                         str += $"/p:BlockOnPossibleDataLoss=%BlockOnPossibleDataLoss%";
                     str += $"\nECHO End publish to Catalog DB";
@@ -40,7 +40,7 @@ namespace RunBatForm.Helpers
                 if (hasCore)
                 {
                     str += $"\nECHO Begin publish to Core DB";
-                    str += $"\n%SqlPackage% /TargetDatabaseName:{model.ContainerCode}Core /TargetServerName:%SQLServerInstance% /TargetUser:%SQLServerUsername% /TargetPassword:%SQLServerPassword% /Action:Publish /Properties:CreateNewDatabase=%CreateNewDatabase% /SourceFile:%Core_DACPAC% /Variables:container=%UserContainerCode% /Variables:WipeData=%WipeData%";
+                    str += $"\n%SqlPackage% /SourceTrustServerCertificate:True /SourceEncryptConnection:False /TargetTrustServerCertificate:True /TargetEncryptConnection:False /TargetDatabaseName:{model.ContainerCode}Core /TargetServerName:%SQLServerInstance% /TargetUser:%SQLServerUsername% /TargetPassword:%SQLServerPassword% /Action:Publish /Properties:CreateNewDatabase=%CreateNewDatabase% /SourceFile:%Core_DACPAC% /Variables:container=%UserContainerCode% /Variables:WipeData=%WipeData%";
                     if (type == ScriptType.MIGRATE_MAIN || type == ScriptType.MIGRATE_CF)
                         str += $"/p:BlockOnPossibleDataLoss=%BlockOnPossibleDataLoss%";
                     str += $"\nECHO End publish to Core DB";
@@ -48,7 +48,7 @@ namespace RunBatForm.Helpers
                 if (hasWorkingpaper)
                 {
                     str += $"\nECHO Begin publish to WorkingPaper DB";
-                    str += $"\n%SqlPackage% /TargetDatabaseName:{model.ContainerCode}WorkingPaper /TargetServerName:%SQLServerInstance% /TargetUser:%SQLServerUsername% /TargetPassword:%SQLServerPassword% /Action:Publish /Properties:CreateNewDatabase=%CreateNewDatabase% /SourceFile:%WorkingPaper_DACPAC% /Variables:container=%UserContainerCode% /Variables:WipeData=%WipeData%";
+                    str += $"\n%SqlPackage% /SourceTrustServerCertificate:True /SourceEncryptConnection:False /TargetTrustServerCertificate:True /TargetEncryptConnection:False /TargetDatabaseName:{model.ContainerCode}WorkingPaper /TargetServerName:%SQLServerInstance% /TargetUser:%SQLServerUsername% /TargetPassword:%SQLServerPassword% /Action:Publish /Properties:CreateNewDatabase=%CreateNewDatabase% /SourceFile:%WorkingPaper_DACPAC% /Variables:container=%UserContainerCode% /Variables:WipeData=%WipeData%";
                     if (type == ScriptType.MIGRATE_MAIN || type == ScriptType.MIGRATE_CF)
                         str += $"/p:BlockOnPossibleDataLoss=%BlockOnPossibleDataLoss%";
                     str += $"\nECHO End publish to WorkingPaper DB";
@@ -133,10 +133,13 @@ namespace RunBatForm.Helpers
             string str = string.Empty;
             if (model != null)
             {
-                str += $"\nTitle Backup_{(type == ScriptType.BACKUP_MAIN ? "Main" : "CF")}";
+                str += $"Title Backup_{(type == ScriptType.BACKUP_MAIN ? "Main" : "CF")}";
                 str += Config(model, (type == ScriptType.BACKUP_MAIN) ? ServerType.MAIN : ServerType.CF);
                 str += $"\nSET INPUT=\"{CommonConstans.ScriptBackupFile}\"";
-                str += $"\nECHO %SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -v path =\"N'%PATH%\'\" -i %INPUT%";
+                str += $"\n";
+                str += $"\nECHO";
+                str += $"\n%SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -v path =\"N'%PATH%\\\'\" -i %INPUT%";
+                str += $"\n";
                 str += $"\n@pause";
                 str += $"\nexit";
             }
@@ -148,7 +151,6 @@ namespace RunBatForm.Helpers
             string str = string.Empty;
             if (model != null)
             {
-                str += $"\nUSE [master] GO";
                 str += $"\nDECLARE @name VARCHAR(50) -- database name ";
                 str += $"\nDECLARE @path VARCHAR(256) -- path for backup files  ";
                 str += $"\nDECLARE @fileName VARCHAR(256) -- filename for backup  ";
@@ -177,10 +179,11 @@ namespace RunBatForm.Helpers
             string str = string.Empty;
             if (model != null)
             {
-                str += $"\nTitle Restore_{(type == ScriptType.BACKUP_MAIN ? "Main" : "CF")}";
-                str += Config(model, (type == ScriptType.BACKUP_MAIN) ? ServerType.MAIN : ServerType.CF);
+                str += $"Title Restore_{(type == ScriptType.RESTORE_MAIN ? "Main" : "CF")}";
+                str += Config(model, (type == ScriptType.RESTORE_MAIN) ? ServerType.MAIN : ServerType.CF);
                 str += $"\nSET INPUT=\"{CommonConstans.ScriptRestoreFile}\"";
-                str += $"\nECHO %SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -v path =\"N'%PATH%\'\" -i %INPUT%";
+                str += $"\nECHO";
+                str += $"\n%SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -v path =\"N'%PATH%\\\'\" -i %INPUT%";
                 str += $"\n@pause";
                 str += $"\nexit";
             }
@@ -194,7 +197,8 @@ namespace RunBatForm.Helpers
             {
                 string ctCode = model.ContainerCode;
                 string cf = (serverType == ServerType.CF ? "CF" : "");
-                str += $"\nUSE [master] GO";
+                str += $"USE [master]";
+                str += $"\nGO";
                 str += $"\nDECLARE @path VARCHAR(256) -- path for backup files ";
                 str += $"\nDECLARE @fileNameCatalog VARCHAR(256) -- filename for backup  ";
                 str += $"\nDECLARE @fileName{ctCode}Core VARCHAR(256) -- filename for backup  ";
@@ -224,10 +228,13 @@ namespace RunBatForm.Helpers
             string str = string.Empty;
             if (model != null)
             {
-                str += $"\nTitle Drop_{(type == ScriptType.BACKUP_MAIN ? "Main" : "CF")}";
-                str += Config(model, (type == ScriptType.BACKUP_MAIN) ? ServerType.MAIN : ServerType.CF);
+                str += $"Title Drop_{(type == ScriptType.DROP_MAIN ? "Main" : "CF")}";
+                str += Config(model, (type == ScriptType.DROP_MAIN) ? ServerType.MAIN : ServerType.CF);
                 str += $"\nSET INPUT=\"{CommonConstans.ScriptDropFile}\"";
-                str += $"\nECHO %SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -i %INPUT%";
+                str += $"\n";
+                str += $"\nECHO";
+                str += $"\n%SQLCMD% -S %SERVER% -d %DB% -U %LOGIN% -P %PASSWORD% -i %INPUT%";
+                str += $"\n";
                 str += $"\n@pause";
                 str += $"\nexit";
             }
@@ -240,16 +247,25 @@ namespace RunBatForm.Helpers
             if (model != null)
             {
                 string ctCode = model.ContainerCode;
-                str += $"\nUSE [master] GO";
-                str += $"\nALTER DATABASE [Catalog] SET SINGLE_USER WITH ROLLBACK IMMEDIATE GO";
-                str += $"\nALTER DATABASE [{ctCode}Core] SET SINGLE_USER WITH ROLLBACK IMMEDIATE GO";
-                str += $"\nALTER DATABASE [{ctCode}WorkingPaper] SET SINGLE_USER WITH ROLLBACK IMMEDIATE GO";
-                str += $"\nUSE [master] GO";
-                str += $"\nDROP DATABASE [Catalog] GO";
-                str += $"\nUSE [master] GO";
+                str += $"USE [master]";
+                str += $"\nGO";
+                str += $"\nALTER DATABASE [Catalog] SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
+                str += $"\nGO";
+                str += $"\nALTER DATABASE [{ctCode}Core] SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
+                str += $"\nGO";
+                str += $"\nALTER DATABASE [{ctCode}WorkingPaper] SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
+                str += $"\nGO";
+                str += $"\nUSE [master]";
+                str += $"\nGO";
+                str += $"\nDROP DATABASE [Catalog]";
+                str += $"\nGO";
+                str += $"\nUSE [master]";
+                str += $"\nGO";
                 str += $"\nDROP DATABASE [{ctCode}Core]";
-                str += $"\nUSE [master] GO";
-                str += $"\nDROP DATABASE [{ctCode}WorkingPaper] GO";
+                str += $"\nGO";
+                str += $"\nUSE [master]";
+                str += $"\nGO";
+                str += $"\nDROP DATABASE [{ctCode}WorkingPaper]";
             }
             return str;
         }
