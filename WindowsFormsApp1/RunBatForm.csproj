@@ -99,7 +99,6 @@
     <None Remove="data\configs\config.json" />
     <None Remove="data\configs\configDatabase.json" />
     <None Remove="data\configs\dataDatabase.json" />
-    <None Remove="data\configs\dataPathApp.json" />
     <None Remove="data\configs\dataPublish.json" />
     <None Remove="data\configs\dataStart.json" />
     <None Remove="data\icons\configuration.ico" />
@@ -337,9 +336,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\configs\dataPublish.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="data\configs\dataPathApp.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\configs\dataStart.json">
