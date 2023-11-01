@@ -5,7 +5,7 @@
   "geo_password": "xx!",
   "user_container_code": "ca",
   "container_password": "xx!",
-  "container_code": "AAAAAA",
+  "container_code": "AAABNC",
   "sql_server_solution": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\DatabaseDeployment.sln",
   "catalog_dacpac": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\Catalog\\bin\\Local\\Catalog.dacpac",
   "core_dacpac": "C:\\Projects\\Commercial\\6.0\\AuvCommercial.SQLDB\\DatabaseDeployment\\Core\\bin\\Local\\Core.dacpac",

@@ -2,6 +2,6 @@
 USE [AAAAAACore]
 GO 
 INSERT INTO Entity(Id, Name, IsActive, SiteCollectionUrl)
-SELECT NEWID(), 'E11', 1, 'https://hainguyenstepmedia.sharepoint.com/sites/6e5f19be-a6f8-4ad5-940b-23054fb2420e'
+SELECT NEWID(), 'E12', 1, 'https://hainguyenstepmedia.sharepoint.com/sites/Local-AAAAAA-83b7fe22-65b9-4bd3-9b9c-0bccc8354dd2'
 WHERE NOT EXISTS
-(SELECT 1 FROM Entity WHERE name='E11')
+(SELECT 1 FROM Entity WHERE name='E12')

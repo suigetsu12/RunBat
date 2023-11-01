@@ -1,83 +1,82 @@
 [
   {
+    "ischecked": false,
     "id": "83815db7-f3d9-4a8a-a072-ae8fbdccb245",
     "name": "[FE] FrontEnd Src",
-    "file_name": "start_FE_Src.bat",
-    "ischecked": true
+    "file_name": "start_FE_Src.bat"
   },
   {
+    "ischecked": false,
+    "id": "7f003140-1e51-415f-8801-20e5ae5a3c81",
+    "name": "FE Without Install",
+    "file_name": "start_FE_Src_Without_Install.bat"
+  },
+  {
+    "ischecked": true,
+    "id": "879ce593-6e2d-4f56-9576-3409df23094a",
+    "name": "[FE] Publish",
+    "file_name": "start_FE.bat"
+  },
+  {
+    "ischecked": true,
     "id": "0a5c92a8-505d-44ec-8343-affb6797efbf",
     "name": "[Main] Core",
-    "file_name": "start_Core.bat",
-    "ischecked": true
+    "file_name": "start_Core.bat"
   },
   {
+    "ischecked": true,
     "id": "1fb726d2-1340-4b8f-95e0-a6b0fd3cef5e",
     "name": "[Main] Planning",
-    "file_name": "start_Planning.bat",
-    "ischecked": true
+    "file_name": "start_Planning.bat"
   },
   {
+    "ischecked": true,
     "id": "287fa304-ab8e-4159-9940-4941e5702308",
     "name": "[Main] Common Tool Service",
-    "file_name": "start_CommonToolService.bat",
-    "ischecked": true
+    "file_name": "start_CommonToolService.bat"
   },
   {
+    "ischecked": true,
     "id": "77342af0-ac90-4661-8d15-c32e70bd50c5",
     "name": "[Main] nonAccount Workingpaper Service",
-    "file_name": "start_NonAccountWorkingPaperService.bat",
-    "ischecked": true
+    "file_name": "start_NonAccountWorkingPaperService.bat"
   },
   {
+    "ischecked": true,
     "id": "7da01b3c-869f-4500-83e4-8bccdb14e193",
     "name": "[Main] Account Workingpaper Service",
-    "file_name": "start_AccountWorkingPaperService.bat",
-    "ischecked": true
+    "file_name": "start_AccountWorkingPaperService.bat"
   },
   {
+    "ischecked": true,
     "id": "ed142121-b1d0-41f2-8721-cafa5808e712",
     "name": "[Main] SPO Setup Processor",
-    "file_name": "start_SPOSetupProcessor.bat",
-    "ischecked": true
+    "file_name": "start_SPOSetupProcessor.bat"
   },
   {
-    "id": "e4fab5dd-d0c1-4de8-864b-5e2042747916",
+    "ischecked": true,
+    "id": "3babd1f7-fab3-409e-be9b-dd9f593c1031",
     "name": "[Main] SPO API",
-    "file_name": "start_SPOAPI.bat",
-    "ischecked": true
+    "file_name": "start_SPOAPI.bat"
   },
   {
+    "ischecked": true,
     "id": "5db65672-f522-4557-8757-5b37cd84f306",
     "name": "[Main] File Services",
-    "file_name": "start_FileServices.bat",
-    "ischecked": true
+    "file_name": "start_FileServices.bat"
   },
   {
+    "ischecked": true,
     "id": "0ecc4e2e-41ae-4dc9-9867-ee04e55305c2",
     "name": "[Main] File Integrity Check Processor",
-    "file_name": "start_FileIntegrityCheckProcessor.bat",
-    "ischecked": true
+    "file_name": "start_FileIntegrityCheckProcessor.bat"
   },
   {
+    "ischecked": true,
     "id": "01c41cad-59c7-4658-b929-babb4d05eb39",
     "name": "[Main] Content Processor",
-    "file_name": "start_ContentProcessor.bat",
-    "ischecked": true
+    "file_name": "start_ContentProcessor.bat"
   },
-  {
-    "id": "438d99b1-e60b-4be4-be65-39d6433c1a0f",
-    "name": "[Archived] Archival Webjob",
-    "file_name": "start_ArchivalWebjob.bat",
-    "ischecked": false
-  },
-  {
-    "id": "bd5f94b9-e55b-4bbc-b74d-6d9a06ec2404",
-    "name": "[Archived] Archival Web API",
-    "file_name": "start_ArchivalWebAPI.bat",
-    "ischecked": false
-  },
-
   {
     "ischecked": false,
     "id": "f32f44cc-bbdd-4655-aa1c-815bf139cda3",
@@ -91,40 +90,52 @@
     "file_name": "start_IntegrationHubService.bat"
   },
   {
+    "ischecked": false,
+    "id": "438d99b1-e60b-4be4-be65-39d6433c1a0f",
+    "name": "[Archived] Archival Webjob",
+    "file_name": "start_ArchivalWebjob.bat"
+  },
+  {
+    "ischecked": false,
+    "id": "bd5f94b9-e55b-4bbc-b74d-6d9a06ec2404",
+    "name": "[Archived] Archival Web API",
+    "file_name": "start_ArchivalWebAPI.bat"
+  },
+  {
+    "ischecked": false,
     "id": "11bd0f0d-5def-4854-b14f-f2e6db38fd36",
     "name": "[CopyENG] Auvenir Duplicate Eng Processor",
-    "file_name": "start_AuvenirDuplicateEngProcessor.bat",
-    "ischecked": false
+    "file_name": "start_AuvenirDuplicateEngProcessor.bat"
   },
   {
+    "ischecked": false,
     "id": "537cda1d-db63-4cf4-b888-341fe9a2a6fd",
     "name": "[CopyENG] Auvenir Duplicate File Processor",
-    "file_name": "start_AuvenirDuplicateFileProcessor.bat",
-    "ischecked": false
+    "file_name": "start_AuvenirDuplicateFileProcessor.bat"
   },
   {
+    "ischecked": false,
     "id": "26c3999b-12a5-4514-8557-daf5083e8dcb",
     "name": "[CF] Carryforward Content Processor",
-    "file_name": "start_CarryforwardContentProcessor.bat",
-    "ischecked": false
+    "file_name": "start_CarryforwardContentProcessor.bat"
   },
   {
+    "ischecked": false,
     "id": "9467d423-6529-4964-a7b7-2d6bce167c58",
     "name": "[CF] Carryforward Copy Eng Processor",
-    "file_name": "start_CarryforwardCopyEngProcessor.bat",
-    "ischecked": false
+    "file_name": "start_CarryforwardCopyEngProcessor.bat"
   },
   {
+    "ischecked": false,
     "id": "522df075-29e5-4cfb-b878-8bc291bac52c",
     "name": "[CF] Carryforward File Transfer Processor",
-    "file_name": "start_CarryforwardFileTransferProcessor.bat",
-    "ischecked": false
+    "file_name": "start_CarryforwardFileTransferProcessor.bat"
   },
   {
+    "ischecked": false,
     "id": "be30c761-24ff-475b-837e-4e1b1a1ed660",
     "name": "[CF] Carryforward Processor",
-    "file_name": "start_CarryforwardProcessor.bat",
-    "ischecked": false
+    "file_name": "start_CarryforwardProcessor.bat"
   },
   {
     "ischecked": false,
