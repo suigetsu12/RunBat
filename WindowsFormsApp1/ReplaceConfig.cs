@@ -104,7 +104,7 @@ namespace RunBatForm
                     {
                         found++;
                         newObj[name] = (JValue)(strValue.Replace(strFind, strReplace));
-                        listFilesChanged.Add(fpath);
+                        AddFileChanged(fpath);
                         replaced++;
                         hasChange = true;
                     }
@@ -120,6 +120,12 @@ namespace RunBatForm
             }
 
             return newObj;
+        }
+
+        private void AddFileChanged(string fpath)
+        {
+            if (!listFilesChanged.Contains(fpath))
+                listFilesChanged.Add(fpath);
         }
 
         private JArray ParseJArray(JArray jar, string fpath, bool isRevert)
@@ -144,7 +150,7 @@ namespace RunBatForm
                     {
                         found++;
                         newJar.Add((JValue)(strValue.Replace(strFind, strReplace)));
-                        listFilesChanged.Add(fpath);
+                        AddFileChanged(fpath);
                         replaced++;
                         hasChange = true;
                     }
