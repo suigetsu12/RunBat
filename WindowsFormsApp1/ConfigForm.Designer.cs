@@ -319,6 +319,7 @@
             this.txtFileToReplaceJSON.Name = "txtFileToReplaceJSON";
             this.txtFileToReplaceJSON.Size = new System.Drawing.Size(340, 27);
             this.txtFileToReplaceJSON.TabIndex = 25;
+            this.txtFileToReplaceJSON.Leave += new System.EventHandler(this.txtFileToReplaceJSON_Leave);
             // 
             // label9
             // 

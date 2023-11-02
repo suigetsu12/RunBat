@@ -18,5 +18,6 @@ namespace RunBatForm.Constans
         public const string NoDataSelected = "No data selected.";
         public const string TheFieldEmpty = "The {0} is empty.";
         public const string PleaseSelectDatabase = "Please select database.";
+        public const string FileNameFormatInvalid = "File name format invalid.";
     }
 }

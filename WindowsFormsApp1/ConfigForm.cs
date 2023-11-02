@@ -91,6 +91,15 @@ namespace RunBatForm
                 return String.Format(MessageConstans.TheFieldEmpty, "Azure Function tool path");
             if (!txtFileToReplaceJSON.Text.NotNullOrEmpty())
                 return String.Format(MessageConstans.TheFieldEmpty, "File to replace JSON");
+
+            var fileToReplaces = txtFileToReplaceJSON.Text.Split(';');
+            foreach (var fileToReplace in fileToReplaces)
+            {
+                if (!fileToReplace.NotNullOrEmpty()) return MessageConstans.FileNameFormatInvalid;
+                var fileName = fileToReplace.Split('.');
+                if (fileName.Length < 2 || fileName[fileName.Length - 1].ToLower().Trim() != "json")
+                    return MessageConstans.FileNameFormatInvalid;
+            }    
             return string.Empty;
         }
 
@@ -248,6 +257,14 @@ namespace RunBatForm
         {
             FolderHelper.CreateFolder(Path.Combine(Global.Configuration.Path, Global.Configuration.PublishFolder));
             FolderHelper.CreateFolder(Path.Combine(Global.Configuration.Path, Global.Configuration.BackupDataFolder));
+        }
+
+        private void txtFileToReplaceJSON_Leave(object sender, EventArgs e)
+        {
+            if (txtFileToReplaceJSON.Text.EndsWith(';'))
+                txtFileToReplaceJSON.Text = txtFileToReplaceJSON.Text.Substring(0, txtFileToReplaceJSON.Text.Length - 1);
+            if (txtFileToReplaceJSON.Text.StartsWith(';'))
+                txtFileToReplaceJSON.Text = txtFileToReplaceJSON.Text.Substring(1, txtFileToReplaceJSON.Text.Length - 1);
         }
     }
 }
