@@ -54,7 +54,7 @@ namespace RunBatForm
             this.btnFindBat = new System.Windows.Forms.Button();
             this.btnResetProcess = new System.Windows.Forms.Button();
             this.btnServerConfig = new System.Windows.Forms.Button();
-            this.btnCreateBaseData = new System.Windows.Forms.Button();
+            this.btnReplaceJSON = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgData)).BeginInit();
             this.Publish.SuspendLayout();
             this.SuspendLayout();
@@ -343,24 +343,22 @@ namespace RunBatForm
             this.btnServerConfig.UseVisualStyleBackColor = true;
             this.btnServerConfig.Click += new System.EventHandler(this.btnServerConfig_Click);
             // 
-            // btnCreateBaseData
+            // btnReplaceJSON
             // 
-            this.btnCreateBaseData.Location = new System.Drawing.Point(516, 127);
-            this.btnCreateBaseData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCreateBaseData.Name = "btnCreateBaseData";
-            this.btnCreateBaseData.Size = new System.Drawing.Size(119, 31);
-            this.btnCreateBaseData.TabIndex = 19;
-            this.btnCreateBaseData.Text = "Base Data";
-            this.btnCreateBaseData.UseVisualStyleBackColor = true;
-            this.btnCreateBaseData.Visible = false;
-            this.btnCreateBaseData.Click += new System.EventHandler(this.btnCreateBaseData_Click);
+            this.btnReplaceJSON.Location = new System.Drawing.Point(516, 129);
+            this.btnReplaceJSON.Name = "btnReplaceJSON";
+            this.btnReplaceJSON.Size = new System.Drawing.Size(119, 29);
+            this.btnReplaceJSON.TabIndex = 19;
+            this.btnReplaceJSON.Text = "Replace JSON";
+            this.btnReplaceJSON.UseVisualStyleBackColor = true;
+            this.btnReplaceJSON.Click += new System.EventHandler(this.btnReplaceJSON_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 709);
-            this.Controls.Add(this.btnCreateBaseData);
+            this.Controls.Add(this.btnReplaceJSON);
             this.Controls.Add(this.btnServerConfig);
             this.Controls.Add(this.btnResetProcess);
             this.Controls.Add(this.btnFindBat);
@@ -409,13 +407,13 @@ namespace RunBatForm
         private System.Windows.Forms.Button btnFindBat;
         private System.Windows.Forms.Button btnResetProcess;
         private System.Windows.Forms.Button btnServerConfig;
-        private System.Windows.Forms.Button btnCreateBaseData;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clRun;
         private System.Windows.Forms.DataGridViewTextBoxColumn clId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clFileName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clProcessId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clMessage;
+        private System.Windows.Forms.Button btnReplaceJSON;
     }
 }
 

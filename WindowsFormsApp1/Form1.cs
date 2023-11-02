@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using RunBatForm.Models;
-using RunBatForm.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,12 +11,11 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RunBatForm.Constans;
 using RunBatForm.Helpers;
 using RunBatForm.Extensions;
-using System.Reflection;
+using Newtonsoft.Json.Linq;
 
 namespace RunBatForm
 {
@@ -490,10 +488,6 @@ namespace RunBatForm
             frm.ShowDialog();
         }
 
-        private void btnCreateBaseData_Click(object sender, EventArgs e)
-        {
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!processes.IsNullOrEmpty())
@@ -505,6 +499,12 @@ namespace RunBatForm
                     Thread.Sleep(100);
                 }
             }
+        }
+
+        private void btnReplaceJSON_Click_1(object sender, EventArgs e)
+        {
+            frmReplaceJSONConfiguration frm = new frmReplaceJSONConfiguration();
+            frm.ShowDialog();
         }
     }
 }
