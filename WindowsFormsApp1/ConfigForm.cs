@@ -50,6 +50,7 @@ namespace RunBatForm
             txtVSDevCmdPath.Text = Global.Configuration.VsDevCmdPath;
             txtMSBuildPath.Text = Global.Configuration.MSBuildPath;
             txtAzureFuncToolPath.Text = Global.Configuration.AzureFuncToolPath;
+            txtFileToReplaceJSON.Text = Global.Configuration.FileToReplace;
         }
 
         private void btnBrowser_Click(object sender, EventArgs e)
@@ -88,6 +89,8 @@ namespace RunBatForm
                 return String.Format(MessageConstans.TheFieldEmpty, "MSBuild path");
             if (!txtAzureFuncToolPath.Text.NotNullOrEmpty())
                 return String.Format(MessageConstans.TheFieldEmpty, "Azure Function tool path");
+            if (!txtFileToReplaceJSON.Text.NotNullOrEmpty())
+                return String.Format(MessageConstans.TheFieldEmpty, "File to replace JSON");
             return string.Empty;
         }
 
@@ -106,6 +109,8 @@ namespace RunBatForm
             Global.Configuration.VsDevCmdPath = txtVSDevCmdPath.Text;
             Global.Configuration.MSBuildPath = txtMSBuildPath.Text;
             Global.Configuration.AzureFuncToolPath = txtAzureFuncToolPath.Text;
+            Global.Configuration.FileToReplace = txtFileToReplaceJSON.Text;
+
             var resultSavePathBat = SavePathBat();
             var jsonData = JsonHelper.Serializer(Global.Configuration);
             var result = FileHelper.WriteFile(Path.Combine(Global.RootAppFolderPath, FilePath.Configuration), jsonData);

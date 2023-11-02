@@ -33,5 +33,8 @@ namespace RunBatForm.Models
 
         [JsonPropertyName("azureFuncTool_path")]
         public string AzureFuncToolPath { get; set; }
+
+        [JsonPropertyName("file_to_replace")]
+        public string FileToReplace { get; set; }
     }
 }

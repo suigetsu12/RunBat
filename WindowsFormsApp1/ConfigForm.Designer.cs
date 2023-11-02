@@ -69,6 +69,8 @@
             this.txtAzureFuncToolPath = new System.Windows.Forms.TextBox();
             this.toolTip8 = new System.Windows.Forms.ToolTip(this.components);
             this.openAzureFunctionToolFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.txtFileToReplaceJSON = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtFolder
@@ -311,11 +313,29 @@
             // 
             this.openAzureFunctionToolFileDialog.FileName = "openAzureFunctionToolFileDialog";
             // 
+            // txtFileToReplaceJSON
+            // 
+            this.txtFileToReplaceJSON.Location = new System.Drawing.Point(177, 277);
+            this.txtFileToReplaceJSON.Name = "txtFileToReplaceJSON";
+            this.txtFileToReplaceJSON.Size = new System.Drawing.Size(340, 27);
+            this.txtFileToReplaceJSON.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(22, 280);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 20);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "File to Replace JSON";
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 450);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtFileToReplaceJSON);
             this.Controls.Add(this.btnAzureFuncToolPathBrowser);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtAzureFuncToolPath);
@@ -394,5 +414,7 @@
         private System.Windows.Forms.TextBox txtAzureFuncToolPath;
         private System.Windows.Forms.ToolTip toolTip8;
         private System.Windows.Forms.OpenFileDialog openAzureFunctionToolFileDialog;
+        private System.Windows.Forms.TextBox txtFileToReplaceJSON;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -24,10 +24,12 @@ namespace RunBatForm
         private string cacheNewValue = string.Empty;
         private bool hasChange = false;
         private List<string> listFilesChanged = new List<string>();
+        private List<string> fileToReplace = new List<string>();
         public frmReplaceJSONConfiguration()
         {
             InitializeComponent();
             pnItems.Controls.Clear();
+            fileToReplace.AddRange(Global.Configuration.FileToReplace.ToLower().Trim().Split(';'));
         }
 
         private void btnReplace_Click(object sender, EventArgs e)
@@ -161,7 +163,7 @@ namespace RunBatForm
                 foreach (string f in Directory.GetFiles(rooDir))
                 {
                     var splitName = f.Split('\\');
-                    if (splitName[splitName.Length - 1] == "appsettings.json" || splitName[splitName.Length - 1] == "appsettings.Local.json")
+                    if (fileToReplace.Contains(splitName[splitName.Length - 1].ToLower().Trim()))
                         files.Add(f);
                 }
                 foreach (string d in Directory.GetDirectories(rooDir))
