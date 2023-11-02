@@ -80,7 +80,7 @@
             this.groupBox1.Controls.Add(this.lbFound);
             this.groupBox1.Location = new System.Drawing.Point(12, 83);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(662, 264);
+            this.groupBox1.Size = new System.Drawing.Size(662, 285);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Result";
@@ -88,9 +88,9 @@
             // pnItems
             // 
             this.pnItems.AutoScroll = true;
-            this.pnItems.Location = new System.Drawing.Point(6, 67);
+            this.pnItems.Location = new System.Drawing.Point(6, 54);
             this.pnItems.Name = "pnItems";
-            this.pnItems.Size = new System.Drawing.Size(650, 191);
+            this.pnItems.Size = new System.Drawing.Size(650, 225);
             this.pnItems.TabIndex = 2;
             // 
             // lbReplaced
@@ -98,7 +98,7 @@
             this.lbReplaced.AutoSize = true;
             this.lbReplaced.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbReplaced.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbReplaced.Location = new System.Drawing.Point(446, 36);
+            this.lbReplaced.Location = new System.Drawing.Point(131, 23);
             this.lbReplaced.Name = "lbReplaced";
             this.lbReplaced.Size = new System.Drawing.Size(65, 28);
             this.lbReplaced.TabIndex = 1;
@@ -110,7 +110,7 @@
             this.lbFound.AutoSize = true;
             this.lbFound.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbFound.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbFound.Location = new System.Drawing.Point(119, 36);
+            this.lbFound.Location = new System.Drawing.Point(6, 23);
             this.lbFound.Name = "lbFound";
             this.lbFound.Size = new System.Drawing.Size(65, 28);
             this.lbFound.TabIndex = 0;
@@ -148,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 359);
+            this.ClientSize = new System.Drawing.Size(686, 380);
             this.Controls.Add(this.btnRevert);
             this.Controls.Add(this.btnReplace);
             this.Controls.Add(this.groupBox1);
