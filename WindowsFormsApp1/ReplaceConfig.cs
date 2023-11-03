@@ -94,7 +94,6 @@ namespace RunBatForm
             {
                 var name = property.Key;
                 var value = property.Value;
-
                 if (value is JValue)
                 {
                     string strValue = value.ToString();
@@ -154,8 +153,11 @@ namespace RunBatForm
                         replaced++;
                         hasChange = true;
                     }
-                }    
-
+                    else
+                    {
+                        newJar.Add((JValue)(strValue));
+                    }
+                }
             }
             return newJar;
         }

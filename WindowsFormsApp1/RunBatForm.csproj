@@ -94,6 +94,7 @@
     <None Remove="data\BatFiles\start\start_Planning.bat" />
     <None Remove="data\BatFiles\start\start_SPOAPI.bat" />
     <None Remove="data\BatFiles\start\start_SPOSetupProcessor.bat" />
+    <None Remove="data\BatFiles\start\start_Test.bat" />
     <None Remove="data\BatFiles\start\start_WpGenerationProcessor.bat" />
     <None Remove="data\BatFiles\_path.bat" />
     <None Remove="data\configs\config.json" />
@@ -243,6 +244,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\BatFiles\publish\publish__SPOAPI.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\BatFiles\start\start_Test.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\BatFiles\start\start_AccountWorkingPaperService.bat">
